@@ -10,17 +10,20 @@ using System.Windows.Forms;
 namespace RCONManager {
     public partial class frmRconKick : Form {
 
-        //*****************************
+        //*************************************************
         // Variables
-        //*****************************
+        //*************************************************
         private RconConnection rcon = RconConnection.Instance;
         private Language langMan = Language.Instance;
 
-        //*****************************
+        public delegate void StringBool(string str, bool b = false);
+        public event StringBool ExceptionEvent;
+        //*************************************************
         // Initialization
-        //*****************************
+        //*************************************************
         public frmRconKick() {
             InitializeComponent();
+            LoadLanguage();
         }
 
         private void RconKickPlayers_Load(object sender, EventArgs e) {
@@ -34,14 +37,14 @@ namespace RCONManager {
                     checkedListBoxPlayers.Items.Add(player);
                 }
             } catch {
-                MessageBox.Show(langMan.GetString("Rcon_WrongAnswer"), langMan.GetString("Text_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                ExceptionEvent(langMan.GetString("Rcon_WrongAnswer"), true);
                 this.Close();
             }
         }
 
-        //*****************************
+        //*************************************************
         // Event receivers
-        //*****************************
+        //*************************************************
         private void checkBoxKcikWithMsg_CheckedChanged(object sender, EventArgs e) {
             textBoxMsg.Enabled = checkBoxKcikWithMsg.Checked;
         }
@@ -61,6 +64,16 @@ namespace RCONManager {
             }        
 
             this.Close();
+        }  
+        
+        //*************************************************
+        // Methods
+        //*************************************************
+        private void LoadLanguage() {
+            this.Text                = langMan.GetString("Kick_FormTitle");
+            checkBoxKcikWithMsg.Text = langMan.GetString("Kick_KickMsg");
+            btnOk.Text               = langMan.GetString("Button_OK");
+            btnCancel.Text           = langMan.GetString("Button_Cancel");
         }
     }
 }

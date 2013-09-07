@@ -117,22 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="menuAbout" xml:space="preserve">
+  <data name="Main_MenuAbout" xml:space="preserve">
     <value>Über</value>
   </data>
-  <data name="MenuFileOpenConfig" xml:space="preserve">
+  <data name="Main_MenuFile_OpenConfig" xml:space="preserve">
     <value>Config öffnen</value>
   </data>
-  <data name="MenuFileSaveConfig" xml:space="preserve">
+  <data name="Main_MenuFile_SaveConfig" xml:space="preserve">
     <value>Config speichern</value>
   </data>
-  <data name="menuOptions" xml:space="preserve">
+  <data name="Main_MenuOptions" xml:space="preserve">
     <value>Optionen</value>
   </data>
-  <data name="menuOptionsHotkeys" xml:space="preserve">
+  <data name="Main_MenuOptions_Hotkeys" xml:space="preserve">
     <value>Hotkeys</value>
   </data>
-  <data name="menuOptionsSettings" xml:space="preserve">
+  <data name="Main_MenuOptions_Settings" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
   <data name="Text_Exit" xml:space="preserve">
@@ -141,11 +141,11 @@
   <data name="Text_Open" xml:space="preserve">
     <value>Öffnen</value>
   </data>
-  <data name="MenuFile" xml:space="preserve">
+  <data name="Main_MenuFile" xml:space="preserve">
     <value>Datei</value>
   </data>
-  <data name="Text_Error" xml:space="preserve">
-    <value>Error</value>
+  <data name="Error_Statusbar" xml:space="preserve">
+    <value>Error: {0}</value>
   </data>
   <data name="Settings_WrongIP" xml:space="preserve">
     <value>Falsche eingabe der IP Adresse</value>
@@ -157,7 +157,7 @@
     <value>Kein RCON Passwort eingegeben</value>
   </data>
   <data name="StatusRconLbl_Connected" xml:space="preserve">
-    <value>Verbunden zu</value>
+    <value>Verbunden zu {0}</value>
   </data>
   <data name="StatusRconLbl_Connecting" xml:space="preserve">
     <value>Verbinde</value>
@@ -165,7 +165,7 @@
   <data name="StatusRconLbl_Disconnected" xml:space="preserve">
     <value>Nicht verbunden</value>
   </data>
-  <data name="MenuFileExit" xml:space="preserve">
+  <data name="Main_MenuFile_Exit" xml:space="preserve">
     <value>Beenden</value>
   </data>
   <data name="StatusRconLbl_NotConfigured" xml:space="preserve">
@@ -179,5 +179,131 @@
   </data>
   <data name="Text_Info" xml:space="preserve">
     <value>Information</value>
+  </data>
+  <data name="Error_ConnectionClosed" xml:space="preserve">
+    <value>Verbindung verloren</value>
+  </data>
+  <data name="Error_ConnectionFailed" xml:space="preserve">
+    <value>Verbindung fehlgeschlagen</value>
+  </data>
+  <data name="Error_ReconnectFailed" xml:space="preserve">
+    <value>Verbindung nach {0} versuche fehlgeschlagen</value>
+  </data>
+  <data name="Error_Reconnecting" xml:space="preserve">
+    <value>Verbindung verloren - Verbindungsversuch #{0}</value>
+  </data>
+  <data name="Error_Timeout" xml:space="preserve">
+    <value>Zeitüberschreitung</value>
+  </data>
+  <data name="Error_UnknownResponse" xml:space="preserve">
+    <value>Unbekannte Antwort</value>
+  </data>
+  <data name="Error_WrongRconPW" xml:space="preserve">
+    <value>Falsches Rcon Passwort</value>
+  </data>
+  <data name="Text_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Button_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Changemap_FormTitle" xml:space="preserve">
+    <value>Mapchange</value>
+  </data>
+  <data name="Changemap_LabelMap" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="Hotkeys_ButtonOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Hotkeys_ButtonSet" xml:space="preserve">
+    <value>Setzen</value>
+  </data>
+  <data name="Hotkeys_FormTitle" xml:space="preserve">
+    <value>Hotkeys</value>
+  </data>
+  <data name="Hotkeys_LabelInfo" xml:space="preserve">
+    <value>[ESC] um abzubrechen</value>
+  </data>
+  <data name="Hotkeys_LabelLoadCfg" xml:space="preserve">
+    <value>Config laden</value>
+  </data>
+  <data name="Hotkeys_LabelRestart" xml:space="preserve">
+    <value>Restart 3x</value>
+  </data>
+  <data name="Kick_FormTitle" xml:space="preserve">
+    <value>Spieler kicken</value>
+  </data>
+  <data name="Kick_KickMsg" xml:space="preserve">
+    <value>Kicken mit Nachricht</value>
+  </data>
+  <data name="LoadCfg_FormTitle" xml:space="preserve">
+    <value>Config laden</value>
+  </data>
+  <data name="LoadCfg_LabelConfig" xml:space="preserve">
+    <value>Config</value>
+  </data>
+  <data name="Main_Button_BanPlayers" xml:space="preserve">
+    <value>Spieler bannen</value>
+  </data>
+  <data name="Main_Button_ChangeMap" xml:space="preserve">
+    <value>Mapchange</value>
+  </data>
+  <data name="Main_Button_KickPlayers" xml:space="preserve">
+    <value>Spieler kicken</value>
+  </data>
+  <data name="Main_Button_LoadCfg" xml:space="preserve">
+    <value>Config laden</value>
+  </data>
+  <data name="Main_Button_Restart3" xml:space="preserve">
+    <value>Restart 3x</value>
+  </data>
+  <data name="Main_FormTitle" xml:space="preserve">
+    <value>RCONManager</value>
+  </data>
+  <data name="Main_Group_PlayerCommands" xml:space="preserve">
+    <value>Spieler Befehle</value>
+  </data>
+  <data name="Main_Group_ServerCommands" xml:space="preserve">
+    <value>Server Befehle</value>
+  </data>
+  <data name="Settings_Autoconnect" xml:space="preserve">
+    <value>Beim starten verbinden</value>
+  </data>
+  <data name="Settings_Autorun" xml:space="preserve">
+    <value>Autostart</value>
+  </data>
+  <data name="Settings_FormTitle" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="Settings_Group_General" xml:space="preserve">
+    <value>Allgemein</value>
+  </data>
+  <data name="Settings_Group_Misc" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+  <data name="Settings_Group_Server" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="Settings_RconIP" xml:space="preserve">
+    <value>Server IP</value>
+  </data>
+  <data name="Settings_RconPort" xml:space="preserve">
+    <value>Server Port</value>
+  </data>
+  <data name="Settings_RconPW" xml:space="preserve">
+    <value>Rcon Passwort</value>
+  </data>
+  <data name="Settings_StartMinimized" xml:space="preserve">
+    <value>Im Tray(Infobereich) starten</value>
+  </data>
+  <data name="Settings_UseZblock" xml:space="preserve">
+    <value>Automatisch zBlock verwenden</value>
   </data>
 </root>

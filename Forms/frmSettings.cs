@@ -14,16 +14,17 @@ using System.Windows.Forms;
 namespace RCONManager {
     public partial class frmSettings : Form {
 
-        //*****************************
+        //*************************************************
         // Variables
-        //*****************************
+        //*************************************************
         private Language langMan = Language.Instance;
 
-        //*****************************
+        //*************************************************
         // Initialization
-        //*****************************
+        //*************************************************
         public frmSettings() {
             InitializeComponent();
+            LoadLanguage();
         }
     
         private void frmSettings_Load(object sender, EventArgs e) {
@@ -31,16 +32,18 @@ namespace RCONManager {
             foreach (CultureInfo culture in availableLanguages) comboBoxLanguage.Items.Add(culture.NativeName);
             comboBoxLanguage.SelectedItem = Tools.GetCultureByTwoLetterISO(Settings.Default.Language).NativeName;
 
-            checkBoxAutorun.Checked       = Settings.Default.Autorun;
-            checkBoxStartMin.Checked      = Settings.Default.StartMinimized;
-            textBoxServerIp.Text          = Settings.Default.RconIP;
-            textBoxServerPort.Text        = Settings.Default.RconPort.ToString();
-            textBoxRconPw.Text            = Settings.Default.RconPW;
+            checkBoxAutorun.Checked     = Settings.Default.Autorun;
+            checkBoxAutoconnect.Checked = Settings.Default.Autoconnect;
+            checkBoxStartMin.Checked    = Settings.Default.StartMinimized;
+            checkBoxZblock.Checked      = Settings.Default.UseZblock;
+            textBoxServerIp.Text        = Settings.Default.RconIP;
+            textBoxServerPort.Text      = Settings.Default.RconPort.ToString();
+            textBoxRconPw.Text          = Settings.Default.RconPW;
         }
 
-        //*****************************
+        //*************************************************
         // Event receivers
-        //*****************************
+        //*************************************************
         private void btnCancel_Click(object sender, EventArgs e) {
             this.Close();
         }
@@ -55,7 +58,9 @@ namespace RCONManager {
             } else {
                 Settings.Default.Language       = Tools.GetCultureByNativeName((string)comboBoxLanguage.SelectedItem).TwoLetterISOLanguageName;
                 Settings.Default.Autorun        = checkBoxAutorun.Checked;
+                Settings.Default.Autoconnect    = checkBoxAutoconnect.Checked;
                 Settings.Default.StartMinimized = checkBoxStartMin.Checked;
+                Settings.Default.UseZblock      = checkBoxZblock.Checked;
                 Settings.Default.RconIP         = textBoxServerIp.Text;
                 Settings.Default.RconPort       = Convert.ToInt32(textBoxServerPort.Text);
                 Settings.Default.RconPW         = textBoxRconPw.Text;
@@ -66,6 +71,26 @@ namespace RCONManager {
 
                 this.Close();
             }               
+        }
+
+        //*************************************************
+        // Methods
+        //*************************************************
+        private void LoadLanguage() {
+            this.Text                = langMan.GetString("Settings_FormTitle");
+            groupGeneral.Text        = langMan.GetString("Settings_Group_General");
+            groupServer.Text         = langMan.GetString("Settings_Group_Server");
+            groupMisc.Text           = langMan.GetString("Settings_Group_Misc");
+            checkBoxAutorun.Text     = langMan.GetString("Settings_Autorun");
+            checkBoxAutoconnect.Text = langMan.GetString("Settings_Autoconnect");
+            checkBoxStartMin.Text    = langMan.GetString("Settings_StartMinimized");
+            checkBoxZblock.Text      = langMan.GetString("Settings_UseZblock");
+            lblIp.Text               = langMan.GetString("Settings_RconIP") + ":";
+            lblPort.Text             = langMan.GetString("Settings_RconPort") + ":";
+            lblPw.Text               = langMan.GetString("Settings_RconPW") + ":";
+            lblLanguage.Text         = langMan.GetString("Settings_Language") + ":";
+            btnOk.Text               = langMan.GetString("Button_OK");
+            btnCancel.Text           = langMan.GetString("Button_Cancel");
         }
     }
 }

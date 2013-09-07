@@ -8,24 +8,35 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace RCONManager {
-    public partial class frmRconLoadConfig : Form {
+    public partial class frmRconChangeMap : Form {
 
         //*************************************************
         // Variables
         //*************************************************
+        private RconConnection rcon = RconConnection.Instance;
         private Language langMan = Language.Instance;
-        public ConfigFile ReturnValue { get; set; }
+
+        public string ReturnValue { get; set; }
+
+        public delegate void StringBool(string str, bool b = false);
+        public event StringBool ExceptionEvent;
 
         //*************************************************
         // Initialization
         //*************************************************
-        public frmRconLoadConfig() {
+        public frmRconChangeMap() {
             InitializeComponent();
             LoadLanguage();
         }
 
         private void RconLoadConfigUI_Load(object sender, EventArgs e) {
-            comboBoxConfigs.DataSource = Tools.GetAllConfigFiles();
+            try {
+                comboBoxMaps.DataSource = RconTools.GetAllMaps(rcon);
+            } catch {
+                ExceptionEvent(langMan.GetString("Rcon_WrongAnswer"), true);
+                this.Close();
+            }
+            
         }
 
         //*************************************************
@@ -37,7 +48,7 @@ namespace RCONManager {
         }
 
         private void btnOk_Click(object sender, EventArgs e) {
-            ReturnValue = (ConfigFile)comboBoxConfigs.SelectedItem;
+            ReturnValue = (string)comboBoxMaps.SelectedItem;
             DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -46,8 +57,8 @@ namespace RCONManager {
         // Methods
         //*************************************************
         private void LoadLanguage() {
-            this.Text      = langMan.GetString("LoadCfg_FormTitle");
-            lblConfig.Text = langMan.GetString("LoadCfg_LabelConfig") + ":";
+            this.Text      = langMan.GetString("Changemap_FormTitle");
+            lblMap.Text    = langMan.GetString("Changemap_LabelMap") + ":";
             btnOk.Text     = langMan.GetString("Button_OK");
             btnCancel.Text = langMan.GetString("Button_Cancel");
         }

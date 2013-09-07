@@ -8,7 +8,21 @@ namespace SourceRcon {
     /// <summary>
     /// Summary description for SourceRcon.
     /// </summary>
-    public class SourceRcon {
+    public class SourceRcon : IDisposable {
+
+        private static RCONManager.Language langMan = RCONManager.Language.Instance;
+
+        private string ConnectionWrongPw      = langMan.GetString("Error_WrongRconPW");
+        private string ConnectionClosed       = langMan.GetString("Error_ConnectionClosed");
+        private string ConnectionFailedString = langMan.GetString("Error_ConnectionFailed");
+        private string UnknownResponseType    = langMan.GetString("Error_UnknownResponse");
+
+        public event StringOutput ServerOutput;
+        public event StringOutput Errors;
+        public event BoolInfo ConnectionSuccess;
+
+        private Socket S;
+
         public SourceRcon() {
             S = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             PacketCount = 0;
@@ -19,10 +33,10 @@ namespace SourceRcon {
         }
 
         public bool Connect(IPEndPoint Server, string password) {
-            try {
-                S.Connect(Server);
-            } catch (SocketException) {
-                OnConnectionSuccess(false);
+            IAsyncResult result = S.BeginConnect(Server, null, null);
+            bool success = result.AsyncWaitHandle.WaitOne(4000, true);
+            if (!success) {
+                S.Close();
                 OnError(ConnectionFailedString);
                 return false;
             }
@@ -98,7 +112,7 @@ namespace SourceRcon {
 #endif
 
             } catch (SocketException) {
-                OnConnectionSuccess(false);
+                //OnConnectionSuccess(false);
                 OnError(ConnectionClosed);
             }
 
@@ -122,9 +136,10 @@ namespace SourceRcon {
                     // Missing data.
                     S.BeginReceive(state.Data, state.BytesSoFar, state.PacketLength - state.BytesSoFar, SocketFlags.None, new AsyncCallback(ReceiveCallback), state);
                 } else if (state.BytesSoFar == 0 && state.PacketLength == 0) {
-                    // IP Banned
-                    OnConnectionSuccess(false);
-                    OnError(ConnectionIPBanned);
+                    // Timeout
+
+                    OnError(ConnectionClosed);
+                    //OnConnectionSuccess(false);
                 } else {
                     // Process data.
 #if DEBUG
@@ -151,7 +166,7 @@ namespace SourceRcon {
                         OnConnectionSuccess(true);
                     } else {
                         // Failed!
-                        OnConnectionSuccess(false);
+                        //OnConnectionSuccess(false);
                         OnError(ConnectionWrongPw);
                     }
                     break;
@@ -189,18 +204,16 @@ namespace SourceRcon {
             }
         }
 
-        public event StringOutput ServerOutput;
-        public event StringOutput Errors;
-        public event BoolInfo ConnectionSuccess;
+        public void Dispose() {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-        public static string ConnectionClosed       = "Connection closed by remote host";
-        public static string ConnectionWrongPw      = "Wrong RCON password!";
-        public static string ConnectionIPBanned     = "IP Banned?";
-        public static string ConnectionFailedString = "Connection Failed!";
-        public static string UnknownResponseType    = "Unknown response";
-
-
-        Socket S;
+        protected virtual void Dispose(bool disposing) {
+            if (disposing) {
+                if (S != null) S.Dispose();
+            }
+        }
     }
 
     public delegate void StringOutput(string output);

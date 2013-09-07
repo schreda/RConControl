@@ -20,6 +20,12 @@
     <Setting Name="Autorun" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="Autoconnect" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UseZblock" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
     <Setting Name="Hkey_LoadCfg" Type="RCONManager.HotKeyData" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

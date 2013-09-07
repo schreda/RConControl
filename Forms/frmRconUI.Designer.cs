@@ -30,8 +30,8 @@
             this.contextMenuStripNotify = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextNotifyOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.contextNotifyExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMapchange = new System.Windows.Forms.Button();
-            this.btnConfig = new System.Windows.Forms.Button();
+            this.btnChangeMap = new System.Windows.Forms.Button();
+            this.btnLoadCfg = new System.Windows.Forms.Button();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.statusIconStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelStatusRcon = new System.Windows.Forms.ToolStripStatusLabel();
@@ -39,7 +39,7 @@
             this.btnBan = new System.Windows.Forms.Button();
             this.btnKick = new System.Windows.Forms.Button();
             this.groupServerCommands = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRestart3 = new System.Windows.Forms.Button();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemOpenConfig = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,25 +91,25 @@
             this.contextNotifyExit.Text = "Beenden";
             this.contextNotifyExit.Click += new System.EventHandler(this.contextNotifyClose_Click);
             // 
-            // btnMapchange
+            // btnChangeMap
             // 
-            this.btnMapchange.Location = new System.Drawing.Point(6, 48);
-            this.btnMapchange.Name = "btnMapchange";
-            this.btnMapchange.Size = new System.Drawing.Size(75, 23);
-            this.btnMapchange.TabIndex = 1;
-            this.btnMapchange.Text = "Change map";
-            this.btnMapchange.UseVisualStyleBackColor = true;
-            this.btnMapchange.Click += new System.EventHandler(this.btnMapchange_Click);
+            this.btnChangeMap.Location = new System.Drawing.Point(6, 48);
+            this.btnChangeMap.Name = "btnChangeMap";
+            this.btnChangeMap.Size = new System.Drawing.Size(75, 23);
+            this.btnChangeMap.TabIndex = 1;
+            this.btnChangeMap.Text = "Change map";
+            this.btnChangeMap.UseVisualStyleBackColor = true;
+            this.btnChangeMap.Click += new System.EventHandler(this.btnMapchange_Click);
             // 
-            // btnConfig
+            // btnLoadCfg
             // 
-            this.btnConfig.Location = new System.Drawing.Point(6, 19);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(75, 23);
-            this.btnConfig.TabIndex = 2;
-            this.btnConfig.Text = "Load config";
-            this.btnConfig.UseVisualStyleBackColor = true;
-            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            this.btnLoadCfg.Location = new System.Drawing.Point(6, 19);
+            this.btnLoadCfg.Name = "btnLoadCfg";
+            this.btnLoadCfg.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadCfg.TabIndex = 2;
+            this.btnLoadCfg.Text = "Load config";
+            this.btnLoadCfg.UseVisualStyleBackColor = true;
+            this.btnLoadCfg.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // statusStripMain
             // 
@@ -166,9 +166,9 @@
             // 
             // groupServerCommands
             // 
-            this.groupServerCommands.Controls.Add(this.button1);
-            this.groupServerCommands.Controls.Add(this.btnConfig);
-            this.groupServerCommands.Controls.Add(this.btnMapchange);
+            this.groupServerCommands.Controls.Add(this.btnRestart3);
+            this.groupServerCommands.Controls.Add(this.btnLoadCfg);
+            this.groupServerCommands.Controls.Add(this.btnChangeMap);
             this.groupServerCommands.Location = new System.Drawing.Point(124, 27);
             this.groupServerCommands.Name = "groupServerCommands";
             this.groupServerCommands.Size = new System.Drawing.Size(168, 78);
@@ -176,14 +176,15 @@
             this.groupServerCommands.TabStop = false;
             this.groupServerCommands.Text = "Server Commands";
             // 
-            // button1
+            // btnRestart3
             // 
-            this.button1.Location = new System.Drawing.Point(87, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "3x Restart";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRestart3.Location = new System.Drawing.Point(87, 19);
+            this.btnRestart3.Name = "btnRestart3";
+            this.btnRestart3.Size = new System.Drawing.Size(75, 23);
+            this.btnRestart3.TabIndex = 6;
+            this.btnRestart3.Text = "3x Restart";
+            this.btnRestart3.UseVisualStyleBackColor = true;
+            this.btnRestart3.Click += new System.EventHandler(this.btnRestart3_Click);
             // 
             // menuStripMain
             // 
@@ -255,7 +256,7 @@
             // 
             this.menuItemConnect.Image = global::RCONManager.Properties.Resources.connect;
             this.menuItemConnect.Name = "menuItemConnect";
-            this.menuItemConnect.Size = new System.Drawing.Size(152, 22);
+            this.menuItemConnect.Size = new System.Drawing.Size(128, 22);
             this.menuItemConnect.Text = "Verbinden";
             this.menuItemConnect.Click += new System.EventHandler(this.menuItemConnect_Click);
             // 
@@ -263,7 +264,7 @@
             // 
             this.menuItemDisconnect.Image = global::RCONManager.Properties.Resources.disconnect;
             this.menuItemDisconnect.Name = "menuItemDisconnect";
-            this.menuItemDisconnect.Size = new System.Drawing.Size(152, 22);
+            this.menuItemDisconnect.Size = new System.Drawing.Size(128, 22);
             this.menuItemDisconnect.Text = "Trennen";
             this.menuItemDisconnect.Click += new System.EventHandler(this.menuItemDisconnect_Click);
             // 
@@ -281,7 +282,7 @@
             // 
             this.menuItemHotkeys.Image = global::RCONManager.Properties.Resources.keyboard;
             this.menuItemHotkeys.Name = "menuItemHotkeys";
-            this.menuItemHotkeys.Size = new System.Drawing.Size(152, 22);
+            this.menuItemHotkeys.Size = new System.Drawing.Size(145, 22);
             this.menuItemHotkeys.Text = "Hotkeys";
             this.menuItemHotkeys.Click += new System.EventHandler(this.menuItemHotkeys_Click);
             // 
@@ -289,7 +290,7 @@
             // 
             this.menuItemSettings.Image = global::RCONManager.Properties.Resources.settings;
             this.menuItemSettings.Name = "menuItemSettings";
-            this.menuItemSettings.Size = new System.Drawing.Size(152, 22);
+            this.menuItemSettings.Size = new System.Drawing.Size(145, 22);
             this.menuItemSettings.Text = "Einstellungen";
             this.menuItemSettings.Click += new System.EventHandler(this.menuItemSettings_Click);
             // 
@@ -339,8 +340,8 @@
         #endregion
 
         private System.Windows.Forms.NotifyIcon notifyIcon;
-        private System.Windows.Forms.Button btnMapchange;
-        private System.Windows.Forms.Button btnConfig;
+        private System.Windows.Forms.Button btnChangeMap;
+        private System.Windows.Forms.Button btnLoadCfg;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripNotify;
         private System.Windows.Forms.ToolStripMenuItem contextNotifyOpen;
         private System.Windows.Forms.ToolStripMenuItem contextNotifyExit;
@@ -351,7 +352,7 @@
         private System.Windows.Forms.Button btnBan;
         private System.Windows.Forms.Button btnKick;
         private System.Windows.Forms.GroupBox groupServerCommands;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRestart3;
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem menuFile;
         private System.Windows.Forms.ToolStripMenuItem menuItemOpenConfig;

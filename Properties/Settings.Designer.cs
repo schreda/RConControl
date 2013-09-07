@@ -70,7 +70,31 @@ namespace RCONManager.Properties {
                 this["Language"] = value;
             }
         }
-        
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Autorun {
+            get {
+                return ((bool)(this["Autorun"]));
+            }
+            set {
+                this["Autorun"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Autoconnect {
+            get {
+                return ((bool)(this["Autoconnect"]));
+            }
+            set {
+                this["Autoconnect"] = value;
+            }
+        }
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -82,16 +106,16 @@ namespace RCONManager.Properties {
                 this["StartMinimized"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Autorun {
+        public bool UseZblock {
             get {
-                return ((bool)(this["Autorun"]));
+                return ((bool)(this["UseZblock"]));
             }
             set {
-                this["Autorun"] = value;
+                this["UseZblock"] = value;
             }
         }
         
@@ -127,5 +151,6 @@ namespace RCONManager.Properties {
                 this["Hkey_LoadCfg_Config"] = value;
             }
         }
+
     }
 }

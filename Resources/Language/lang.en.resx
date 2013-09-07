@@ -117,25 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="menuAbout" xml:space="preserve">
+  <data name="Main_MenuAbout" xml:space="preserve">
     <value>About</value>
   </data>
-  <data name="MenuFile" xml:space="preserve">
+  <data name="Main_MenuFile" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="MenuFileOpenConfig" xml:space="preserve">
+  <data name="Main_MenuFileOpenConfig" xml:space="preserve">
     <value>Open config</value>
   </data>
-  <data name="MenuFileSaveConfig" xml:space="preserve">
+  <data name="Main_MenuFileSaveConfig" xml:space="preserve">
     <value>Save config</value>
   </data>
-  <data name="menuOptions" xml:space="preserve">
+  <data name="Main_MenuOptions" xml:space="preserve">
     <value>Options</value>
   </data>
-  <data name="menuOptionsHotkeys" xml:space="preserve">
+  <data name="Main_MenuOptions_Hotkeys" xml:space="preserve">
     <value>Hotkeys</value>
   </data>
-  <data name="menuOptionsSettings" xml:space="preserve">
+  <data name="Main_MenuOptions_Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
   <data name="Text_Exit" xml:space="preserve">
@@ -165,7 +165,7 @@
   <data name="StatusRconLbl_Disconnected" xml:space="preserve">
     <value>not Connected</value>
   </data>
-  <data name="MenuFileExit" xml:space="preserve">
+  <data name="Main_MenuFileExit" xml:space="preserve">
     <value>Exit</value>
   </data>
   <data name="StatusRconLbl_NotConfigured" xml:space="preserve">
@@ -179,5 +179,26 @@
   </data>
   <data name="Text_Info" xml:space="preserve">
     <value>Information</value>
+  </data>
+  <data name="Error_ConnectionClosed" xml:space="preserve">
+    <value>Connection lost</value>
+  </data>
+  <data name="Error_ConnectionFailed" xml:space="preserve">
+    <value>Connection failed</value>
+  </data>
+  <data name="Error_ReconnectFailed" xml:space="preserve">
+    <value>Connection failed after {0} tries</value>
+  </data>
+  <data name="Error_Reconnecting" xml:space="preserve">
+    <value>Connection lost - reconnect #{0}</value>
+  </data>
+  <data name="Error_Timeout" xml:space="preserve">
+    <value>Timeout</value>
+  </data>
+  <data name="Error_UnknownResponse" xml:space="preserve">
+    <value>Unknown response</value>
+  </data>
+  <data name="Error_WrongRconPW" xml:space="preserve">
+    <value>Wrong Rcon password</value>
   </data>
 </root>

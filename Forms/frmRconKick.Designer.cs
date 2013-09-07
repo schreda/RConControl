@@ -87,7 +87,7 @@
             this.Controls.Add(this.checkedListBoxPlayers);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmRconKick";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

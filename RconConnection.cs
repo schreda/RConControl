@@ -21,80 +21,106 @@ namespace RCONManager {
             }
         }
 
-        //*****************************
+        //*************************************************
         // Variables
-        //*****************************
-        private SourceRcon.SourceRcon srcRcon = null;
-        Thread ConnectThread;
-
+        //*************************************************
         public string connectedIP { get; set; }
         public string lastMessage { get; set; }
 
         public delegate void StringHandler(string str);
         public delegate void VoidHandler();
-        public delegate void StateHandler(OnlineState state);
+        public delegate void StateHandler(State state);
         public event StringHandler ErrorEvent;
         public event VoidHandler OnlineStateEvent;
 
-        public enum OnlineState {
+        public enum State {
             Connected,
             Connecting,
             Disconnected
         };
 
-        //*****************************
+        private SourceRcon.SourceRcon srcRcon = null;
+        private Language langMan = Language.Instance;
+        private Thread threadConnect;
+        private int reconnectTries = 0;
+        private bool isConnected = false; // true, if server is really connected. false if under reconnecting
+
+        //*************************************************
         // CTor
-        //*****************************
+        //*************************************************
         private RconConnection() { }
 
-
-        //***************************************
+        //*************************************************
         // Methods
-        //***************************************
+        //*************************************************
         public void Connect() {
             if (!String.IsNullOrEmpty(Settings.Default.RconIP)) {
-                connectedIP = Settings.Default.RconIP;
-                srcRcon = null;
-                srcRcon = new SourceRcon.SourceRcon();
-                srcRcon.Errors += new SourceRcon.StringOutput(ErrorOutput);
-                srcRcon.ServerOutput += new SourceRcon.StringOutput(ConsoleOutput);
+                connectedIP                = Settings.Default.RconIP;
+                srcRcon                    = null;
+                srcRcon                    = new SourceRcon.SourceRcon();
+                srcRcon.Errors            += new SourceRcon.StringOutput(OnError);
+                srcRcon.ServerOutput      += new SourceRcon.StringOutput(ConsoleOutput);
                 srcRcon.ConnectionSuccess += new SourceRcon.BoolInfo(ConnectionSuccessInfo);
+                threadConnect = new Thread(delegate() { srcRcon.Connect(new IPEndPoint(IPAddress.Parse(Settings.Default.RconIP), Settings.Default.RconPort), Settings.Default.RconPW); });
+                threadConnect.Start();
                 OnlineStateEvent();
-                ConnectThread = new Thread(delegate() { srcRcon.Connect(new IPEndPoint(IPAddress.Parse(Settings.Default.RconIP), Settings.Default.RconPort), Settings.Default.RconPW); });
-                ConnectThread.Start();
             }
         }
 
         public void Disconnect() {
             connectedIP = null;
-            srcRcon = null;
+            srcRcon     = null;
+            reconnectTries = 0;
+            isConnected = false;
             OnlineStateEvent();
         }
 
-        public OnlineState GetState() {
-            if (srcRcon != null && srcRcon.Connected) return OnlineState.Connected;
-            if (srcRcon != null && !srcRcon.Connected) return OnlineState.Connecting;
-            return OnlineState.Disconnected;
+        public State GetState() {
+            if (srcRcon != null) {
+                if (isConnected) return State.Connected;
+                else return State.Connecting;
+            }
+            return State.Disconnected;
         }
 
         public void Send(string cmd) {
             srcRcon.ServerCommand(cmd);
         }
 
-        //***************************************
+        //*************************************************
         // Event Receivers
-        //***************************************
-        private void ErrorOutput(string output) {
-             ErrorEvent(output);
+        //*************************************************
+        private void OnError(string output) {
+            if (srcRcon != null) {
+                if (!srcRcon.Connected && reconnectTries == 0) {
+                    Disconnect();
+                    ErrorEvent(output);
+                } else {
+                    isConnected = false;
+                    Reconnect();
+                }
+            }
         }
 
         private void ConsoleOutput(string output) {
             lastMessage = output;
         }
 
+        private void Reconnect() {
+            if (reconnectTries < GlobalConstants.RCON_RECONNECT_TRIES) {
+                reconnectTries++;
+                Connect();
+                if (!isConnected) ErrorEvent(String.Format(langMan.GetString("Error_Reconnecting"), reconnectTries));
+            } else {
+                Disconnect();
+                ErrorEvent(String.Format(langMan.GetString("Error_ReconnectFailed"), GlobalConstants.RCON_RECONNECT_TRIES));
+            }
+        }
+
         private void ConnectionSuccessInfo(bool info) {
-            if (info) OnlineStateEvent();
-            else Disconnect();
+            reconnectTries = 0;
+            isConnected = true;
+            OnlineStateEvent();
         }
     }
 }

@@ -19,26 +19,26 @@ namespace RCONManager {
             }
         }
 
-        //*****************************
+        //*************************************************
         // Variables
-        //*****************************
+        //*************************************************
         private static ResourceManager res_man;
         private static CultureInfo cul;
 
         public delegate void VoidHandler();
         public event VoidHandler SwitchLangEvent;
 
-        //*****************************
+        //*************************************************
         // CTor
-        //*****************************
+        //*************************************************
         private Language() {
             res_man = new ResourceManager("RCONManager.Resources.Language.lang", typeof(frmRconUI).Assembly);
             InitLang();
         }
 
-        //***************************************
+        //*************************************************
         // Methods
-        //***************************************
+        //*************************************************
         public List<CultureInfo> AvailableLanguages() {
             List<CultureInfo> resultList = new List<CultureInfo>();
             CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.NeutralCultures);
@@ -50,6 +50,7 @@ namespace RCONManager {
         }
 
         public string GetString(string key) {
+            if (String.IsNullOrEmpty(key)) return "";
             return res_man.GetString(key, cul);
         }
 

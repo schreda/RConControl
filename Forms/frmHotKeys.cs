@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace RCONManager {
     public partial class frmHotKeys : Form {
 
-        //*****************************
+        //*************************************************
         // Variables
-        //*****************************
+        //*************************************************
         private Language langMan = Language.Instance;
 
         private EditMode currentEdit = EditMode.None;
@@ -26,11 +26,12 @@ namespace RCONManager {
         private HotKeyData HkeyLoadCfg = new HotKeyData();
         private HotKeyData HkeyRestart = new HotKeyData();
 
-        //*****************************
+        //*************************************************
         // Initialization
-        //*****************************
+        //*************************************************
         public frmHotKeys() {
             InitializeComponent();
+            LoadLanguage();
         }
 
         private void frmHotKeys_Load(object sender, EventArgs e) {
@@ -45,9 +46,9 @@ namespace RCONManager {
             lblHkeyRestart.Text = HkeyRestart.ToString();
         }
 
-        //*****************************
+        //*************************************************
         // Event receivers
-        //*****************************
+        //*************************************************
         private void btnHkeySetLoadCfg_Click(object sender, EventArgs e) {
             if (currentEdit == EditMode.None) {
                 BeginEdit(btnHkeyLoadCfg, lblHkeyLoadCfg, HkeyLoadCfg, EditMode.LoadCfg);
@@ -112,19 +113,30 @@ namespace RCONManager {
             }
         }
 
-        //*****************************
+        //*************************************************
         // Methods
-        //*****************************
+        //*************************************************
+        private void LoadLanguage() {
+            this.Text           = langMan.GetString("Hotkeys_FormTitle");
+            lblLoadCfg.Text     = langMan.GetString("Hotkeys_LabelLoadCfg") + ":";
+            lblRestart.Text     = langMan.GetString("Hotkeys_LabelRestart") + ":";
+            lblInfo.Text        = langMan.GetString("Hotkeys_LabelInfo");
+            btnHkeyLoadCfg.Text = langMan.GetString("Hotkeys_ButtonSet");
+            btnHkeyRestart.Text = langMan.GetString("Hotkeys_ButtonSet");
+            btnOk.Text          = langMan.GetString("Button_OK");
+            btnCancel.Text      = langMan.GetString("Button_Cancel");
+        }
+
         private void BeginEdit(Button button, Label label, HotKeyData hkey, EditMode mode) {
             lblInfo.Visible = true;
             hkey.Clear();
             label.Text = hkey.ToString();
-            button.Text = "OK";
+            button.Text = langMan.GetString("Hotkeys_ButtonOK");
             currentEdit = mode;
         }
         private void EndEdit(Button button) {
             lblInfo.Visible = false;
-            button.Text = "Set";
+            button.Text = langMan.GetString("Hotkeys_ButtonSet");
             currentEdit = EditMode.None;
         }
 

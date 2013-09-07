@@ -7,15 +7,15 @@ using System.Windows.Forms;
 namespace RCONManager {
     public class HotKeyData {
 
-        //*****************************
+        //*************************************************
         // Variables
-        //*****************************
+        //*************************************************
         public HotKeyClass.MODKEY modKey { get; set; }
         public Keys key { get; set; }
 
-        //*****************************
+        //*************************************************
         // CTor
-        //*****************************
+        //*************************************************
         public HotKeyData() { Clear(); }
         public HotKeyData(HotKeyClass.MODKEY inModKey, Keys inKey) {
             modKey = inModKey;
@@ -26,9 +26,9 @@ namespace RCONManager {
             modKey = obj.modKey;
         }
 
-        //*****************************
+        //*************************************************
         // Methods
-        //*****************************
+        //*************************************************
         public void Clear() {
             modKey = HotKeyClass.MODKEY.MOD_NONE;
             key    = Keys.None;

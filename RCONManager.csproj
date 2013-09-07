@@ -56,6 +56,12 @@
     <Compile Include="Forms\frmHotKeys.Designer.cs">
       <DependentUpon>frmHotKeys.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmRconChangeMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRconChangeMap.Designer.cs">
+      <DependentUpon>frmRconChangeMap.cs</DependentUpon>
+    </Compile>
     <Compile Include="HotKeyClass.cs" />
     <Compile Include="ConfigFile.cs" />
     <Compile Include="GlobalConstants.cs" />
@@ -97,6 +103,7 @@
     <Compile Include="HotKeyData.cs" />
     <Compile Include="RconTools.cs" />
     <Compile Include="ServerPlayer.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="SourceRcon.cs" />
     <Compile Include="Tools.cs" />
     <EmbeddedResource Include="Forms\frmHotKeys.resx">
@@ -110,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRconLoadConfig.resx">
       <DependentUpon>frmRconLoadConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRconChangeMap.resx">
+      <DependentUpon>frmRconChangeMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Language\lang.en.resx" />
     <EmbeddedResource Include="Forms\frmRconUI.resx">
