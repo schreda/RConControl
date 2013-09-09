@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("RCONManager")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("schredx programming")]
 [assembly: AssemblyProduct("RCONManager")]
 [assembly: AssemblyCopyright("André Schreder Copyright © 2013")]
 [assembly: AssemblyTrademark("")]

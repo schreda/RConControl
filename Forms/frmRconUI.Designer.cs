@@ -326,6 +326,7 @@
             this.Name = "frmRconUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClitCommando Rcon UI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRconUI_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RconUI_FormClosed);
             this.Load += new System.EventHandler(this.RconUI_Load);
             this.Resize += new System.EventHandler(this.RconUI_Resize);

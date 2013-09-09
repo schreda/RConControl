@@ -20,8 +20,8 @@ namespace RCONManager.Forms {
         // Variables
         //*************************************************
         private SourceRconConnection rcon = SourceRconConnection.Instance;
-        private Language mLangMan = Language.Instance;
-        private HotKeyClass HK = new HotKeyClass();
+        private Language mLangMan         = Language.Instance;
+        private HotKeyClass HK            = new HotKeyClass();
 
         //*************************************************
         // Initialization
@@ -37,25 +37,25 @@ namespace RCONManager.Forms {
             
             // assign events
             mLangMan.SwitchLangEvent += new Language.VoidHandler(LoadLanguage);
-            rcon.OnlineStateEvent   += new SourceRconConnection.VoidHandler(UpdateUIControls);
-            rcon.ErrorEvent         += new SourceRconConnection.StringHandler(RconError);
+            rcon.OnlineStateEvent    += new SourceRconConnection.VoidHandler(UpdateUIControls);
+            rcon.ErrorEvent          += new SourceRconConnection.StringHandler(RconError);
 
             // configure hotkey
             HK.OwnerForm = this;
             HK.HotKeyPressed += new HotKeyClass.HotKeyPressedEventHandler(HK_HotKeyPressed);
+            
+            // Upgrade settings
+            if (Properties.Settings.Default.UpdateUserSettings) {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.UpdateUserSettings = false;
+                Properties.Settings.Default.Save();
+            }
 
             // start to tray
             if (Settings.Default.StartMinimized) {
                 this.WindowState   = FormWindowState.Minimized;
                 this.ShowInTaskbar = false;
                 notifyIcon.Visible = true;
-            }
-
-            // Upgrade settings
-            if (Properties.Settings.Default.UpdateUserSettings) {
-                Properties.Settings.Default.Upgrade();
-                Properties.Settings.Default.UpdateUserSettings = false;
-                Properties.Settings.Default.Save();
             }
 
             AssignHotKeys();
@@ -106,7 +106,7 @@ namespace RCONManager.Forms {
 
         // Notify Conext Close
         private void contextNotifyClose_Click(object sender, EventArgs e) {
-            Environment.Exit(0);
+            this.Close();
         }
 
         // Menu Save Config
@@ -133,7 +133,7 @@ namespace RCONManager.Forms {
 
         // Menu Exit
         private void menuItemExit_Click(object sender, EventArgs e) {
-            Environment.Exit(0);
+            this.Close();
         }
 
         // Menu Connect
@@ -199,6 +199,11 @@ namespace RCONManager.Forms {
         // Button Restart 3x
         private void btnRestart3_Click(object sender, EventArgs e) {
             Restart3_ExceptionHandled();
+        }
+
+        // Form Closing
+        private void frmRconUI_FormClosing(object sender, FormClosingEventArgs e) {
+            notifyIcon.Visible = false;
         }
 
         // Form Closed
