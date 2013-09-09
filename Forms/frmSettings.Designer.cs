@@ -50,7 +50,7 @@
             this.btnOk.Location = new System.Drawing.Point(56, 285);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 0;
+            this.btnOk.TabIndex = 4;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -60,7 +60,7 @@
             this.btnCancel.Location = new System.Drawing.Point(137, 285);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -71,7 +71,7 @@
             this.checkBoxAutorun.Location = new System.Drawing.Point(6, 19);
             this.checkBoxAutorun.Name = "checkBoxAutorun";
             this.checkBoxAutorun.Size = new System.Drawing.Size(63, 17);
-            this.checkBoxAutorun.TabIndex = 2;
+            this.checkBoxAutorun.TabIndex = 0;
             this.checkBoxAutorun.Text = "Autorun";
             this.checkBoxAutorun.UseVisualStyleBackColor = true;
             // 
@@ -81,7 +81,7 @@
             this.checkBoxStartMin.Location = new System.Drawing.Point(6, 42);
             this.checkBoxStartMin.Name = "checkBoxStartMin";
             this.checkBoxStartMin.Size = new System.Drawing.Size(79, 17);
-            this.checkBoxStartMin.TabIndex = 3;
+            this.checkBoxStartMin.TabIndex = 1;
             this.checkBoxStartMin.Text = "Start in tray";
             this.checkBoxStartMin.UseVisualStyleBackColor = true;
             // 
@@ -95,7 +95,7 @@
             this.groupGeneral.Location = new System.Drawing.Point(12, 12);
             this.groupGeneral.Name = "groupGeneral";
             this.groupGeneral.Size = new System.Drawing.Size(200, 116);
-            this.groupGeneral.TabIndex = 4;
+            this.groupGeneral.TabIndex = 1;
             this.groupGeneral.TabStop = false;
             this.groupGeneral.Text = "General settings";
             // 
@@ -105,7 +105,7 @@
             this.checkBoxAutoconnect.Location = new System.Drawing.Point(6, 65);
             this.checkBoxAutoconnect.Name = "checkBoxAutoconnect";
             this.checkBoxAutoconnect.Size = new System.Drawing.Size(104, 17);
-            this.checkBoxAutoconnect.TabIndex = 6;
+            this.checkBoxAutoconnect.TabIndex = 2;
             this.checkBoxAutoconnect.Text = "Connect on start";
             this.checkBoxAutoconnect.UseVisualStyleBackColor = true;
             // 
@@ -115,7 +115,7 @@
             this.comboBoxLanguage.Location = new System.Drawing.Point(73, 88);
             this.comboBoxLanguage.Name = "comboBoxLanguage";
             this.comboBoxLanguage.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxLanguage.TabIndex = 5;
+            this.comboBoxLanguage.TabIndex = 3;
             // 
             // lblLanguage
             // 
@@ -137,7 +137,7 @@
             this.groupServer.Location = new System.Drawing.Point(12, 134);
             this.groupServer.Name = "groupServer";
             this.groupServer.Size = new System.Drawing.Size(200, 98);
-            this.groupServer.TabIndex = 5;
+            this.groupServer.TabIndex = 2;
             this.groupServer.TabStop = false;
             this.groupServer.Text = "Server settings";
             // 
@@ -146,7 +146,7 @@
             this.textBoxRconPw.Location = new System.Drawing.Point(93, 71);
             this.textBoxRconPw.Name = "textBoxRconPw";
             this.textBoxRconPw.Size = new System.Drawing.Size(100, 20);
-            this.textBoxRconPw.TabIndex = 5;
+            this.textBoxRconPw.TabIndex = 2;
             // 
             // textBoxServerPort
             // 
@@ -154,7 +154,7 @@
             this.textBoxServerPort.MaxLength = 5;
             this.textBoxServerPort.Name = "textBoxServerPort";
             this.textBoxServerPort.Size = new System.Drawing.Size(100, 20);
-            this.textBoxServerPort.TabIndex = 4;
+            this.textBoxServerPort.TabIndex = 1;
             // 
             // textBoxServerIp
             // 
@@ -162,7 +162,7 @@
             this.textBoxServerIp.MaxLength = 15;
             this.textBoxServerIp.Name = "textBoxServerIp";
             this.textBoxServerIp.Size = new System.Drawing.Size(100, 20);
-            this.textBoxServerIp.TabIndex = 3;
+            this.textBoxServerIp.TabIndex = 0;
             // 
             // lblPw
             // 
@@ -170,7 +170,7 @@
             this.lblPw.Location = new System.Drawing.Point(6, 74);
             this.lblPw.Name = "lblPw";
             this.lblPw.Size = new System.Drawing.Size(84, 13);
-            this.lblPw.TabIndex = 2;
+            this.lblPw.TabIndex = 5;
             this.lblPw.Text = "Rcon password:";
             // 
             // lblPort
@@ -179,7 +179,7 @@
             this.lblPort.Location = new System.Drawing.Point(6, 48);
             this.lblPort.Name = "lblPort";
             this.lblPort.Size = new System.Drawing.Size(63, 13);
-            this.lblPort.TabIndex = 1;
+            this.lblPort.TabIndex = 4;
             this.lblPort.Text = "Server Port:";
             // 
             // lblIp
@@ -188,7 +188,7 @@
             this.lblIp.Location = new System.Drawing.Point(6, 22);
             this.lblIp.Name = "lblIp";
             this.lblIp.Size = new System.Drawing.Size(54, 13);
-            this.lblIp.TabIndex = 0;
+            this.lblIp.TabIndex = 3;
             this.lblIp.Text = "Server IP:";
             // 
             // groupMisc
@@ -197,7 +197,7 @@
             this.groupMisc.Location = new System.Drawing.Point(12, 238);
             this.groupMisc.Name = "groupMisc";
             this.groupMisc.Size = new System.Drawing.Size(200, 41);
-            this.groupMisc.TabIndex = 6;
+            this.groupMisc.TabIndex = 3;
             this.groupMisc.TabStop = false;
             this.groupMisc.Text = "Misc settings";
             // 

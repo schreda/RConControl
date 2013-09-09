@@ -10,12 +10,12 @@ namespace SourceRcon {
     /// </summary>
     public class SourceRcon : IDisposable {
 
-        private static RCONManager.Language langMan = RCONManager.Language.Instance;
+        private static RCONManager.Language mLangMan = RCONManager.Language.Instance;
 
-        private string ConnectionWrongPw      = langMan.GetString("Error_WrongRconPW");
-        private string ConnectionClosed       = langMan.GetString("Error_ConnectionClosed");
-        private string ConnectionFailedString = langMan.GetString("Error_ConnectionFailed");
-        private string UnknownResponseType    = langMan.GetString("Error_UnknownResponse");
+        private string ConnectionWrongPw      = mLangMan.GetString("Error_WrongRconPW");
+        private string ConnectionClosed       = mLangMan.GetString("Error_ConnectionClosed");
+        private string ConnectionFailedString = mLangMan.GetString("Error_ConnectionFailed");
+        private string UnknownResponseType    = mLangMan.GetString("Error_UnknownResponse");
 
         public event StringOutput ServerOutput;
         public event StringOutput Errors;

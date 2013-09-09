@@ -157,7 +157,7 @@
     <value>RCON passwort must not be empty</value>
   </data>
   <data name="StatusRconLbl_Connected" xml:space="preserve">
-    <value>connected to</value>
+    <value>connected to {0}</value>
   </data>
   <data name="StatusRconLbl_Connecting" xml:space="preserve">
     <value>connecting</value>
@@ -200,5 +200,167 @@
   </data>
   <data name="Error_WrongRconPW" xml:space="preserve">
     <value>Wrong Rcon password</value>
+  </data>
+  <data name="Ban_BanBoth" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="Ban_BanBy" xml:space="preserve">
+    <value>Ban by</value>
+  </data>
+  <data name="Ban_BanID" xml:space="preserve">
+    <value>STEAMID</value>
+  </data>
+  <data name="Ban_BanIP" xml:space="preserve">
+    <value>IP</value>
+  </data>
+  <data name="Ban_BanTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Ban_FormTitle" xml:space="preserve">
+    <value>Ban players</value>
+  </data>
+  <data name="Ban_Kick" xml:space="preserve">
+    <value>kick player(s)</value>
+  </data>
+  <data name="Ban_Permanent" xml:space="preserve">
+    <value>Permanent</value>
+  </data>
+  <data name="Ban_WrongTime" xml:space="preserve">
+    <value>Wrong time entered</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Changemap_FormTitle" xml:space="preserve">
+    <value>Mapchange</value>
+  </data>
+  <data name="Changemap_LabelMap" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="Error_Statusbar" xml:space="preserve">
+    <value>Error: {0}</value>
+  </data>
+  <data name="Hotkeys_ButtonOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Hotkeys_ButtonSet" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="Hotkeys_FormTitle" xml:space="preserve">
+    <value>Hotkeys</value>
+  </data>
+  <data name="Hotkeys_LabelInfo" xml:space="preserve">
+    <value>press [ESC] to cancel</value>
+  </data>
+  <data name="Hotkeys_LabelLoadCfg" xml:space="preserve">
+    <value>Load config</value>
+  </data>
+  <data name="Hotkeys_LabelRestart" xml:space="preserve">
+    <value>Restart 3x</value>
+  </data>
+  <data name="Kick_FormTitle" xml:space="preserve">
+    <value>Kick players</value>
+  </data>
+  <data name="Kick_KickMsg" xml:space="preserve">
+    <value>Kick with message</value>
+  </data>
+  <data name="LoadCfg_FormTitle" xml:space="preserve">
+    <value>Load Config</value>
+  </data>
+  <data name="LoadCfg_LabelConfig" xml:space="preserve">
+    <value>Config</value>
+  </data>
+  <data name="Main_Button_BanPlayers" xml:space="preserve">
+    <value>Ban players</value>
+  </data>
+  <data name="Main_Button_ChangeMap" xml:space="preserve">
+    <value>Cahnge map</value>
+  </data>
+  <data name="Main_Button_KickPlayers" xml:space="preserve">
+    <value>Kick players</value>
+  </data>
+  <data name="Main_Button_LoadCfg" xml:space="preserve">
+    <value>Load config</value>
+  </data>
+  <data name="Main_Button_Restart3" xml:space="preserve">
+    <value>Restart 3x</value>
+  </data>
+  <data name="Main_FormTitle" xml:space="preserve">
+    <value>RCONManager</value>
+  </data>
+  <data name="Main_Group_PlayerCommands" xml:space="preserve">
+    <value>Player commands</value>
+  </data>
+  <data name="Main_Group_ServerCommands" xml:space="preserve">
+    <value>Server commands</value>
+  </data>
+  <data name="Main_MenuConnection" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="Main_MenuConnection_Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="Main_MenuConnection_Disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="Main_MenuFile_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Main_MenuFile_OpenConfig" xml:space="preserve">
+    <value>Open config</value>
+  </data>
+  <data name="Main_MenuFile_SaveConfig" xml:space="preserve">
+    <value>Save Config</value>
+  </data>
+  <data name="Settings_Autoconnect" xml:space="preserve">
+    <value>Connect on start</value>
+  </data>
+  <data name="Settings_Autorun" xml:space="preserve">
+    <value>Autorun</value>
+  </data>
+  <data name="Settings_FormTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_Group_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Settings_Group_Misc" xml:space="preserve">
+    <value>Misc </value>
+  </data>
+  <data name="Settings_Group_Server" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Settings_RconIP" xml:space="preserve">
+    <value>Server IP</value>
+  </data>
+  <data name="Settings_RconPort" xml:space="preserve">
+    <value>Server Port</value>
+  </data>
+  <data name="Settings_RconPW" xml:space="preserve">
+    <value>Rcon password</value>
+  </data>
+  <data name="Settings_StartMinimized" xml:space="preserve">
+    <value>Start in tray</value>
+  </data>
+  <data name="Settings_UseZblock" xml:space="preserve">
+    <value>Automatically use zBlock</value>
+  </data>
+  <data name="Text_Attention" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="Text_Hint" xml:space="preserve">
+    <value>Hint</value>
+  </data>
+  <data name="About_FormTitle" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Button_Close" xml:space="preserve">
+    <value>Close</value>
   </data>
 </root>

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-namespace RCONManager {
+using System.Xml.Serialization;
 
+namespace RCONManager {
     public class HotKeyClass : IMessageFilter {
+
         [DllImport("user32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         private static extern int RegisterHotKey(IntPtr Hwnd, int ID, int Modifiers, int Key);
 
@@ -18,40 +20,6 @@ namespace RCONManager {
         [DllImport("kernel32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         private static extern short GlobalDeleteAtom(short Atom);
 
-
-        public class HotKeyObject {
-            private Keys mHotKey;
-            private MODKEY mModifier;
-            private string mHotKeyID;
-            private short mAtomID;
-
-            public Keys HotKey {
-                get { return mHotKey; }
-                set { mHotKey = value; }
-            }
-
-            public MODKEY Modifier {
-                get { return mModifier; }
-                set { mModifier = value; }
-            }
-
-            public string HotKeyID {
-                get { return mHotKeyID; }
-                set { mHotKeyID = value; }
-            }
-
-            public short AtomID {
-                get { return mAtomID; }
-                set { mAtomID = value; }
-            }
-
-            public HotKeyObject(Keys NewHotKey, MODKEY NewModifier, string NewHotKeyID) {
-                mHotKey = NewHotKey;
-                mModifier = NewModifier;
-                mHotKeyID = NewHotKeyID;
-            }
-        }
-
         public Form OwnerForm {
             get { return mForm; }
             set { mForm = value; }
@@ -62,18 +30,15 @@ namespace RCONManager {
         private System.Collections.Generic.Dictionary<short, HotKeyObject> mHotKeyList = new System.Collections.Generic.Dictionary<short, HotKeyObject>();
         private System.Collections.Generic.Dictionary<string, short> mHotKeyIDList = new System.Collections.Generic.Dictionary<string, short>();
 
-        /// <summary>
-        /// Diesem Event wird immer die zugewiesene HotKeyID übergeben wenn eine HotKey Kombination gedrückt wurde.
-        /// </summary>
         public event HotKeyPressedEventHandler HotKeyPressed;
         public delegate void HotKeyPressedEventHandler(string HotKeyID);
 
         public enum MODKEY : int {
-            MOD_NONE = 0,
-            MOD_ALT = 1,
+            MOD_NONE    = 0,
+            MOD_ALT     = 1,
             MOD_CONTROL = 2,
-            MOD_SHIFT = 4,
-            MOD_WIN = 8
+            MOD_SHIFT   = 4,
+            MOD_WIN     = 8
         }
 
         public HotKeyClass() {
@@ -81,24 +46,22 @@ namespace RCONManager {
         }
 
         /// <summary>
-        /// Diese Funktion fügt einen Hotkey hinzu und registriert ihn auch sofort
+        /// Add an register a hotkey
         /// </summary>
-        /// <param name="KeyCode">Den KeyCode für die Taste</param>
-        /// <param name="Modifiers">Die Zusatztasten wie z.B. Strg oder Alt, diese können auch mit OR kombiniert werden</param>
-        /// <param name="HotKeyID">Die ID die der Hotkey bekommen soll um diesen zu identifizieren</param>
-        public void AddHotKey(Keys KeyCode, MODKEY Modifiers, string HotKeyID) {
-            if (mHotKeyIDList.ContainsKey(HotKeyID) == true) return; // TODO: might not be correct. Was : Exit Sub
-
-            short ID = GlobalAddAtom(HotKeyID);
-            mHotKeyIDList.Add(HotKeyID, ID);
-            mHotKeyList.Add(ID, new HotKeyObject(KeyCode, Modifiers, HotKeyID));
-            RegisterHotKey(mForm.Handle, (int)ID, (int)mHotKeyList[ID].Modifier, (int)mHotKeyList[ID].HotKey);
+        /// <param name="hkeyObj">hotkey object</param>
+        public void AddHotKey(HotKeyObject hkeyObj) {
+            if (!mHotKeyIDList.ContainsKey(hkeyObj.HotKeyID)) {
+                short ID = GlobalAddAtom(hkeyObj.HotKeyID);
+                mHotKeyIDList.Add(hkeyObj.HotKeyID, ID);
+                mHotKeyList.Add(ID, hkeyObj);
+                RegisterHotKey(mForm.Handle, (int)ID, (int)mHotKeyList[ID].Modifier, (int)mHotKeyList[ID].HotKey);
+            }
         }
 
         /// <summary>
-        /// Diese Funktion entfernt einen Hotkey und deregistriert ihn auch sofort
+        /// Remove and unregister a hotkey
         /// </summary>
-        /// <param name="HotKeyID">Gibt die HotkeyID an welche entfernt werden soll</param>
+        /// <param name="HotKeyID">ID where hotkey has to be removed</param>
         public void RemoveHotKey(string HotKeyID) {
             if (mHotKeyIDList.ContainsKey(HotKeyID) == false) return; // TODO: might not be correct. Was : Exit Sub
 
@@ -110,7 +73,7 @@ namespace RCONManager {
         }
 
         /// <summary>
-        /// Diese Routine entfernt und Deregistriert alle Hotkeys
+        /// Remove all hotkeys
         /// </summary>
         public void RemoveAllHotKeys() {
             List<string> IDList = new List<string>();

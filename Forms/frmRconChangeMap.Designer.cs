@@ -1,4 +1,4 @@
-﻿namespace RCONManager {
+﻿namespace RCONManager.Forms {
     partial class frmRconChangeMap {
         /// <summary>
         /// Required designer variable.

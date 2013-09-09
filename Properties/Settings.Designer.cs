@@ -70,31 +70,7 @@ namespace RCONManager.Properties {
                 this["Language"] = value;
             }
         }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Autorun {
-            get {
-                return ((bool)(this["Autorun"]));
-            }
-            set {
-                this["Autorun"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Autoconnect {
-            get {
-                return ((bool)(this["Autoconnect"]));
-            }
-            set {
-                this["Autoconnect"] = value;
-            }
-        }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -106,7 +82,31 @@ namespace RCONManager.Properties {
                 this["StartMinimized"] = value;
             }
         }
-
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Autorun {
+            get {
+                return ((bool)(this["Autorun"]));
+            }
+            set {
+                this["Autorun"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Autoconnect {
+            get {
+                return ((bool)(this["Autoconnect"]));
+            }
+            set {
+                this["Autoconnect"] = value;
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -121,36 +121,47 @@ namespace RCONManager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::RCONManager.HotKeyData Hkey_LoadCfg {
+        public global::RCONManager.HotKeyObject HKey_LoadCFG {
             get {
-                return ((global::RCONManager.HotKeyData)(this["Hkey_LoadCfg"]));
+                return ((global::RCONManager.HotKeyObject)(this["HKey_LoadCFG"]));
             }
             set {
-                this["Hkey_LoadCfg"] = value;
+                this["HKey_LoadCFG"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::RCONManager.HotKeyData Hkey_Restart {
+        public global::RCONManager.HotKeyObject HKey_Restart {
             get {
-                return ((global::RCONManager.HotKeyData)(this["Hkey_Restart"]));
+                return ((global::RCONManager.HotKeyObject)(this["HKey_Restart"]));
             }
             set {
-                this["Hkey_Restart"] = value;
+                this["HKey_Restart"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::RCONManager.ConfigFile Hkey_LoadCfg_Config {
+        public global::RCONManager.ConfigFile HKey_LoadCFG_Config {
             get {
-                return ((global::RCONManager.ConfigFile)(this["Hkey_LoadCfg_Config"]));
+                return ((global::RCONManager.ConfigFile)(this["HKey_LoadCFG_Config"]));
             }
             set {
-                this["Hkey_LoadCfg_Config"] = value;
+                this["HKey_LoadCFG_Config"] = value;
             }
         }
-
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UpdateUserSettings {
+            get {
+                return ((bool)(this["UpdateUserSettings"]));
+            }
+            set {
+                this["UpdateUserSettings"] = value;
+            }
+        }
     }
 }

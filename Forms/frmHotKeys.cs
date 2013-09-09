@@ -8,23 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RCONManager {
+namespace RCONManager.Forms {
     public partial class frmHotKeys : Form {
 
         //*************************************************
         // Variables
         //*************************************************
-        private Language langMan = Language.Instance;
+        private Language mLangMan = Language.Instance;
 
-        private EditMode currentEdit = EditMode.None;
+        private EditMode mCurrentEdit = EditMode.None;
         enum EditMode {
             None,
             LoadCfg,
             Restart
         };
 
-        private HotKeyData HkeyLoadCfg = new HotKeyData();
-        private HotKeyData HkeyRestart = new HotKeyData();
+        private HotKeyObject mHkeyLoadCfg = new HotKeyObject();
+        private HotKeyObject mHkeyRestart = new HotKeyObject();
 
         //*************************************************
         // Initialization
@@ -35,79 +35,81 @@ namespace RCONManager {
         }
 
         private void frmHotKeys_Load(object sender, EventArgs e) {
-            if (Settings.Default.Hkey_LoadCfg != null) {
-                HkeyLoadCfg = new HotKeyData(Settings.Default.Hkey_LoadCfg);
+            if (Settings.Default.HKey_LoadCFG != null) {
+                mHkeyLoadCfg = new HotKeyObject(Settings.Default.HKey_LoadCFG);
             }
-            if (Settings.Default.Hkey_Restart != null) {
-                HkeyRestart = new HotKeyData(Settings.Default.Hkey_Restart);
+            if (Settings.Default.HKey_Restart != null) {
+                mHkeyRestart = new HotKeyObject(Settings.Default.HKey_Restart);
             }
 
-            lblHkeyLoadCfg.Text = HkeyLoadCfg.ToString();
-            lblHkeyRestart.Text = HkeyRestart.ToString();
+            lblHkeyLoadCfg.Text = mHkeyLoadCfg.ToString();
+            lblHkeyRestart.Text = mHkeyRestart.ToString();
         }
 
         //*************************************************
         // Event receivers
         //*************************************************
         private void btnHkeySetLoadCfg_Click(object sender, EventArgs e) {
-            if (currentEdit == EditMode.None) {
-                BeginEdit(btnHkeyLoadCfg, lblHkeyLoadCfg, HkeyLoadCfg, EditMode.LoadCfg);
-            } else if (currentEdit == EditMode.LoadCfg) {
-                if (HkeyLoadCfg.key != Keys.None) {
+            if (mCurrentEdit == EditMode.None) {
+                BeginEdit(btnHkeyLoadCfg, lblHkeyLoadCfg, mHkeyLoadCfg, EditMode.LoadCfg);
+            } else if (mCurrentEdit == EditMode.LoadCfg) {
+                if (mHkeyLoadCfg.HotKey != Keys.None) {
                     frmRconLoadConfig formLoadConfig = new frmRconLoadConfig();
                     if (formLoadConfig.ShowDialog() == DialogResult.OK) {
-                        Settings.Default.Hkey_LoadCfg_Config = new ConfigFile(formLoadConfig.ReturnValue);
-                        Settings.Default.Hkey_LoadCfg        = new HotKeyData(HkeyLoadCfg);
+                        Settings.Default.HKey_LoadCFG_Config = new ConfigFile(formLoadConfig.ReturnValue);
+                        Settings.Default.HKey_LoadCFG        = new HotKeyObject(mHkeyLoadCfg);
                     } else {
-                        lblHkeyLoadCfg.Text = Settings.Default.Hkey_LoadCfg.ToString();
+                        lblHkeyLoadCfg.Text = Settings.Default.HKey_LoadCFG.ToString();
                     }
                 } else {
-                    Settings.Default.Hkey_LoadCfg_Config = new ConfigFile();
-                    Settings.Default.Hkey_LoadCfg        = new HotKeyData();
+                    Settings.Default.HKey_LoadCFG_Config = new ConfigFile();
+                    Settings.Default.HKey_LoadCFG        = new HotKeyObject();
                 }
                 EndEdit(btnHkeyLoadCfg);
             }
         }
         private void btnHkeyRestart_Click(object sender, EventArgs e) {
-            if (currentEdit == EditMode.None) {
-                BeginEdit(btnHkeyRestart, lblHkeyRestart, HkeyRestart, EditMode.Restart);
-            } else if (currentEdit == EditMode.Restart) {
-                Settings.Default.Hkey_Restart = new HotKeyData(HkeyRestart);
+            if (mCurrentEdit == EditMode.None) {
+                BeginEdit(btnHkeyRestart, lblHkeyRestart, mHkeyRestart, EditMode.Restart);
+            } else if (mCurrentEdit == EditMode.Restart) {
+                Settings.Default.HKey_Restart = new HotKeyObject(mHkeyRestart);
                 EndEdit(btnHkeyRestart);
             }
         }
         private void frmHotKeys_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
-                if (currentEdit == EditMode.LoadCfg) {
-                    HkeyLoadCfg = new HotKeyData(Settings.Default.Hkey_LoadCfg);
-                    lblHkeyLoadCfg.Text = HkeyLoadCfg.ToString();
+                if (mCurrentEdit == EditMode.LoadCfg) {
+                    mHkeyLoadCfg = new HotKeyObject(Settings.Default.HKey_LoadCFG);
+                    lblHkeyLoadCfg.Text = mHkeyLoadCfg.ToString();
                     EndEdit(btnHkeyLoadCfg);
-                } else if (currentEdit == EditMode.Restart) {
-                    HkeyRestart = new HotKeyData(Settings.Default.Hkey_Restart);
-                    lblHkeyRestart.Text = HkeyRestart.ToString();
+                } else if (mCurrentEdit == EditMode.Restart) {
+                    mHkeyRestart = new HotKeyObject(Settings.Default.HKey_Restart);
+                    lblHkeyRestart.Text = mHkeyRestart.ToString();
                     EndEdit(btnHkeyRestart);
                 }
 
             } else {
-                HotKeyData hkey = new HotKeyData();
+                HotKeyObject hkey = new HotKeyObject();
 
-                if (e.Control) hkey.modKey |= HotKeyClass.MODKEY.MOD_CONTROL;
-                if (e.Alt) hkey.modKey     |= HotKeyClass.MODKEY.MOD_ALT;
-                if (e.Shift) hkey.modKey   |= HotKeyClass.MODKEY.MOD_SHIFT;
+                if (e.Control) hkey.Modifier |= HotKeyClass.MODKEY.MOD_CONTROL;
+                if (e.Alt) hkey.Modifier     |= HotKeyClass.MODKEY.MOD_ALT;
+                if (e.Shift) hkey.Modifier   |= HotKeyClass.MODKEY.MOD_SHIFT;
 
                 if (e.KeyCode != Keys.ShiftKey
                     && e.KeyCode != Keys.ControlKey
                     && e.KeyCode != Keys.Menu) {
-                    hkey.key = e.KeyCode;
+                    hkey.HotKey = e.KeyCode;
                 }
 
                 string text = hkey.ToString();
 
-                if (currentEdit == EditMode.LoadCfg) {
-                    HkeyLoadCfg = hkey;
+                if (mCurrentEdit == EditMode.LoadCfg) {
+                    mHkeyLoadCfg = hkey;
+                    mHkeyRestart.HotKeyID = GlobalConstants.HOTKEYID_LOADCFG;
                     lblHkeyLoadCfg.Text = text;
-                } else if (currentEdit == EditMode.Restart) {
-                    HkeyRestart = hkey;
+                } else if (mCurrentEdit == EditMode.Restart) {
+                    mHkeyRestart = hkey;
+                    mHkeyRestart.HotKeyID = GlobalConstants.HOTKEYID_RESTART;
                     lblHkeyRestart.Text = text;
                 }
             }
@@ -117,27 +119,27 @@ namespace RCONManager {
         // Methods
         //*************************************************
         private void LoadLanguage() {
-            this.Text           = langMan.GetString("Hotkeys_FormTitle");
-            lblLoadCfg.Text     = langMan.GetString("Hotkeys_LabelLoadCfg") + ":";
-            lblRestart.Text     = langMan.GetString("Hotkeys_LabelRestart") + ":";
-            lblInfo.Text        = langMan.GetString("Hotkeys_LabelInfo");
-            btnHkeyLoadCfg.Text = langMan.GetString("Hotkeys_ButtonSet");
-            btnHkeyRestart.Text = langMan.GetString("Hotkeys_ButtonSet");
-            btnOk.Text          = langMan.GetString("Button_OK");
-            btnCancel.Text      = langMan.GetString("Button_Cancel");
+            this.Text           = mLangMan.GetString("Hotkeys_FormTitle");
+            lblLoadCfg.Text     = mLangMan.GetString("Hotkeys_LabelLoadCfg") + ":";
+            lblRestart.Text     = mLangMan.GetString("Hotkeys_LabelRestart") + ":";
+            lblInfo.Text        = mLangMan.GetString("Hotkeys_LabelInfo");
+            btnHkeyLoadCfg.Text = mLangMan.GetString("Hotkeys_ButtonSet");
+            btnHkeyRestart.Text = mLangMan.GetString("Hotkeys_ButtonSet");
+            btnOk.Text          = mLangMan.GetString("Button_OK");
+            btnCancel.Text      = mLangMan.GetString("Button_Cancel");
         }
 
-        private void BeginEdit(Button button, Label label, HotKeyData hkey, EditMode mode) {
+        private void BeginEdit(Button button, Label label, HotKeyObject hkey, EditMode mode) {
             lblInfo.Visible = true;
             hkey.Clear();
             label.Text = hkey.ToString();
-            button.Text = langMan.GetString("Hotkeys_ButtonOK");
-            currentEdit = mode;
+            button.Text = mLangMan.GetString("Hotkeys_ButtonOK");
+            mCurrentEdit = mode;
         }
         private void EndEdit(Button button) {
             lblInfo.Visible = false;
-            button.Text = langMan.GetString("Hotkeys_ButtonSet");
-            currentEdit = EditMode.None;
+            button.Text = mLangMan.GetString("Hotkeys_ButtonSet");
+            mCurrentEdit = EditMode.None;
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
@@ -145,7 +147,7 @@ namespace RCONManager {
         }
 
         private void btnOk_Click(object sender, EventArgs e) {
-            if (currentEdit == EditMode.None) {
+            if (mCurrentEdit == EditMode.None) {
                 Settings.Default.Save();
                 this.Close();
             }

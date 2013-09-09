@@ -1,4 +1,4 @@
-﻿namespace RCONManager {
+﻿namespace RCONManager.Forms {
     partial class frmRconKick {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             this.btnOk.Location = new System.Drawing.Point(57, 224);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 0;
+            this.btnOk.TabIndex = 3;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -45,7 +45,7 @@
             this.btnCancel.Location = new System.Drawing.Point(137, 224);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -56,7 +56,7 @@
             this.checkedListBoxPlayers.Location = new System.Drawing.Point(12, 12);
             this.checkedListBoxPlayers.Name = "checkedListBoxPlayers";
             this.checkedListBoxPlayers.Size = new System.Drawing.Size(201, 154);
-            this.checkedListBoxPlayers.TabIndex = 2;
+            this.checkedListBoxPlayers.TabIndex = 0;
             // 
             // checkBoxKcikWithMsg
             // 
@@ -64,7 +64,7 @@
             this.checkBoxKcikWithMsg.Location = new System.Drawing.Point(12, 172);
             this.checkBoxKcikWithMsg.Name = "checkBoxKcikWithMsg";
             this.checkBoxKcikWithMsg.Size = new System.Drawing.Size(114, 17);
-            this.checkBoxKcikWithMsg.TabIndex = 3;
+            this.checkBoxKcikWithMsg.TabIndex = 1;
             this.checkBoxKcikWithMsg.Text = "Kick with message";
             this.checkBoxKcikWithMsg.UseVisualStyleBackColor = true;
             this.checkBoxKcikWithMsg.CheckedChanged += new System.EventHandler(this.checkBoxKcikWithMsg_CheckedChanged);
@@ -75,7 +75,7 @@
             this.textBoxMsg.Location = new System.Drawing.Point(12, 195);
             this.textBoxMsg.Name = "textBoxMsg";
             this.textBoxMsg.Size = new System.Drawing.Size(201, 20);
-            this.textBoxMsg.TabIndex = 4;
+            this.textBoxMsg.TabIndex = 2;
             // 
             // frmRconKick
             // 

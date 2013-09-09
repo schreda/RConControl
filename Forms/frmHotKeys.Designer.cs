@@ -1,4 +1,4 @@
-﻿namespace RCONManager {
+﻿namespace RCONManager.Forms {
     partial class frmHotKeys {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@
             this.lblHkeyLoadCfg.Location = new System.Drawing.Point(84, 17);
             this.lblHkeyLoadCfg.Name = "lblHkeyLoadCfg";
             this.lblHkeyLoadCfg.Size = new System.Drawing.Size(30, 13);
-            this.lblHkeyLoadCfg.TabIndex = 0;
+            this.lblHkeyLoadCfg.TabIndex = 7;
             this.lblHkeyLoadCfg.Text = "hkey";
             // 
             // lblLoadCfg
@@ -49,7 +49,7 @@
             this.lblLoadCfg.Location = new System.Drawing.Point(12, 17);
             this.lblLoadCfg.Name = "lblLoadCfg";
             this.lblLoadCfg.Size = new System.Drawing.Size(66, 13);
-            this.lblLoadCfg.TabIndex = 1;
+            this.lblLoadCfg.TabIndex = 6;
             this.lblLoadCfg.Text = "Load config:";
             // 
             // btnHkeyLoadCfg
@@ -57,7 +57,7 @@
             this.btnHkeyLoadCfg.Location = new System.Drawing.Point(240, 12);
             this.btnHkeyLoadCfg.Name = "btnHkeyLoadCfg";
             this.btnHkeyLoadCfg.Size = new System.Drawing.Size(50, 23);
-            this.btnHkeyLoadCfg.TabIndex = 2;
+            this.btnHkeyLoadCfg.TabIndex = 1;
             this.btnHkeyLoadCfg.Text = "Set";
             this.btnHkeyLoadCfg.UseVisualStyleBackColor = true;
             this.btnHkeyLoadCfg.Click += new System.EventHandler(this.btnHkeySetLoadCfg_Click);
@@ -68,7 +68,7 @@
             this.lblInfo.Location = new System.Drawing.Point(12, 75);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(104, 13);
-            this.lblInfo.TabIndex = 3;
+            this.lblInfo.TabIndex = 4;
             this.lblInfo.Text = "Press ESC to cancel";
             this.lblInfo.Visible = false;
             // 
@@ -77,7 +77,7 @@
             this.btnOk.Location = new System.Drawing.Point(134, 70);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 4;
+            this.btnOk.TabIndex = 3;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -87,7 +87,7 @@
             this.btnCancel.Location = new System.Drawing.Point(215, 70);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -98,7 +98,7 @@
             this.lblRestart.Location = new System.Drawing.Point(12, 46);
             this.lblRestart.Name = "lblRestart";
             this.lblRestart.Size = new System.Drawing.Size(58, 13);
-            this.lblRestart.TabIndex = 6;
+            this.lblRestart.TabIndex = 5;
             this.lblRestart.Text = "3x Restart:";
             // 
             // btnHkeyRestart
@@ -106,7 +106,7 @@
             this.btnHkeyRestart.Location = new System.Drawing.Point(240, 41);
             this.btnHkeyRestart.Name = "btnHkeyRestart";
             this.btnHkeyRestart.Size = new System.Drawing.Size(50, 23);
-            this.btnHkeyRestart.TabIndex = 7;
+            this.btnHkeyRestart.TabIndex = 2;
             this.btnHkeyRestart.Text = "Set";
             this.btnHkeyRestart.UseVisualStyleBackColor = true;
             this.btnHkeyRestart.Click += new System.EventHandler(this.btnHkeyRestart_Click);

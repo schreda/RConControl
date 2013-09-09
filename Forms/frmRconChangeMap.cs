@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RCONManager {
+namespace RCONManager.Forms {
     public partial class frmRconChangeMap : Form {
 
         //*************************************************
         // Variables
         //*************************************************
-        private RconConnection rcon = RconConnection.Instance;
-        private Language langMan = Language.Instance;
+        private Language mLangMan = Language.Instance;
 
         public string ReturnValue { get; set; }
 
@@ -31,9 +31,10 @@ namespace RCONManager {
 
         private void RconLoadConfigUI_Load(object sender, EventArgs e) {
             try {
-                comboBoxMaps.DataSource = RconTools.GetAllMaps(rcon);
-            } catch {
-                ExceptionEvent(langMan.GetString("Rcon_WrongAnswer"), true);
+                comboBoxMaps.DataSource = SourceRconTools.GetAllMaps();
+            } catch (Exception ex) {
+                ErrorLogger.Log(ex);
+                ExceptionEvent(mLangMan.GetString("Rcon_WrongAnswer"), true);
                 this.Close();
             }
             
@@ -57,10 +58,10 @@ namespace RCONManager {
         // Methods
         //*************************************************
         private void LoadLanguage() {
-            this.Text      = langMan.GetString("Changemap_FormTitle");
-            lblMap.Text    = langMan.GetString("Changemap_LabelMap") + ":";
-            btnOk.Text     = langMan.GetString("Button_OK");
-            btnCancel.Text = langMan.GetString("Button_Cancel");
+            this.Text      = mLangMan.GetString("Changemap_FormTitle");
+            lblMap.Text    = mLangMan.GetString("Changemap_LabelMap") + ":";
+            btnOk.Text     = mLangMan.GetString("Button_OK");
+            btnCancel.Text = mLangMan.GetString("Button_Cancel");
         }
     }
 }

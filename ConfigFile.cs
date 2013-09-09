@@ -2,35 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace RCONManager {
+    /// <summary>
+    /// Class for config files
+    /// </summary>
     public class ConfigFile {
-
-        //*************************************************
-        // Variables
-        //*************************************************
+        [XmlElement(ElementName = "Name")]
         public string name { get; set; }
+        [XmlElement(ElementName = "Content")]
         public string content { get; set; }
 
-        //*************************************************
-        // CTor
-        //*************************************************
-        public ConfigFile() {
-            name    = "";
-            content = "";
-        }
-        public ConfigFile(string inName, string inContent) {
-            name    = inName;
-            content = inContent;
-        }
+        public ConfigFile() { }
         public ConfigFile(ConfigFile obj) {
-            name    = obj.name;
+            name = obj.name;
             content = obj.content;
         }
 
-        //*************************************************
-        // Methods
-        //*************************************************
         public override string ToString() {
             return name;
         }

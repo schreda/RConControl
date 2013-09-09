@@ -26,14 +26,17 @@
     <Setting Name="UseZblock" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Hkey_LoadCfg" Type="RCONManager.HotKeyData" Scope="User">
+    <Setting Name="HKey_LoadCFG" Type="RCONManager.HotKeyObject" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Hkey_Restart" Type="RCONManager.HotKeyData" Scope="User">
+    <Setting Name="HKey_Restart" Type="RCONManager.HotKeyObject" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Hkey_LoadCfg_Config" Type="RCONManager.ConfigFile" Scope="User">
+    <Setting Name="HKey_LoadCFG_Config" Type="RCONManager.ConfigFile" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UpdateUserSettings" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

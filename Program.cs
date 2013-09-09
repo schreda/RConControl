@@ -6,10 +6,12 @@ using System.Windows.Forms;
 
 namespace RCONManager {
     class Program {
+
+        [STAThread]
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmRconUI());
+            Application.Run(new Forms.frmRconUI());
         }
     }
 }

@@ -145,7 +145,7 @@
     <value>Datei</value>
   </data>
   <data name="Error_Statusbar" xml:space="preserve">
-    <value>Error: {0}</value>
+    <value>Fehler: {0}</value>
   </data>
   <data name="Settings_WrongIP" xml:space="preserve">
     <value>Falsche eingabe der IP Adresse</value>
@@ -202,7 +202,7 @@
     <value>Falsches Rcon Passwort</value>
   </data>
   <data name="Text_Error" xml:space="preserve">
-    <value>Error</value>
+    <value>Fehler</value>
   </data>
   <data name="Button_Cancel" xml:space="preserve">
     <value>Abbrechen</value>
@@ -305,5 +305,53 @@
   </data>
   <data name="Settings_UseZblock" xml:space="preserve">
     <value>Automatisch zBlock verwenden</value>
+  </data>
+  <data name="Ban_BanBoth" xml:space="preserve">
+    <value>Beides </value>
+  </data>
+  <data name="Ban_BanBy" xml:space="preserve">
+    <value>Bannen</value>
+  </data>
+  <data name="Ban_BanID" xml:space="preserve">
+    <value>STEAMID</value>
+  </data>
+  <data name="Ban_BanIP" xml:space="preserve">
+    <value>IP</value>
+  </data>
+  <data name="Ban_BanTime" xml:space="preserve">
+    <value>Zeit</value>
+  </data>
+  <data name="Ban_FormTitle" xml:space="preserve">
+    <value>Spieler bannen</value>
+  </data>
+  <data name="Ban_Kick" xml:space="preserve">
+    <value>Spieler kicken</value>
+  </data>
+  <data name="Ban_Permanent" xml:space="preserve">
+    <value>Permanent</value>
+  </data>
+  <data name="Ban_WrongTime" xml:space="preserve">
+    <value>Falsche eingabe der Zeit</value>
+  </data>
+  <data name="Main_MenuConnection" xml:space="preserve">
+    <value>Verbindung</value>
+  </data>
+  <data name="Main_MenuConnection_Connect" xml:space="preserve">
+    <value>Verbinden</value>
+  </data>
+  <data name="Main_MenuConnection_Disconnect" xml:space="preserve">
+    <value>Trennen</value>
+  </data>
+  <data name="Text_Attention" xml:space="preserve">
+    <value>Achtung</value>
+  </data>
+  <data name="Text_Hint" xml:space="preserve">
+    <value>Hinweis</value>
+  </data>
+  <data name="About_FormTitle" xml:space="preserve">
+    <value>Über</value>
+  </data>
+  <data name="Button_Close" xml:space="preserve">
+    <value>Schließen</value>
   </data>
 </root>

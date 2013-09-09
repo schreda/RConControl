@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RCONManager {
+namespace RCONManager.Forms {
     public partial class frmRconLoadConfig : Form {
 
         //*************************************************
         // Variables
         //*************************************************
-        private Language langMan = Language.Instance;
+        private Language mLangMan = Language.Instance;
         public ConfigFile ReturnValue { get; set; }
 
         //*************************************************
@@ -46,10 +46,10 @@ namespace RCONManager {
         // Methods
         //*************************************************
         private void LoadLanguage() {
-            this.Text      = langMan.GetString("LoadCfg_FormTitle");
-            lblConfig.Text = langMan.GetString("LoadCfg_LabelConfig") + ":";
-            btnOk.Text     = langMan.GetString("Button_OK");
-            btnCancel.Text = langMan.GetString("Button_Cancel");
+            this.Text      = mLangMan.GetString("LoadCfg_FormTitle");
+            lblConfig.Text = mLangMan.GetString("LoadCfg_LabelConfig") + ":";
+            btnOk.Text     = mLangMan.GetString("Button_OK");
+            btnCancel.Text = mLangMan.GetString("Button_Cancel");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace RCONManager {
+﻿namespace RCONManager.Forms {
     partial class frmRconUI {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -106,7 +106,7 @@
             this.btnLoadCfg.Location = new System.Drawing.Point(6, 19);
             this.btnLoadCfg.Name = "btnLoadCfg";
             this.btnLoadCfg.Size = new System.Drawing.Size(75, 23);
-            this.btnLoadCfg.TabIndex = 2;
+            this.btnLoadCfg.TabIndex = 0;
             this.btnLoadCfg.Text = "Load config";
             this.btnLoadCfg.UseVisualStyleBackColor = true;
             this.btnLoadCfg.Click += new System.EventHandler(this.btnConfig_Click);
@@ -141,7 +141,7 @@
             this.groupPlayerCommands.Location = new System.Drawing.Point(12, 27);
             this.groupPlayerCommands.Name = "groupPlayerCommands";
             this.groupPlayerCommands.Size = new System.Drawing.Size(106, 78);
-            this.groupPlayerCommands.TabIndex = 4;
+            this.groupPlayerCommands.TabIndex = 1;
             this.groupPlayerCommands.TabStop = false;
             this.groupPlayerCommands.Text = "Player commands";
             // 
@@ -150,16 +150,17 @@
             this.btnBan.Location = new System.Drawing.Point(6, 48);
             this.btnBan.Name = "btnBan";
             this.btnBan.Size = new System.Drawing.Size(94, 23);
-            this.btnBan.TabIndex = 6;
+            this.btnBan.TabIndex = 1;
             this.btnBan.Text = "Ban Players";
             this.btnBan.UseVisualStyleBackColor = true;
+            this.btnBan.Click += new System.EventHandler(this.btnBan_Click);
             // 
             // btnKick
             // 
             this.btnKick.Location = new System.Drawing.Point(6, 19);
             this.btnKick.Name = "btnKick";
             this.btnKick.Size = new System.Drawing.Size(94, 23);
-            this.btnKick.TabIndex = 5;
+            this.btnKick.TabIndex = 0;
             this.btnKick.Text = "Kick Players";
             this.btnKick.UseVisualStyleBackColor = true;
             this.btnKick.Click += new System.EventHandler(this.btnKick_Click);
@@ -172,7 +173,7 @@
             this.groupServerCommands.Location = new System.Drawing.Point(124, 27);
             this.groupServerCommands.Name = "groupServerCommands";
             this.groupServerCommands.Size = new System.Drawing.Size(168, 78);
-            this.groupServerCommands.TabIndex = 5;
+            this.groupServerCommands.TabIndex = 2;
             this.groupServerCommands.TabStop = false;
             this.groupServerCommands.Text = "Server Commands";
             // 
@@ -181,7 +182,7 @@
             this.btnRestart3.Location = new System.Drawing.Point(87, 19);
             this.btnRestart3.Name = "btnRestart3";
             this.btnRestart3.Size = new System.Drawing.Size(75, 23);
-            this.btnRestart3.TabIndex = 6;
+            this.btnRestart3.TabIndex = 2;
             this.btnRestart3.Text = "3x Restart";
             this.btnRestart3.UseVisualStyleBackColor = true;
             this.btnRestart3.Click += new System.EventHandler(this.btnRestart3_Click);
@@ -199,7 +200,7 @@
             this.menuStripMain.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.menuStripMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStripMain.Size = new System.Drawing.Size(302, 24);
-            this.menuStripMain.TabIndex = 6;
+            this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             // 
             // menuFile
@@ -221,6 +222,7 @@
             this.menuItemOpenConfig.Name = "menuItemOpenConfig";
             this.menuItemOpenConfig.Size = new System.Drawing.Size(164, 22);
             this.menuItemOpenConfig.Text = "Config öffnen";
+            this.menuItemOpenConfig.Click += new System.EventHandler(this.menuItemOpenConfig_Click);
             // 
             // menuItemSaveConfig
             // 
@@ -228,6 +230,7 @@
             this.menuItemSaveConfig.Name = "menuItemSaveConfig";
             this.menuItemSaveConfig.Size = new System.Drawing.Size(164, 22);
             this.menuItemSaveConfig.Text = "Config speichern";
+            this.menuItemSaveConfig.Click += new System.EventHandler(this.menuItemSaveConfig_Click);
             // 
             // menuFileSeparator1
             // 
@@ -256,7 +259,7 @@
             // 
             this.menuItemConnect.Image = global::RCONManager.Properties.Resources.connect;
             this.menuItemConnect.Name = "menuItemConnect";
-            this.menuItemConnect.Size = new System.Drawing.Size(128, 22);
+            this.menuItemConnect.Size = new System.Drawing.Size(152, 22);
             this.menuItemConnect.Text = "Verbinden";
             this.menuItemConnect.Click += new System.EventHandler(this.menuItemConnect_Click);
             // 
@@ -264,7 +267,7 @@
             // 
             this.menuItemDisconnect.Image = global::RCONManager.Properties.Resources.disconnect;
             this.menuItemDisconnect.Name = "menuItemDisconnect";
-            this.menuItemDisconnect.Size = new System.Drawing.Size(128, 22);
+            this.menuItemDisconnect.Size = new System.Drawing.Size(152, 22);
             this.menuItemDisconnect.Text = "Trennen";
             this.menuItemDisconnect.Click += new System.EventHandler(this.menuItemDisconnect_Click);
             // 
@@ -282,7 +285,7 @@
             // 
             this.menuItemHotkeys.Image = global::RCONManager.Properties.Resources.keyboard;
             this.menuItemHotkeys.Name = "menuItemHotkeys";
-            this.menuItemHotkeys.Size = new System.Drawing.Size(145, 22);
+            this.menuItemHotkeys.Size = new System.Drawing.Size(152, 22);
             this.menuItemHotkeys.Text = "Hotkeys";
             this.menuItemHotkeys.Click += new System.EventHandler(this.menuItemHotkeys_Click);
             // 
@@ -290,7 +293,7 @@
             // 
             this.menuItemSettings.Image = global::RCONManager.Properties.Resources.settings;
             this.menuItemSettings.Name = "menuItemSettings";
-            this.menuItemSettings.Size = new System.Drawing.Size(145, 22);
+            this.menuItemSettings.Size = new System.Drawing.Size(152, 22);
             this.menuItemSettings.Text = "Einstellungen";
             this.menuItemSettings.Click += new System.EventHandler(this.menuItemSettings_Click);
             // 
@@ -300,6 +303,7 @@
             this.menuItemAbout.Padding = new System.Windows.Forms.Padding(0);
             this.menuItemAbout.Size = new System.Drawing.Size(36, 20);
             this.menuItemAbout.Text = "Über";
+            this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
             // 
             // toolStripStatusLabel1
             // 

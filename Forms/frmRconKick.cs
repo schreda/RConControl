@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RCONManager {
+namespace RCONManager.Forms {
     public partial class frmRconKick : Form {
 
         //*************************************************
         // Variables
         //*************************************************
-        private RconConnection rcon = RconConnection.Instance;
-        private Language langMan = Language.Instance;
+        private Language mLangMan = Language.Instance;
 
         public delegate void StringBool(string str, bool b = false);
         public event StringBool ExceptionEvent;
+
         //*************************************************
         // Initialization
         //*************************************************
@@ -28,16 +28,17 @@ namespace RCONManager {
 
         private void RconKickPlayers_Load(object sender, EventArgs e) {
             try {
-                List<ServerPlayer> players = RconTools.GetAllPlayers(rcon);
+                List<SourceRconTools.Player> players = SourceRconTools.GetAllPlayers();
                 if (players.Count == 0) {
-                    MessageBox.Show(langMan.GetString("Rcon_NoPlayers"), langMan.GetString("Text_Info"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show(mLangMan.GetString("Rcon_NoPlayers"), mLangMan.GetString("Text_Info"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     this.Close();
                 }
-                foreach (ServerPlayer player in players) {
+                foreach (SourceRconTools.Player player in players) {
                     checkedListBoxPlayers.Items.Add(player);
                 }
-            } catch {
-                ExceptionEvent(langMan.GetString("Rcon_WrongAnswer"), true);
+            } catch (Exception ex) {
+                ErrorLogger.Log(ex);
+                ExceptionEvent(mLangMan.GetString("Rcon_WrongAnswer"), true);
                 this.Close();
             }
         }
@@ -56,13 +57,12 @@ namespace RCONManager {
         private void btnOk_Click(object sender, EventArgs e) {
             for (int i = 0; i < checkedListBoxPlayers.Items.Count; i++) {
                 if(checkedListBoxPlayers.GetItemChecked(i)) {
-                    ServerPlayer player = (ServerPlayer)checkedListBoxPlayers.Items[i];
-                    if (checkBoxKcikWithMsg.Checked) RconTools.KickPlayer(rcon, player.id, textBoxMsg.Text);
-                    else RconTools.KickPlayer(rcon, player.id);
+                    SourceRconTools.Player player = (SourceRconTools.Player)checkedListBoxPlayers.Items[i];
+                    if (checkBoxKcikWithMsg.Checked) SourceRconTools.KickPlayer(player, textBoxMsg.Text);
+                    else SourceRconTools.KickPlayer(player);
                     
                 }
-            }        
-
+            }     
             this.Close();
         }  
         
@@ -70,10 +70,10 @@ namespace RCONManager {
         // Methods
         //*************************************************
         private void LoadLanguage() {
-            this.Text                = langMan.GetString("Kick_FormTitle");
-            checkBoxKcikWithMsg.Text = langMan.GetString("Kick_KickMsg");
-            btnOk.Text               = langMan.GetString("Button_OK");
-            btnCancel.Text           = langMan.GetString("Button_Cancel");
+            this.Text                = mLangMan.GetString("Kick_FormTitle");
+            checkBoxKcikWithMsg.Text = mLangMan.GetString("Kick_KickMsg");
+            btnOk.Text               = mLangMan.GetString("Button_OK");
+            btnCancel.Text           = mLangMan.GetString("Button_Cancel");
         }
     }
 }

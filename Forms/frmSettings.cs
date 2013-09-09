@@ -17,7 +17,7 @@ namespace RCONManager {
         //*************************************************
         // Variables
         //*************************************************
-        private Language langMan = Language.Instance;
+        private Language mLangMan = Language.Instance;
 
         //*************************************************
         // Initialization
@@ -28,7 +28,7 @@ namespace RCONManager {
         }
     
         private void frmSettings_Load(object sender, EventArgs e) {
-            List<CultureInfo> availableLanguages = langMan.AvailableLanguages();
+            List<CultureInfo> availableLanguages = mLangMan.AvailableLanguages();
             foreach (CultureInfo culture in availableLanguages) comboBoxLanguage.Items.Add(culture.NativeName);
             comboBoxLanguage.SelectedItem = Tools.GetCultureByTwoLetterISO(Settings.Default.Language).NativeName;
 
@@ -50,11 +50,11 @@ namespace RCONManager {
 
         private void btnOk_Click(object sender, EventArgs e) {
             if (!Regex.IsMatch(textBoxServerIp.Text, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")) {
-                MessageBox.Show(langMan.GetString("Settings_WrongIP"), langMan.GetString("MessageBoxErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(mLangMan.GetString("Settings_WrongIP"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             } else if (!Regex.IsMatch(textBoxServerPort.Text, @"\d{2,5}")) {
-                MessageBox.Show(langMan.GetString("Settings_WrongPort"), langMan.GetString("MessageBoxErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(mLangMan.GetString("Settings_WrongPort"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             } else if (String.IsNullOrEmpty(textBoxRconPw.Text)) {
-                MessageBox.Show(langMan.GetString("Settings_WrongRconPW"), langMan.GetString("MessageBoxErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(mLangMan.GetString("Settings_WrongRconPW"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             } else {
                 Settings.Default.Language       = Tools.GetCultureByNativeName((string)comboBoxLanguage.SelectedItem).TwoLetterISOLanguageName;
                 Settings.Default.Autorun        = checkBoxAutorun.Checked;
@@ -66,7 +66,7 @@ namespace RCONManager {
                 Settings.Default.RconPW         = textBoxRconPw.Text;
                 Settings.Default.Save();
 
-                langMan.SwitchLang();
+                mLangMan.SwitchLang();
                 Tools.SetAutorun(checkBoxAutorun.Checked);
 
                 this.Close();
@@ -77,20 +77,20 @@ namespace RCONManager {
         // Methods
         //*************************************************
         private void LoadLanguage() {
-            this.Text                = langMan.GetString("Settings_FormTitle");
-            groupGeneral.Text        = langMan.GetString("Settings_Group_General");
-            groupServer.Text         = langMan.GetString("Settings_Group_Server");
-            groupMisc.Text           = langMan.GetString("Settings_Group_Misc");
-            checkBoxAutorun.Text     = langMan.GetString("Settings_Autorun");
-            checkBoxAutoconnect.Text = langMan.GetString("Settings_Autoconnect");
-            checkBoxStartMin.Text    = langMan.GetString("Settings_StartMinimized");
-            checkBoxZblock.Text      = langMan.GetString("Settings_UseZblock");
-            lblIp.Text               = langMan.GetString("Settings_RconIP") + ":";
-            lblPort.Text             = langMan.GetString("Settings_RconPort") + ":";
-            lblPw.Text               = langMan.GetString("Settings_RconPW") + ":";
-            lblLanguage.Text         = langMan.GetString("Settings_Language") + ":";
-            btnOk.Text               = langMan.GetString("Button_OK");
-            btnCancel.Text           = langMan.GetString("Button_Cancel");
+            this.Text                = mLangMan.GetString("Settings_FormTitle");
+            groupGeneral.Text        = mLangMan.GetString("Settings_Group_General");
+            groupServer.Text         = mLangMan.GetString("Settings_Group_Server");
+            groupMisc.Text           = mLangMan.GetString("Settings_Group_Misc");
+            checkBoxAutorun.Text     = mLangMan.GetString("Settings_Autorun");
+            checkBoxAutoconnect.Text = mLangMan.GetString("Settings_Autoconnect");
+            checkBoxStartMin.Text    = mLangMan.GetString("Settings_StartMinimized");
+            checkBoxZblock.Text      = mLangMan.GetString("Settings_UseZblock");
+            lblIp.Text               = mLangMan.GetString("Settings_RconIP") + ":";
+            lblPort.Text             = mLangMan.GetString("Settings_RconPort") + ":";
+            lblPw.Text               = mLangMan.GetString("Settings_RconPW") + ":";
+            lblLanguage.Text         = mLangMan.GetString("Settings_Language") + ":";
+            btnOk.Text               = mLangMan.GetString("Button_OK");
+            btnCancel.Text           = mLangMan.GetString("Button_Cancel");
         }
     }
 }

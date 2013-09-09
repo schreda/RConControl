@@ -8,6 +8,7 @@ namespace RCONManager {
         // Strings
         public const string AUTORUN_REGKEY        = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
         public const string PATH_CONFIGS          = "configs";
+        public const string PATH_ERRORLOG         = "error.log";
         public const string STRING_COMMENT        = "//";
         public const string RCONCMD_STATUS        = "status";
         public const string RCONCMD_ZBLOCK        = "zb_active";
@@ -23,7 +24,13 @@ namespace RCONManager {
         public const string RCON_DEFAULT_KICKMSG  = "kicked from server";
         public const string RESTARTMSG_HFGL       = "HF & GL";
         public const string STEAMID_PREFIX        = "STEAM_";
-
+        public const string RCONCMD_BANID         = "banid {0} {1} {2}";
+        public const string RCONCMD_BANIP         = "addip {0} {1}";
+        public const string RCONCMD_WRITEID       = "writeid";
+        public const string RCONCMD_WRITEIP       = "writeip";
+        public const string HOTKEYID_RESTART      = "Restart";
+        public const string HOTKEYID_LOADCFG      = "LoadCFG";
+        
         // Values
         public const int ERROR_RESET_TIME     = 3000; // ms
         public const int RCON_RECEIVE_WAIT    = 100;

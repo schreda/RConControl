@@ -32,7 +32,7 @@ namespace RCONManager {
         // CTor
         //*************************************************
         private Language() {
-            res_man = new ResourceManager("RCONManager.Resources.Language.lang", typeof(frmRconUI).Assembly);
+            res_man = new ResourceManager("RCONManager.Resources.Language.lang", typeof(Forms.frmRconUI).Assembly);
             InitLang();
         }
 
@@ -50,8 +50,16 @@ namespace RCONManager {
         }
 
         public string GetString(string key) {
-            if (String.IsNullOrEmpty(key)) return "";
-            return res_man.GetString(key, cul);
+            string result = "";
+            if (!String.IsNullOrEmpty(key)) {
+                try {
+                    result = res_man.GetString(key, cul);
+                } catch (Exception ex) {
+                    ex.Data.Add("key", key);
+                    ErrorLogger.Log(ex);
+                }
+            }
+            return result;
         }
 
         private void InitLang() {

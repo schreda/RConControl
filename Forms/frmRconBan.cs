@@ -1,0 +1,109 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+
+namespace RCONManager.Forms {
+    public partial class frmRconBan : Form {
+
+        //*************************************************
+        // Variables
+        //*************************************************
+        private Language mLangMan = Language.Instance;
+
+        public delegate void StringBool(string str, bool b = false);
+        public event StringBool ExceptionEvent;
+
+        //*************************************************
+        // Initialization
+        //*************************************************
+        public frmRconBan() {
+            InitializeComponent();
+            LoadLanguage();
+            radioButtonBanIP.CheckedChanged   += new EventHandler(radioButtons_CheckedChanged);
+            radioButtonBanID.CheckedChanged   += new EventHandler(radioButtons_CheckedChanged);
+            radioButtonBanBoth.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+
+        }
+
+        private void frmRconBan_Load(object sender, EventArgs e) {
+            try {
+                List<SourceRconTools.Player> players = SourceRconTools.GetAllPlayers();
+                if (players.Count == 0) {
+                    MessageBox.Show(mLangMan.GetString("Rcon_NoPlayers"), mLangMan.GetString("Text_Info"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    this.Close();
+                }
+                foreach (SourceRconTools.Player player in players) {
+                    checkedListBoxPlayers.Items.Add(player);
+                }
+            } catch (Exception ex) {
+                ErrorLogger.Log(ex);
+                ExceptionEvent(mLangMan.GetString("Rcon_WrongAnswer"), true);
+                this.Close();
+            }
+        }
+
+        //*************************************************
+        // Event receivers
+        //*************************************************
+        private void checkBoxBanPermanent_CheckedChanged(object sender, EventArgs e) {
+            textBoxBanTime.Enabled = !checkBoxBanPermanent.Checked;
+        }
+
+        private void radioButtons_CheckedChanged(object sender, EventArgs e) {
+            if (radioButtonBanIP.Checked) {
+                checkBoxKick.Enabled = false;
+            } else {
+                checkBoxKick.Enabled = true;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e) {
+            if (!checkBoxBanPermanent.Checked && !Regex.IsMatch(textBoxBanTime.Text, @"\d+")) {
+                MessageBox.Show(mLangMan.GetString("Ban_WrongTime"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            } else {
+                int time;
+                if (checkBoxBanPermanent.Checked) { time = 0; } else { time = Convert.ToInt32(textBoxBanTime.Text); }
+
+                for (int i = 0; i < checkedListBoxPlayers.Items.Count; i++) {
+                    if (checkedListBoxPlayers.GetItemChecked(i)) {
+                        SourceRconTools.Player player = (SourceRconTools.Player)checkedListBoxPlayers.Items[i];
+                        if (radioButtonBanID.Checked) {
+                            SourceRconTools.BanPlayer(player, 0, time, checkBoxKick.Checked);
+                        } else if (radioButtonBanIP.Checked) {
+                            SourceRconTools.BanPlayer(player, 1, time, checkBoxKick.Checked);
+                        } else if (radioButtonBanBoth.Checked) {
+                            SourceRconTools.BanPlayer(player, 2, time, checkBoxKick.Checked);
+                        }
+                    }
+                }
+                this.Close();
+            }
+        }
+
+        //*************************************************
+        // Methods
+        //*************************************************
+        private void LoadLanguage() {
+            this.Text                 = mLangMan.GetString("Kick_FormTitle");
+            groupBoxBanBy.Text        = mLangMan.GetString("Ban_BanBy");
+            groupBoxBanTime.Text      = mLangMan.GetString("Ban_BanTime");
+            radioButtonBanID.Text     = mLangMan.GetString("Ban_BanID");
+            radioButtonBanIP.Text     = mLangMan.GetString("Ban_BanIP");
+            radioButtonBanBoth.Text   = mLangMan.GetString("Ban_BanBoth");
+            checkBoxBanPermanent.Text = mLangMan.GetString("Ban_Permanent");
+            checkBoxKick.Text         = mLangMan.GetString("Ban_Kick");
+            btnOk.Text                = mLangMan.GetString("Button_OK");
+            btnCancel.Text            = mLangMan.GetString("Button_Cancel");
+        }
+    }
+}
