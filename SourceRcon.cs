@@ -10,7 +10,7 @@ namespace SourceRcon {
     /// </summary>
     public class SourceRcon : IDisposable {
 
-        private static RCONManager.Language mLangMan = RCONManager.Language.Instance;
+        private static RConControl.Language mLangMan = RConControl.Language.Instance;
 
         private string ConnectionWrongPw      = mLangMan.GetString("Error_WrongRconPW");
         private string ConnectionClosed       = mLangMan.GetString("Error_ConnectionClosed");

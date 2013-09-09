@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RCONManager.Forms {
+namespace RConControl.Forms {
     public partial class frmRconLoadConfig : Form {
 
         //*************************************************
         // Variables
         //*************************************************
         private Language mLangMan = Language.Instance;
+
         public ConfigFile ReturnValue { get; set; }
+
+        public delegate void StringBool(string str, bool b = false);
+        public event StringBool ExceptionEvent;
 
         //*************************************************
         // Initialization
@@ -25,7 +29,14 @@ namespace RCONManager.Forms {
         }
 
         private void RconLoadConfigUI_Load(object sender, EventArgs e) {
-            comboBoxConfigs.DataSource = Tools.GetAllConfigFiles();
+            try {
+                comboBoxConfigs.DataSource = Tools.GetAllConfigFiles();
+            } catch (Exception ex) {
+                ErrorLogger.Log(ex);
+                ExceptionEvent(mLangMan.GetString("Error_NoConfigs"), true);
+                this.Close();
+            }
+            
         }
 
         //*************************************************

@@ -7,7 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace RCONManager {
+namespace RConControl {
     class Program {
 
         [STAThread]

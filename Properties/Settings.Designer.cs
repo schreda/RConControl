@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RCONManager.Properties {
+namespace RConControl.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -121,9 +121,9 @@ namespace RCONManager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::RCONManager.HotKeyObject HKey_LoadCFG {
+        public global::RConControl.HotKeyObject HKey_LoadCFG {
             get {
-                return ((global::RCONManager.HotKeyObject)(this["HKey_LoadCFG"]));
+                return ((global::RConControl.HotKeyObject)(this["HKey_LoadCFG"]));
             }
             set {
                 this["HKey_LoadCFG"] = value;
@@ -132,9 +132,9 @@ namespace RCONManager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::RCONManager.HotKeyObject HKey_Restart {
+        public global::RConControl.HotKeyObject HKey_Restart {
             get {
-                return ((global::RCONManager.HotKeyObject)(this["HKey_Restart"]));
+                return ((global::RConControl.HotKeyObject)(this["HKey_Restart"]));
             }
             set {
                 this["HKey_Restart"] = value;
@@ -143,9 +143,9 @@ namespace RCONManager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::RCONManager.ConfigFile HKey_LoadCFG_Config {
+        public global::RConControl.ConfigFile HKey_LoadCFG_Config {
             get {
-                return ((global::RCONManager.ConfigFile)(this["HKey_LoadCFG_Config"]));
+                return ((global::RConControl.ConfigFile)(this["HKey_LoadCFG_Config"]));
             }
             set {
                 this["HKey_LoadCFG_Config"] = value;

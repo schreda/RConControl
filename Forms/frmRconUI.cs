@@ -1,4 +1,4 @@
-﻿using RCONManager.Properties;
+﻿using RConControl.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace RCONManager.Forms {
+namespace RConControl.Forms {
     public partial class frmRconUI : Form {
 
         //*************************************************
@@ -191,6 +191,7 @@ namespace RCONManager.Forms {
         // Button Load Config
         private void btnConfig_Click(object sender, EventArgs e) {
             frmRconLoadConfig formLoadConfig = new frmRconLoadConfig();
+            formLoadConfig.ExceptionEvent += new frmRconLoadConfig.StringBool(UpdateStatusError);
             if (formLoadConfig.ShowDialog() == DialogResult.OK) {
                 SourceRconTools.LoadConfigFile(formLoadConfig.ReturnValue);
             }

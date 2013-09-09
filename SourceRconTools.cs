@@ -5,10 +5,10 @@ using System.Text;
 using System.IO;
 using System.Threading;
 using System.Text.RegularExpressions;
-using RCONManager.Properties;
+using RConControl.Properties;
 using System.Windows.Forms;
 
-namespace RCONManager {
+namespace RConControl {
     public class SourceRconTools {
 
         /// <summary>

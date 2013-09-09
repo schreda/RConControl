@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace RCONManager.Forms {
+namespace RConControl.Forms {
     public partial class frmRconBan : Form {
 
         //*************************************************
@@ -35,7 +35,7 @@ namespace RCONManager.Forms {
             try {
                 List<SourceRconTools.Player> players = SourceRconTools.GetAllPlayers();
                 if (players.Count == 0) {
-                    MessageBox.Show(mLangMan.GetString("Rcon_NoPlayers"), mLangMan.GetString("Text_Info"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show(this, mLangMan.GetString("Rcon_NoPlayers"), mLangMan.GetString("Text_Info"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     this.Close();
                 }
                 foreach (SourceRconTools.Player player in players) {
@@ -69,7 +69,7 @@ namespace RCONManager.Forms {
 
         private void btnOk_Click(object sender, EventArgs e) {
             if (!checkBoxBanPermanent.Checked && !Regex.IsMatch(textBoxBanTime.Text, @"\d+")) {
-                MessageBox.Show(mLangMan.GetString("Ban_WrongTime"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, mLangMan.GetString("Ban_WrongTime"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             } else {
                 int time;
                 if (checkBoxBanPermanent.Checked) { time = 0; } else { time = Convert.ToInt32(textBoxBanTime.Text); }

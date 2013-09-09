@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RCONManager.Forms {
+namespace RConControl.Forms {
     public partial class frmRconKick : Form {
 
         //*************************************************
@@ -30,7 +30,7 @@ namespace RCONManager.Forms {
             try {
                 List<SourceRconTools.Player> players = SourceRconTools.GetAllPlayers();
                 if (players.Count == 0) {
-                    MessageBox.Show(mLangMan.GetString("Rcon_NoPlayers"), mLangMan.GetString("Text_Info"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show(this, mLangMan.GetString("Rcon_NoPlayers"), mLangMan.GetString("Text_Info"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     this.Close();
                 }
                 foreach (SourceRconTools.Player player in players) {

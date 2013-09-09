@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RCONManager.Forms {
+namespace RConControl.Forms {
     public partial class frmRconChangeMap : Form {
 
         //*************************************************

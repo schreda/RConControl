@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RCONManager.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RConControl.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="RconIP" Type="System.String" Scope="User">
@@ -26,13 +26,13 @@
     <Setting Name="UseZblock" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="HKey_LoadCFG" Type="RCONManager.HotKeyObject" Scope="User">
+    <Setting Name="HKey_LoadCFG" Type="RConControl.HotKeyObject" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="HKey_Restart" Type="RCONManager.HotKeyObject" Scope="User">
+    <Setting Name="HKey_Restart" Type="RConControl.HotKeyObject" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="HKey_LoadCFG_Config" Type="RCONManager.ConfigFile" Scope="User">
+    <Setting Name="HKey_LoadCFG_Config" Type="RConControl.ConfigFile" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="UpdateUserSettings" Type="System.Boolean" Scope="User">

@@ -1,4 +1,4 @@
-﻿namespace RCONManager.Forms {
+﻿namespace RConControl.Forms {
     partial class frmRconKick {
         /// <summary>
         /// Required designer variable.

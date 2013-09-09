@@ -1,4 +1,4 @@
-﻿namespace RCONManager.Forms {
+﻿namespace RConControl.Forms {
     partial class frmHotKeys {
         /// <summary>
         /// Required designer variable.

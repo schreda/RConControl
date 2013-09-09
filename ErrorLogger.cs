@@ -6,7 +6,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Collections;
 
-namespace RCONManager {
+namespace RConControl {
     public class ErrorLogger {
         public static void Log(Exception ex) {
             StackTrace st = new StackTrace(ex);

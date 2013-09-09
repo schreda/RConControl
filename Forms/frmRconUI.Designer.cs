@@ -1,4 +1,4 @@
-﻿namespace RCONManager.Forms {
+﻿namespace RConControl.Forms {
     partial class frmRconUI {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -218,7 +218,7 @@
             // 
             // menuItemOpenConfig
             // 
-            this.menuItemOpenConfig.Image = global::RCONManager.Properties.Resources.import;
+            this.menuItemOpenConfig.Image = global::RConControl.Properties.Resources.import;
             this.menuItemOpenConfig.Name = "menuItemOpenConfig";
             this.menuItemOpenConfig.Size = new System.Drawing.Size(164, 22);
             this.menuItemOpenConfig.Text = "Config öffnen";
@@ -226,7 +226,7 @@
             // 
             // menuItemSaveConfig
             // 
-            this.menuItemSaveConfig.Image = global::RCONManager.Properties.Resources.export;
+            this.menuItemSaveConfig.Image = global::RConControl.Properties.Resources.export;
             this.menuItemSaveConfig.Name = "menuItemSaveConfig";
             this.menuItemSaveConfig.Size = new System.Drawing.Size(164, 22);
             this.menuItemSaveConfig.Text = "Config speichern";
@@ -239,7 +239,7 @@
             // 
             // menuItemExit
             // 
-            this.menuItemExit.Image = global::RCONManager.Properties.Resources.exit;
+            this.menuItemExit.Image = global::RConControl.Properties.Resources.exit;
             this.menuItemExit.Name = "menuItemExit";
             this.menuItemExit.Size = new System.Drawing.Size(164, 22);
             this.menuItemExit.Text = "Beenden";
@@ -257,7 +257,7 @@
             // 
             // menuItemConnect
             // 
-            this.menuItemConnect.Image = global::RCONManager.Properties.Resources.connect;
+            this.menuItemConnect.Image = global::RConControl.Properties.Resources.connect;
             this.menuItemConnect.Name = "menuItemConnect";
             this.menuItemConnect.Size = new System.Drawing.Size(128, 22);
             this.menuItemConnect.Text = "Verbinden";
@@ -265,7 +265,7 @@
             // 
             // menuItemDisconnect
             // 
-            this.menuItemDisconnect.Image = global::RCONManager.Properties.Resources.disconnect;
+            this.menuItemDisconnect.Image = global::RConControl.Properties.Resources.disconnect;
             this.menuItemDisconnect.Name = "menuItemDisconnect";
             this.menuItemDisconnect.Size = new System.Drawing.Size(128, 22);
             this.menuItemDisconnect.Text = "Trennen";
@@ -283,7 +283,7 @@
             // 
             // menuItemHotkeys
             // 
-            this.menuItemHotkeys.Image = global::RCONManager.Properties.Resources.keyboard;
+            this.menuItemHotkeys.Image = global::RConControl.Properties.Resources.keyboard;
             this.menuItemHotkeys.Name = "menuItemHotkeys";
             this.menuItemHotkeys.Size = new System.Drawing.Size(145, 22);
             this.menuItemHotkeys.Text = "Hotkeys";
@@ -291,7 +291,7 @@
             // 
             // menuItemSettings
             // 
-            this.menuItemSettings.Image = global::RCONManager.Properties.Resources.settings;
+            this.menuItemSettings.Image = global::RConControl.Properties.Resources.settings;
             this.menuItemSettings.Name = "menuItemSettings";
             this.menuItemSettings.Size = new System.Drawing.Size(145, 22);
             this.menuItemSettings.Text = "Einstellungen";

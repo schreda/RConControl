@@ -1,4 +1,4 @@
-﻿namespace RCONManager.Forms {
+﻿namespace RConControl.Forms {
     partial class frmAbout {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::RCONManager.Properties.Resources.schredx;
+            this.pictureBox1.Image = global::RConControl.Properties.Resources.schredx;
             this.pictureBox1.Location = new System.Drawing.Point(12, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(199, 71);

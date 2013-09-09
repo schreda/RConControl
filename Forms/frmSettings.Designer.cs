@@ -1,4 +1,4 @@
-﻿namespace RCONManager {
+﻿namespace RConControl {
     partial class frmSettings {
         /// <summary>
         /// Required designer variable.

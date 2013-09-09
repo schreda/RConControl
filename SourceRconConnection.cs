@@ -1,4 +1,4 @@
-﻿using RCONManager.Properties;
+﻿using RConControl.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace RCONManager {
+namespace RConControl {
     public class SourceRconConnection {
         
         // Singleton

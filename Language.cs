@@ -1,11 +1,11 @@
-﻿using RCONManager.Properties;
+﻿using RConControl.Properties;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Resources;
 using System.Text;
 
-namespace RCONManager {
+namespace RConControl {
     public class Language {
 
         // Singleton
@@ -32,7 +32,7 @@ namespace RCONManager {
         // CTor
         //*************************************************
         private Language() {
-            res_man = new ResourceManager("RCONManager.Resources.Language.lang", typeof(Forms.frmRconUI).Assembly);
+            res_man = new ResourceManager("RConControl.Resources.Language.lang", typeof(Forms.frmRconUI).Assembly);
             InitLang();
         }
 

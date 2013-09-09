@@ -10,11 +10,11 @@ using System.Collections;
 using System.Reflection;
 using System.IO;
 using System.Xml;
-using RCONManager.Properties;
+using RConControl.Properties;
 using System.Xml.Serialization;
 using System.Configuration;
 
-namespace RCONManager {
+namespace RConControl {
     public class Tools {
 
         /// <summary>
@@ -73,33 +73,41 @@ namespace RCONManager {
         /// <returns>List with ConfigFiles</returns>
         public static List<ConfigFile> GetAllConfigFiles() {
             List<ConfigFile> resultList = new List<ConfigFile>();
-            string[] fileList = Directory.GetFiles(GlobalConstants.PATH_CONFIGS, "*.cfg");
+            try {
+                if (Directory.Exists(GlobalConstants.PATH_CONFIGS)) {
+                    string[] fileList = Directory.GetFiles(GlobalConstants.PATH_CONFIGS, "*.cfg");
 
-            foreach (string file in fileList) {
-                string[] readFile = File.ReadAllLines(file);
+                    foreach (string file in fileList) {
+                        string[] readFile = File.ReadAllLines(file);
 
-                if (readFile.Length > 0) {
-                    string name = null;
-                    StringBuilder fileContent = new StringBuilder();
+                        if (readFile.Length > 0) {
+                            string name = null;
+                            StringBuilder fileContent = new StringBuilder();
 
-                    foreach (string readLine in readFile) {
-                        string line = readLine.Trim();
+                            foreach (string readLine in readFile) {
+                                string line = readLine.Trim();
 
-                        if (line.IndexOf("//") == 0 && line.Contains("Name:")) {
-                            int startIdx = line.IndexOf(':') + 1;
-                            name = line.Substring(startIdx, line.Length - startIdx);
-                        } else if (name == null) {
-                            name = file;
+                                if (line.IndexOf("//") == 0 && line.Contains("Name:")) {
+                                    int startIdx = line.IndexOf(':') + 1;
+                                    name = line.Substring(startIdx, line.Length - startIdx);
+                                } else if (name == null) {
+                                    name = file;
+                                }
+                                if (line.IndexOf("//") != 0 && !String.IsNullOrEmpty(line)) {
+                                    fileContent.AppendLine(line);
+                                }
+
+                            }
+                            if (name != null && fileContent.Length > 0) {
+                                resultList.Add(new ConfigFile { name = name, content = fileContent.ToString().TrimEnd('\r', '\n') });
+                            }
                         }
-                        if (line.IndexOf("//") != 0 && !String.IsNullOrEmpty(line)) {
-                            fileContent.AppendLine(line);
-                        }
-
                     }
-                    if (name != null && fileContent.Length > 0) {
-                        resultList.Add(new ConfigFile { name = name, content = fileContent.ToString().TrimEnd('\r', '\n') });
-                    }
+                } else {
+                    throw new Exception("directory does not exist");
                 }
+            } catch (Exception ex) {
+                throw ex;
             }
             return resultList;
         }

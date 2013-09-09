@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Xml.Serialization;
 
-namespace RCONManager {
+namespace RConControl {
     public class HotKeyClass : IMessageFilter {
 
         [DllImport("user32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]

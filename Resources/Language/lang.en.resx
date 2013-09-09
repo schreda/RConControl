@@ -289,7 +289,7 @@
     <value>Restart 3x</value>
   </data>
   <data name="Main_FormTitle" xml:space="preserve">
-    <value>RCONManager</value>
+    <value>RConControl</value>
   </data>
   <data name="Main_Group_PlayerCommands" xml:space="preserve">
     <value>Player commands</value>
@@ -362,5 +362,8 @@
   </data>
   <data name="Button_Close" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="Error_NoConfigs" xml:space="preserve">
+    <value>Folder 'configs' doesn't exist!</value>
   </data>
 </root>

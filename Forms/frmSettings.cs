@@ -1,4 +1,4 @@
-﻿using RCONManager.Properties;
+﻿using RConControl.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
-namespace RCONManager {
+namespace RConControl {
     public partial class frmSettings : Form {
 
         //*************************************************
@@ -50,11 +50,11 @@ namespace RCONManager {
 
         private void btnOk_Click(object sender, EventArgs e) {
             if (!Regex.IsMatch(textBoxServerIp.Text, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")) {
-                MessageBox.Show(mLangMan.GetString("Settings_WrongIP"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, mLangMan.GetString("Settings_WrongIP"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             } else if (!Regex.IsMatch(textBoxServerPort.Text, @"\d{2,5}")) {
-                MessageBox.Show(mLangMan.GetString("Settings_WrongPort"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, mLangMan.GetString("Settings_WrongPort"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             } else if (String.IsNullOrEmpty(textBoxRconPw.Text)) {
-                MessageBox.Show(mLangMan.GetString("Settings_WrongRconPW"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, mLangMan.GetString("Settings_WrongRconPW"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             } else {
                 Settings.Default.Language       = Tools.GetCultureByNativeName((string)comboBoxLanguage.SelectedItem).TwoLetterISOLanguageName;
                 Settings.Default.Autorun        = checkBoxAutorun.Checked;

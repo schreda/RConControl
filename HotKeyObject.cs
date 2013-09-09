@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
-namespace RCONManager {
+namespace RConControl {
     public class HotKeyObject {
         [XmlElement(ElementName = "Hotkey")]
         public Keys HotKey { get; set; }

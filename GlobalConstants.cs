@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RCONManager {
+namespace RConControl {
     public class GlobalConstants {
         // Strings
         public const string AUTORUN_REGKEY        = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
