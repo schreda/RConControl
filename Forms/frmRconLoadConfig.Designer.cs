@@ -76,6 +76,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.comboBoxConfigs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "frmRconLoadConfig";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

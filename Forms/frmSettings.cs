@@ -32,7 +32,7 @@ namespace RCONManager {
             foreach (CultureInfo culture in availableLanguages) comboBoxLanguage.Items.Add(culture.NativeName);
             comboBoxLanguage.SelectedItem = Tools.GetCultureByTwoLetterISO(Settings.Default.Language).NativeName;
 
-            checkBoxAutorun.Checked     = Settings.Default.Autorun;
+            checkBoxAutorun.Checked     = Tools.GetAutorun();
             checkBoxAutoconnect.Checked = Settings.Default.Autoconnect;
             checkBoxStartMin.Checked    = Settings.Default.StartMinimized;
             checkBoxZblock.Checked      = Settings.Default.UseZblock;
@@ -67,7 +67,7 @@ namespace RCONManager {
                 Settings.Default.Save();
 
                 mLangMan.SwitchLang();
-                Tools.SetAutorun(checkBoxAutorun.Checked);
+                Tools.SetAutorun();
 
                 this.Close();
             }               

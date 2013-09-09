@@ -32,26 +32,23 @@ namespace SourceRcon {
 #endif
         }
 
-        public bool Connect(IPEndPoint Server, string password) {
+        public void Connect(IPEndPoint Server, string password) {
             IAsyncResult result = S.BeginConnect(Server, null, null);
-            bool success = result.AsyncWaitHandle.WaitOne(4000, true);
-            if (!success) {
+            result.AsyncWaitHandle.WaitOne(4000, true);
+            if (!result.IsCompleted || !S.Connected) {
                 S.Close();
                 OnError(ConnectionFailedString);
-                return false;
+            } else {
+                RCONPacket SA     = new RCONPacket();
+                SA.RequestId      = 1;
+                SA.String1        = password;
+                SA.ServerDataSent = RCONPacket.SERVERDATA_sent.SERVERDATA_AUTH;
+
+                SendRCONPacket(SA);
+
+                // This is the first time we've sent, so we can start listening now!
+                StartGetNewPacket();
             }
-
-            RCONPacket SA = new RCONPacket();
-            SA.RequestId = 1;
-            SA.String1 = password;
-            SA.ServerDataSent = RCONPacket.SERVERDATA_sent.SERVERDATA_AUTH;
-
-            SendRCONPacket(SA);
-
-            // This is the first time we've sent, so we can start listening now!
-            StartGetNewPacket();
-
-            return true;
         }
 
         public void ServerCommand(string command) {

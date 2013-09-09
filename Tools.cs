@@ -42,14 +42,29 @@ namespace RCONManager {
         }
 
         /// <summary>
-        /// Set Autorun
+        /// Set Autorun in case of Settings value
         /// </summary>
-        /// <param name="state">true or false</param>
-        public static void SetAutorun(bool state) {
+        public static void SetAutorun() {
             RegistryKey rkApp = Registry.CurrentUser.OpenSubKey(GlobalConstants.AUTORUN_REGKEY, true);
 
-            if (state) rkApp.SetValue(Application.ProductName, Application.ExecutablePath.ToString());
+            if (Settings.Default.Autorun) rkApp.SetValue(Application.ProductName, Application.ExecutablePath.ToString());
             else rkApp.DeleteValue(Application.ProductName, false);
+        }
+
+        /// <summary>
+        /// Set Autorun in case of Settings value
+        /// </summary>
+        public static bool GetAutorun() {
+            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey(GlobalConstants.AUTORUN_REGKEY, true);
+            string regKey = (string)rkApp.GetValue(Application.ProductName);
+            if (Settings.Default.Autorun) {
+                if (regKey != null && !regKey.Contains(Application.ExecutablePath.ToString())) {
+                    return true;
+                } else {
+                    Settings.Default.Autorun = false;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -59,6 +74,7 @@ namespace RCONManager {
         public static List<ConfigFile> GetAllConfigFiles() {
             List<ConfigFile> resultList = new List<ConfigFile>();
             string[] fileList = Directory.GetFiles(GlobalConstants.PATH_CONFIGS, "*.cfg");
+
             foreach (string file in fileList) {
                 string[] readFile = File.ReadAllLines(file);
 
@@ -139,6 +155,7 @@ namespace RCONManager {
                 foreach (SettingsKeyValue<ConfigFile> value in mValuesConfigFile) Settings.Default[value.Key] = value.Value;
                 foreach (SettingsKeyValue<HotKeyObject> value in mValuesHotKeyData) Settings.Default[value.Key] = value.Value;
                 mLangMan.SwitchLang();
+                Tools.SetAutorun();
                 Settings.Default.Save();
             }
         }

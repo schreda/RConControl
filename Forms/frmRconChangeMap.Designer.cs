@@ -76,6 +76,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.comboBoxMaps);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "frmRconChangeMap";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

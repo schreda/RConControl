@@ -241,13 +241,15 @@ namespace RCONManager.Forms {
             }
         }
 
-        private void UpdateStatusError(string strError, bool reset = false) {
+        private void UpdateStatusError(string strError, bool hintOnly = false) {
             statusIconStatus.Image          = Resources.red;
             statusLabelStatusRcon.ForeColor = Color.Red;
             statusLabelStatusRcon.Text      = String.Format(mLangMan.GetString("Error_Statusbar"), strError);
-            if (reset) {
+            if (hintOnly) {
                 Thread threadResetError = new Thread(delegate() { ResetStatusError(); });
                 threadResetError.Start();
+            } else {
+                notifyIcon.Icon = Resources.connectionerror;
             }
         }
 
@@ -264,11 +266,12 @@ namespace RCONManager.Forms {
             }
 
             statusLabelStatusRcon.ForeColor = Color.Black;
+            menuConnection.Enabled = true;
 
             if (rcon.GetState() == SourceRconConnection.State.Connected) {
                 groupPlayerCommands.Enabled = true;
                 groupServerCommands.Enabled = true;
-
+               
                 notifyIcon.Icon            = Resources.IconConnected;
                 statusIconStatus.Image     = Resources.green;
                 statusLabelStatusRcon.Text = String.Format(mLangMan.GetString("StatusRconLbl_Connected"), rcon.connectedIP);
@@ -278,19 +281,15 @@ namespace RCONManager.Forms {
                 groupServerCommands.Enabled = false;
 
                 if (String.IsNullOrEmpty(Settings.Default.RconIP)) {
-
+                    menuConnection.Enabled     = false;
                     notifyIcon.Icon            = Resources.IconDisconnected;
                     statusIconStatus.Image     = null;
                     statusLabelStatusRcon.Text = mLangMan.GetString("StatusRconLbl_NotConfigured");
-
                 } else if (rcon.GetState() == SourceRconConnection.State.Connecting) {
-
                     notifyIcon.Icon            = Resources.IconConnecting;
                     statusIconStatus.Image     = Resources.orange;
                     statusLabelStatusRcon.Text = mLangMan.GetString("StatusRconLbl_Connecting");
-
                 } else if (rcon.GetState() == SourceRconConnection.State.Disconnected) {
-
                     notifyIcon.Icon            = Resources.IconDisconnected;
                     statusIconStatus.Image     = Resources.red;
                     statusLabelStatusRcon.Text = mLangMan.GetString("StatusRconLbl_Disconnected");

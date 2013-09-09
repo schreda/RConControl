@@ -176,6 +176,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.checkedListBoxPlayers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "frmRconBan";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

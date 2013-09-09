@@ -259,7 +259,7 @@
             // 
             this.menuItemConnect.Image = global::RCONManager.Properties.Resources.connect;
             this.menuItemConnect.Name = "menuItemConnect";
-            this.menuItemConnect.Size = new System.Drawing.Size(152, 22);
+            this.menuItemConnect.Size = new System.Drawing.Size(128, 22);
             this.menuItemConnect.Text = "Verbinden";
             this.menuItemConnect.Click += new System.EventHandler(this.menuItemConnect_Click);
             // 
@@ -267,7 +267,7 @@
             // 
             this.menuItemDisconnect.Image = global::RCONManager.Properties.Resources.disconnect;
             this.menuItemDisconnect.Name = "menuItemDisconnect";
-            this.menuItemDisconnect.Size = new System.Drawing.Size(152, 22);
+            this.menuItemDisconnect.Size = new System.Drawing.Size(128, 22);
             this.menuItemDisconnect.Text = "Trennen";
             this.menuItemDisconnect.Click += new System.EventHandler(this.menuItemDisconnect_Click);
             // 
@@ -285,7 +285,7 @@
             // 
             this.menuItemHotkeys.Image = global::RCONManager.Properties.Resources.keyboard;
             this.menuItemHotkeys.Name = "menuItemHotkeys";
-            this.menuItemHotkeys.Size = new System.Drawing.Size(152, 22);
+            this.menuItemHotkeys.Size = new System.Drawing.Size(145, 22);
             this.menuItemHotkeys.Text = "Hotkeys";
             this.menuItemHotkeys.Click += new System.EventHandler(this.menuItemHotkeys_Click);
             // 
@@ -293,7 +293,7 @@
             // 
             this.menuItemSettings.Image = global::RCONManager.Properties.Resources.settings;
             this.menuItemSettings.Name = "menuItemSettings";
-            this.menuItemSettings.Size = new System.Drawing.Size(152, 22);
+            this.menuItemSettings.Size = new System.Drawing.Size(145, 22);
             this.menuItemSettings.Text = "Einstellungen";
             this.menuItemSettings.Click += new System.EventHandler(this.menuItemSettings_Click);
             // 
@@ -323,6 +323,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
+            this.MaximizeBox = false;
             this.Name = "frmRconUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClitCommando Rcon UI";

@@ -55,6 +55,7 @@ namespace RCONManager {
         //*************************************************
         public void Connect() {
             if (!String.IsNullOrEmpty(Settings.Default.RconIP)) {
+                isConnected                = false;
                 connectedIP                = Settings.Default.RconIP;
                 srcRcon                    = null;
                 srcRcon                    = new SourceRcon.SourceRcon();
@@ -73,7 +74,6 @@ namespace RCONManager {
             srcRcon        = null;
             reconnectTries = 0;
             isConnected    = false;
-            threadConnect.Abort();
             OnlineStateEvent();
         }
 

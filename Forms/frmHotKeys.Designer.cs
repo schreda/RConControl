@@ -134,8 +134,9 @@
             this.Controls.Add(this.btnHkeyLoadCfg);
             this.Controls.Add(this.lblLoadCfg);
             this.Controls.Add(this.lblHkeyLoadCfg);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "frmHotKeys";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

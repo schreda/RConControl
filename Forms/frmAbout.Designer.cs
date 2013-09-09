@@ -134,6 +134,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "frmAbout";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
