@@ -34,7 +34,7 @@ namespace SourceRcon {
 
         public void Connect(IPEndPoint Server, string password) {
             IAsyncResult result = S.BeginConnect(Server, null, null);
-            result.AsyncWaitHandle.WaitOne(4000, true);
+            result.AsyncWaitHandle.WaitOne(RConControl.GlobalConstants.RCON_CONNECT_TIMEOUT, true);
             if (!result.IsCompleted || !S.Connected) {
                 S.Close();
                 OnError(ConnectionFailedString);

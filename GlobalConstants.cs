@@ -35,6 +35,7 @@ namespace RConControl {
         public const int ERROR_RESET_TIME     = 3000; // ms
         public const int RCON_RECEIVE_WAIT    = 100;
         public const int RCON_RECEIVE_TRIES   = 10;
-        public const int RCON_RECONNECT_TRIES = 5;
+        public const int RCON_RECONNECT_TRIES = 10;
+        public const int RCON_CONNECT_TIMEOUT = 5000;
     }
 }

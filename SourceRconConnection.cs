@@ -43,9 +43,9 @@ namespace RConControl {
         private SourceRcon.SourceRcon srcRcon = null;
         private Language mLangMan = Language.Instance;
 
-        BackgroundWorker mBgConnect = new BackgroundWorker();
+        private Thread mThreadConnect;
         private int mReconnectTries = 0;
-        private bool mIsConnected = false; // true, if server is really connected. false if under reconnecting
+        private bool mIsConnected   = false; // true, if server is really connected. false if under reconnecting
 
         //*************************************************
         // CTor
@@ -57,7 +57,7 @@ namespace RConControl {
         //*************************************************
         public void Connect() {
             if (!String.IsNullOrEmpty(Settings.Default.RconIP)) {
-                mIsConnected = false;
+                mIsConnected               = false;
                 connectedIP                = Settings.Default.RconIP;
                 srcRcon                    = null;
                 srcRcon                    = new SourceRcon.SourceRcon();
@@ -65,18 +65,18 @@ namespace RConControl {
                 srcRcon.ServerOutput      += new SourceRcon.StringOutput(ConsoleOutput);
                 srcRcon.ConnectionSuccess += new SourceRcon.BoolInfo(ConnectionSuccessInfo);
 
-                mBgConnect.DoWork += ConnectAsync;
-                mBgConnect.RunWorkerAsync();
+                mThreadConnect = new Thread(delegate() { srcRcon.Connect(new IPEndPoint(IPAddress.Parse(Settings.Default.RconIP), Settings.Default.RconPort), Settings.Default.RconPW); });
+                mThreadConnect.Start();
 
                 OnlineStateEvent();
             }
         }
 
         public void Disconnect() {
-            connectedIP    = null;
-            srcRcon        = null;
+            connectedIP     = null;
+            srcRcon         = null;
             mReconnectTries = 0;
-            mIsConnected = false;
+            mIsConnected    = false;
             OnlineStateEvent();
         }
 
@@ -90,10 +90,6 @@ namespace RConControl {
 
         public void Send(string cmd) {
             srcRcon.ServerCommand(cmd);
-        }
-
-        private void ConnectAsync(object sender, DoWorkEventArgs e) {
-            srcRcon.Connect(new IPEndPoint(IPAddress.Parse(Settings.Default.RconIP), Settings.Default.RconPort), Settings.Default.RconPW);
         }
 
         //*************************************************
@@ -119,7 +115,7 @@ namespace RConControl {
             if (mReconnectTries < GlobalConstants.RCON_RECONNECT_TRIES) {
                 mReconnectTries++;
                 Connect();
-                if (!mIsConnected) ErrorEvent(String.Format(mLangMan.GetString("Error_Reconnecting"), mReconnectTries));
+                ErrorEvent(String.Format(mLangMan.GetString("Error_Reconnecting"), mReconnectTries));
             } else {
                 Disconnect();
                 ErrorEvent(String.Format(mLangMan.GetString("Error_ReconnectFailed"), GlobalConstants.RCON_RECONNECT_TRIES));
