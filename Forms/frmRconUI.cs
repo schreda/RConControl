@@ -162,22 +162,22 @@ namespace RConControl.Forms {
         }
 
         private void menuItemAbout_Click(object sender, EventArgs e) {
-            frmAbout formAbout = new frmAbout { Owner = this };
-            formAbout.Show();
+            frmAbout formAbout = new frmAbout();
+            formAbout.ShowDialog();
         }
 
         // Button Kick Players
         private void btnKick_Click(object sender, EventArgs e) {
-            frmRconKick formKickPlayers     = new frmRconKick { Owner = this };
+            frmRconKick formKickPlayers     = new frmRconKick();
             formKickPlayers.ExceptionEvent += new frmRconKick.StringHandler(UpdateStatusHint);
-            formKickPlayers.Show();
+            formKickPlayers.ShowDialog();
         }
 
         // Button Ban Players
         private void btnBan_Click(object sender, EventArgs e) {
-            frmRconBan formBanPlayers      = new frmRconBan { Owner = this };
+            frmRconBan formBanPlayers      = new frmRconBan();
             formBanPlayers.ExceptionEvent += new frmRconBan.StringHandler(UpdateStatusHint);
-            formBanPlayers.Show();
+            formBanPlayers.ShowDialog();
         }
 
         // Button Change map

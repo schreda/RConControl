@@ -50,22 +50,19 @@ namespace RConControl.Forms {
             textBoxMsg.Enabled = checkBoxKcikWithMsg.Checked;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) {
-            this.Close();
+        private void frmRconKick_FormClosing(object sender, FormClosingEventArgs e) {
+            if (this.DialogResult == DialogResult.OK) {
+                for (int i = 0; i < checkedListBoxPlayers.Items.Count; i++) {
+                    if (checkedListBoxPlayers.GetItemChecked(i)) {
+                        SourceRconTools.Player player = (SourceRconTools.Player)checkedListBoxPlayers.Items[i];
+                        if (checkBoxKcikWithMsg.Checked) SourceRconTools.KickPlayer(player, textBoxMsg.Text);
+                        else SourceRconTools.KickPlayer(player);
+
+                    }
+                }
+            }
         }
 
-        private void btnOk_Click(object sender, EventArgs e) {
-            for (int i = 0; i < checkedListBoxPlayers.Items.Count; i++) {
-                if(checkedListBoxPlayers.GetItemChecked(i)) {
-                    SourceRconTools.Player player = (SourceRconTools.Player)checkedListBoxPlayers.Items[i];
-                    if (checkBoxKcikWithMsg.Checked) SourceRconTools.KickPlayer(player, textBoxMsg.Text);
-                    else SourceRconTools.KickPlayer(player);
-                    
-                }
-            }     
-            this.Close();
-        }  
-        
         //*************************************************
         // Methods
         //*************************************************

@@ -78,17 +78,6 @@ namespace RConControl.Forms {
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
-        private void btnOk_Click(object sender, EventArgs e) {
-            if (mCurrentEdit == EditMode.None) {
-                Settings.Default.Save();
-                this.Close();
-            }
-        }
-
         private void frmHotKeys_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 if (mCurrentEdit == EditMode.LoadCfg) {
@@ -124,6 +113,16 @@ namespace RConControl.Forms {
                     mHkeyRestart = hkey;
                     mHkeyRestart.HotKeyID = GlobalConstants.HOTKEYID_RESTART;
                     lblHkeyRestart.Text = text;
+                }
+            }
+        }
+
+        private void frmHotKeys_FormClosing(object sender, FormClosingEventArgs e) {
+            if (this.DialogResult == DialogResult.OK) {
+                if (mCurrentEdit == EditMode.None) {
+                    Settings.Default.Save();
+                } else {
+                    e.Cancel = true;
                 }
             }
         }

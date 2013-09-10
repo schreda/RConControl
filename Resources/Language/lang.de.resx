@@ -151,7 +151,7 @@
     <value>Falsche eingabe der IP Adresse</value>
   </data>
   <data name="Settings_WrongPort" xml:space="preserve">
-    <value>Falsche ingabe des Ports</value>
+    <value>Falsche eingabe des Ports</value>
   </data>
   <data name="Settings_WrongRconPW" xml:space="preserve">
     <value>Kein RCON Passwort eingegeben</value>

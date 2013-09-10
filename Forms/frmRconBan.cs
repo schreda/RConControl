@@ -63,30 +63,28 @@ namespace RConControl.Forms {
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) {
-            this.Close();
-        }
+        private void frmRconBan_FormClosing(object sender, FormClosingEventArgs e) {
+            if (this.DialogResult == DialogResult.OK) {
+                if (!checkBoxBanPermanent.Checked && !Regex.IsMatch(textBoxBanTime.Text, @"\d+")) {
+                    MessageBox.Show(this, mLangMan.GetString("Ban_WrongTime"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    e.Cancel = true;
+                } else {
+                    int time;
+                    if (checkBoxBanPermanent.Checked) { time = 0; } else { time = Convert.ToInt32(textBoxBanTime.Text); }
 
-        private void btnOk_Click(object sender, EventArgs e) {
-            if (!checkBoxBanPermanent.Checked && !Regex.IsMatch(textBoxBanTime.Text, @"\d+")) {
-                MessageBox.Show(this, mLangMan.GetString("Ban_WrongTime"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-            } else {
-                int time;
-                if (checkBoxBanPermanent.Checked) { time = 0; } else { time = Convert.ToInt32(textBoxBanTime.Text); }
-
-                for (int i = 0; i < checkedListBoxPlayers.Items.Count; i++) {
-                    if (checkedListBoxPlayers.GetItemChecked(i)) {
-                        SourceRconTools.Player player = (SourceRconTools.Player)checkedListBoxPlayers.Items[i];
-                        if (radioButtonBanID.Checked) {
-                            SourceRconTools.BanPlayer(player, 0, time, checkBoxKick.Checked);
-                        } else if (radioButtonBanIP.Checked) {
-                            SourceRconTools.BanPlayer(player, 1, time, checkBoxKick.Checked);
-                        } else if (radioButtonBanBoth.Checked) {
-                            SourceRconTools.BanPlayer(player, 2, time, checkBoxKick.Checked);
+                    for (int i = 0; i < checkedListBoxPlayers.Items.Count; i++) {
+                        if (checkedListBoxPlayers.GetItemChecked(i)) {
+                            SourceRconTools.Player player = (SourceRconTools.Player)checkedListBoxPlayers.Items[i];
+                            if (radioButtonBanID.Checked) {
+                                SourceRconTools.BanPlayer(player, 0, time, checkBoxKick.Checked);
+                            } else if (radioButtonBanIP.Checked) {
+                                SourceRconTools.BanPlayer(player, 1, time, checkBoxKick.Checked);
+                            } else if (radioButtonBanBoth.Checked) {
+                                SourceRconTools.BanPlayer(player, 2, time, checkBoxKick.Checked);
+                            }
                         }
                     }
                 }
-                this.Close();
             }
         }
 

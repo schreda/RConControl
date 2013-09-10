@@ -39,10 +39,6 @@ namespace RConControl.Forms {
             btnClose.Text = mLangMan.GetString("Button_Close");
         }
 
-        private void btnClose_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
         private void lblHttp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             Process.Start("http://schreda.com");  
         }

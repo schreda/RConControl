@@ -43,15 +43,10 @@ namespace RConControl.Forms {
         //*************************************************
         // Event receivers
         //*************************************************
-        private void btnCancel_Click(object sender, EventArgs e) {
-            DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void btnOk_Click(object sender, EventArgs e) {
-            ReturnValue = (string)comboBoxMaps.SelectedItem;
-            DialogResult = DialogResult.OK;
-            this.Close();
+        private void frmRconChangeMap_FormClosing(object sender, FormClosingEventArgs e) {
+            if (this.DialogResult == DialogResult.OK) {
+                ReturnValue = (string)comboBoxMaps.SelectedItem;
+            }
         }
 
         //*************************************************

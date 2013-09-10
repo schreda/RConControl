@@ -44,33 +44,32 @@ namespace RConControl {
         //*************************************************
         // Event receivers
         //*************************************************
-        private void btnCancel_Click(object sender, EventArgs e) {
-            this.Close();
-        }
+        private void frmSettings_FormClosing(object sender, FormClosingEventArgs e) {
+            if (this.DialogResult == DialogResult.OK) {
+                if (!Regex.IsMatch(textBoxServerIp.Text, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")) {
+                    MessageBox.Show(this, mLangMan.GetString("Settings_WrongIP"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    e.Cancel = true;
+                } else if (!Regex.IsMatch(textBoxServerPort.Text, @"\d{2,5}")) {
+                    MessageBox.Show(this, mLangMan.GetString("Settings_WrongPort"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    e.Cancel = true;
+                } else if (String.IsNullOrEmpty(textBoxRconPw.Text)) {
+                    MessageBox.Show(this, mLangMan.GetString("Settings_WrongRconPW"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    e.Cancel = true;
+                } else {
+                    Settings.Default.Language = Tools.GetCultureByNativeName((string)comboBoxLanguage.SelectedItem).TwoLetterISOLanguageName;
+                    Settings.Default.Autorun = checkBoxAutorun.Checked;
+                    Settings.Default.Autoconnect = checkBoxAutoconnect.Checked;
+                    Settings.Default.StartMinimized = checkBoxStartMin.Checked;
+                    Settings.Default.UseZblock = checkBoxZblock.Checked;
+                    Settings.Default.RconIP = textBoxServerIp.Text;
+                    Settings.Default.RconPort = Convert.ToInt32(textBoxServerPort.Text);
+                    Settings.Default.RconPW = textBoxRconPw.Text;
+                    Settings.Default.Save();
 
-        private void btnOk_Click(object sender, EventArgs e) {
-            if (!Regex.IsMatch(textBoxServerIp.Text, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")) {
-                MessageBox.Show(this, mLangMan.GetString("Settings_WrongIP"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-            } else if (!Regex.IsMatch(textBoxServerPort.Text, @"\d{2,5}")) {
-                MessageBox.Show(this, mLangMan.GetString("Settings_WrongPort"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-            } else if (String.IsNullOrEmpty(textBoxRconPw.Text)) {
-                MessageBox.Show(this, mLangMan.GetString("Settings_WrongRconPW"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-            } else {
-                Settings.Default.Language       = Tools.GetCultureByNativeName((string)comboBoxLanguage.SelectedItem).TwoLetterISOLanguageName;
-                Settings.Default.Autorun        = checkBoxAutorun.Checked;
-                Settings.Default.Autoconnect    = checkBoxAutoconnect.Checked;
-                Settings.Default.StartMinimized = checkBoxStartMin.Checked;
-                Settings.Default.UseZblock      = checkBoxZblock.Checked;
-                Settings.Default.RconIP         = textBoxServerIp.Text;
-                Settings.Default.RconPort       = Convert.ToInt32(textBoxServerPort.Text);
-                Settings.Default.RconPW         = textBoxRconPw.Text;
-                Settings.Default.Save();
-
-                mLangMan.SwitchLang();
-                Tools.SetAutorun();
-
-                this.Close();
-            }               
+                    mLangMan.SwitchLang();
+                    Tools.SetAutorun();
+                }
+            }
         }
 
         //*************************************************
