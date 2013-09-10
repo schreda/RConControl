@@ -13,31 +13,28 @@ using System.Xml;
 using RConControl.Properties;
 using System.Xml.Serialization;
 using System.Configuration;
+using System.Diagnostics;
 
 namespace RConControl {
     public class Tools {
 
         /// <summary>
-        /// Get CultureInfo type of two letter ISO
-        /// </summary>
-        /// <param name="twoLetter">two letter ISO name</param>
-        /// <returns>Culture with matching two letter ISO</returns>
-        public static CultureInfo GetCultureByTwoLetterISO(String twoLetter) {
-            CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.NeutralCultures);
-            var culture = cultures.FirstOrDefault(c =>
-                c.TwoLetterISOLanguageName.Equals(twoLetter, StringComparison.InvariantCultureIgnoreCase));
-            return culture;
-        }
-
-        /// <summary>
         /// Get CultureInfo type of native name 
         /// </summary>
-        /// <param name="nativeName">Native name of culture</param>
-        /// <returns>Culture with matching native name</returns>
         public static CultureInfo GetCultureByNativeName(String nativeName) {
             CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.NeutralCultures);
             var culture = cultures.FirstOrDefault(c =>
                 c.NativeName.Equals(nativeName, StringComparison.InvariantCultureIgnoreCase));
+            return culture;
+        }
+
+        /// <summary>
+        /// Get CultureInfo type of Two letter ISO
+        /// </summary>
+        public static CultureInfo GetCultureByTwoLetterISO(String twoLetter) {
+            CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.NeutralCultures);
+            var culture = cultures.FirstOrDefault(c =>
+                c.TwoLetterISOLanguageName.Equals(twoLetter, StringComparison.InvariantCultureIgnoreCase));
             return culture;
         }
 
@@ -73,9 +70,10 @@ namespace RConControl {
         /// <returns>List with ConfigFiles</returns>
         public static List<ConfigFile> GetAllConfigFiles() {
             List<ConfigFile> resultList = new List<ConfigFile>();
+            string path = Path.Combine(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), GlobalConstants.PATH_CONFIGS);
             try {
-                if (Directory.Exists(GlobalConstants.PATH_CONFIGS)) {
-                    string[] fileList = Directory.GetFiles(GlobalConstants.PATH_CONFIGS, "*.cfg");
+                if (Directory.Exists(path)) {
+                    string[] fileList = Directory.GetFiles(path, "*.cfg");
 
                     foreach (string file in fileList) {
                         string[] readFile = File.ReadAllLines(file);

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Reflection;
 using System.Resources;
 using System.Text;
 
@@ -32,7 +33,7 @@ namespace RConControl {
         // CTor
         //*************************************************
         private Language() {
-            res_man = new ResourceManager("RConControl.Resources.Language.lang", typeof(Forms.frmRconUI).Assembly);
+            res_man = new ResourceManager("RConControl.Resources.Language.lang", Assembly.GetExecutingAssembly());
             InitLang();
         }
 
@@ -64,16 +65,11 @@ namespace RConControl {
 
         private void InitLang() {
             if (String.IsNullOrEmpty(Settings.Default.Language)) {
-                if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "de") {
-                    cul = CultureInfo.CreateSpecificCulture("de");
-                    Settings.Default.Language = "de";
-                } else {
-                    cul = CultureInfo.CreateSpecificCulture("en");
-                    Settings.Default.Language = "en";
-                }
-            } else {
-                cul = CultureInfo.CreateSpecificCulture(Settings.Default.Language);
+                CultureInfo systemCulture = (CultureInfo.CurrentUICulture.IsNeutralCulture ? CultureInfo.CurrentUICulture : CultureInfo.CurrentUICulture.Parent);
+                Settings.Default.Language = (AvailableLanguages().Contains(systemCulture) ? systemCulture.TwoLetterISOLanguageName : new CultureInfo("en").TwoLetterISOLanguageName);
+                Settings.Default.Save();
             }
+            cul = Tools.GetCultureByTwoLetterISO(Settings.Default.Language);
         }
 
         public void SwitchLang() {

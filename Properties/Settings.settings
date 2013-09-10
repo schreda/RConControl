@@ -21,10 +21,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Autoconnect" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="UseZblock" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="HKey_LoadCFG" Type="RConControl.HotKeyObject" Scope="User">
       <Value Profile="(Default)" />

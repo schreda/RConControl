@@ -363,7 +363,7 @@
   <data name="Button_Close" xml:space="preserve">
     <value>Close</value>
   </data>
-  <data name="Error_NoConfigs" xml:space="preserve">
-    <value>Folder 'configs' doesn't exist!</value>
+  <data name="Error_LoadConfigs" xml:space="preserve">
+    <value>Error loading config files. Does folder 'configs' exist?</value>
   </data>
 </root>

@@ -17,8 +17,8 @@ namespace RConControl.Forms {
 
         public ConfigFile ReturnValue { get; set; }
 
-        public delegate void StringBool(string str, bool b = false);
-        public event StringBool ExceptionEvent;
+        public delegate void StringHandler(string str);
+        public event StringHandler ExceptionEvent;
 
         //*************************************************
         // Initialization
@@ -33,7 +33,7 @@ namespace RConControl.Forms {
                 comboBoxConfigs.DataSource = Tools.GetAllConfigFiles();
             } catch (Exception ex) {
                 ErrorLogger.Log(ex);
-                ExceptionEvent(mLangMan.GetString("Error_NoConfigs"), true);
+                ExceptionEvent(mLangMan.GetString("Error_LoadConfigs"));
                 this.Close();
             }
             

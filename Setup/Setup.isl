@@ -1150,11 +1150,8 @@
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
 		<row><td>INSTALLDIR</td><td>RCONCONTROL</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
-		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
-		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>ISYourDataBaseDir</td><td>INSTALLDIR</td><td>Database</td><td/><td>0</td><td/></row>
 		<row><td>LocalAppDataFolder</td><td>TARGETDIR</td><td>.:LocalA~1|LocalAppData</td><td/><td>0</td><td/></row>
-		<row><td>MY_PRODUCT_NAME</td><td>SCHREDX_PROGRAMMING</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
 		<row><td>PersonalFolder</td><td>TARGETDIR</td><td>.:Personal</td><td/><td>0</td><td/></row>
@@ -1164,7 +1161,6 @@
 		<row><td>ProgramMenuFolder</td><td>TARGETDIR</td><td>.:Programs</td><td/><td>3</td><td/></row>
 		<row><td>RCONCONTROL</td><td>ProgramFilesFolder</td><td>RCONCO~1|RConControl</td><td/><td>0</td><td/></row>
 		<row><td>RecentFolder</td><td>TARGETDIR</td><td>.:Recent</td><td/><td>0</td><td/></row>
-		<row><td>SCHREDX_PROGRAMMING</td><td>ProgramFilesFolder</td><td>SCHRED~1|schredx programming</td><td/><td>0</td><td/></row>
 		<row><td>SendToFolder</td><td>TARGETDIR</td><td>.:SendTo</td><td/><td>3</td><td/></row>
 		<row><td>StartMenuFolder</td><td>TARGETDIR</td><td>.:STARTM~1|Start Menu</td><td/><td>3</td><td/></row>
 		<row><td>StartupFolder</td><td>TARGETDIR</td><td>.:StartUp</td><td/><td>3</td><td/></row>
@@ -1177,6 +1173,8 @@
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
 		<row><td>rconco_1_rconcontrol</td><td>ProgramMenuFolder</td><td>RCONCO~1|RConControl</td><td/><td>1</td><td/></row>
+		<row><td>rconco_1_rconcontrol1</td><td>schred_1_schredx_programming</td><td>RCONCO~1|RConControl</td><td/><td>1</td><td/></row>
+		<row><td>schred_1_schredx_programming</td><td>ProgramMenuFolder</td><td>SCHRED~1|schredx programming</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -3600,6 +3598,7 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>LAUNCH~1.EXE|Launch RConControl.exe</td><td>0</td><td/><td>1285634772</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>1285671636</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>RConControl</td><td>0</td><td/><td>1285632756</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td>RConControl</td><td>0</td><td/><td>1285651607</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>1285675316</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>1285675316</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1285675316</td></row>
@@ -3892,9 +3891,8 @@
 		<row><td>ID_STRING2</td><td>1033</td><td>http://www.schreda.com</td><td>0</td><td/><td>1285650868</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>André Schreder</td><td>0</td><td/><td>1285626133</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>RConControl</td><td>0</td><td/><td>1285638900</td></row>
-		<row><td>ID_STRING5</td><td>1033</td><td>RCONCO~1|RConControl</td><td>0</td><td/><td>1285628788</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>1285637271</td></row>
 		<row><td>ID_STRING6</td><td>1033</td><td>Uninstall</td><td>0</td><td/><td>1285657460</td></row>
-		<row><td>ID_STRING7</td><td>1033</td><td>RCONCO~1|RConControl</td><td>0</td><td/><td>1285677940</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1285675316</td></row>
 	</table>
 
@@ -4596,8 +4594,10 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
+		<row><td>FileKey1</td><td>RConControl.Prim_re_Ausgabe</td><td/><td>schred_1_schredx_programming</td><td>2</td></row>
+		<row><td>FileKey2</td><td>RConControl.Prim_re_Ausgabe</td><td/><td>rconco_1_rconcontrol1</td><td>2</td></row>
 		<row><td>NewShortcut2</td><td>ISX_DEFAULTCOMPONENT</td><td/><td>rconco_1_rconcontrol</td><td>2</td></row>
-		<row><td>NewShortcut3</td><td>RConControl.Prim_re_Ausgabe</td><td/><td>rconco_1_rconcontrol</td><td>2</td></row>
+		<row><td>_Built</td><td>RConControl.Prim_re_Ausgabe</td><td/><td>rconco_1_rconcontrol1</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4683,9 +4683,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>NewShortcut1</td><td>DesktopFolder</td><td>##ID_STRING5##</td><td>RConControl.Prim_re_Ausgabe</td><td>AlwaysInstall</td><td/><td/><td/><td/><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>NewShortcut2</td><td>rconco_1_rconcontrol</td><td>##ID_STRING6##</td><td>ISX_DEFAULTCOMPONENT</td><td>[SystemFolder]MsiExec.exe</td><td>/x [ProductCode]</td><td/><td/><td>NewShortcut2_F5037F618BA54975A3AC73255A0DFBA2.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut3</td><td>rconco_1_rconcontrol</td><td>##ID_STRING7##</td><td>RConControl.Prim_re_Ausgabe</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built</td><td>rconco_1_rconcontrol1</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>RConControl.Prim_re_Ausgabe</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>RConControl.Prim_re_Ausgabe</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

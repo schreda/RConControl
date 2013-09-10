@@ -354,7 +354,16 @@
   <data name="Button_Close" xml:space="preserve">
     <value>Schließen</value>
   </data>
-  <data name="Error_NoConfigs" xml:space="preserve">
-    <value>Ordner 'configs' existiert nicht</value>
+  <data name="Error_LoadConfigs" xml:space="preserve">
+    <value>Fehler beim laden der configs! Existiert der Ordner 'configs' ?</value>
+  </data>
+  <data name="Updater_ErrorLoadingXML" xml:space="preserve">
+    <value>Das XML file konnte nicht geladen werden</value>
+  </data>
+  <data name="Updater_InvalidWebsite" xml:space="preserve">
+    <value>Ungültige Webseite</value>
+  </data>
+  <data name="Updater_XMLIncomplete" xml:space="preserve">
+    <value>Das XML file ist fehlerhaft</value>
   </data>
 </root>

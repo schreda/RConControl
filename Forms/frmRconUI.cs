@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Deployment.Application;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -168,21 +169,21 @@ namespace RConControl.Forms {
         // Button Kick Players
         private void btnKick_Click(object sender, EventArgs e) {
             frmRconKick formKickPlayers     = new frmRconKick { Owner = this };
-            formKickPlayers.ExceptionEvent += new frmRconKick.StringBool(UpdateStatusError);
+            formKickPlayers.ExceptionEvent += new frmRconKick.StringHandler(UpdateStatusHint);
             formKickPlayers.Show();
         }
 
         // Button Ban Players
         private void btnBan_Click(object sender, EventArgs e) {
             frmRconBan formBanPlayers      = new frmRconBan { Owner = this };
-            formBanPlayers.ExceptionEvent += new frmRconBan.StringBool(UpdateStatusError);
+            formBanPlayers.ExceptionEvent += new frmRconBan.StringHandler(UpdateStatusHint);
             formBanPlayers.Show();
         }
 
         // Button Change map
         private void btnMapchange_Click(object sender, EventArgs e) {
             frmRconChangeMap formChangeMap = new frmRconChangeMap();
-            formChangeMap.ExceptionEvent  += new frmRconChangeMap.StringBool(UpdateStatusError);
+            formChangeMap.ExceptionEvent += new frmRconChangeMap.StringHandler(UpdateStatusHint);
             if (formChangeMap.ShowDialog() == DialogResult.OK) {
                 SourceRconTools.ChangeMap(formChangeMap.ReturnValue);
             }
@@ -191,7 +192,7 @@ namespace RConControl.Forms {
         // Button Load Config
         private void btnConfig_Click(object sender, EventArgs e) {
             frmRconLoadConfig formLoadConfig = new frmRconLoadConfig();
-            formLoadConfig.ExceptionEvent += new frmRconLoadConfig.StringBool(UpdateStatusError);
+            formLoadConfig.ExceptionEvent += new frmRconLoadConfig.StringHandler(UpdateStatusHint);
             if (formLoadConfig.ShowDialog() == DialogResult.OK) {
                 SourceRconTools.LoadConfigFile(formLoadConfig.ReturnValue);
             }
@@ -223,6 +224,7 @@ namespace RConControl.Forms {
 
         private void RestoreWindow() {
             this.Show();
+            this.ShowInTaskbar = true;
             this.WindowState = FormWindowState.Normal;
             this.notifyIcon.Visible = false;
         }
@@ -240,6 +242,10 @@ namespace RConControl.Forms {
                 ErrorLogger.Log(ex);
                 UpdateStatusError(mLangMan.GetString("Rcon_WrongAnswer"));
             }
+        }
+
+        private void UpdateStatusHint(string strError) {
+            UpdateStatusError(strError, true);
         }
 
         private void UpdateStatusError(string strError, bool hintOnly = false) {

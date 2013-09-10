@@ -55,7 +55,7 @@ namespace RConControl.Forms {
             } else if (mCurrentEdit == EditMode.LoadCfg) {
                 if (mHkeyLoadCfg.HotKey != Keys.None) {
                     frmRconLoadConfig formLoadConfig = new frmRconLoadConfig();
-                    formLoadConfig.ExceptionEvent += new frmRconLoadConfig.StringBool(LoadCfgError);
+                    formLoadConfig.ExceptionEvent   += new frmRconLoadConfig.StringHandler(LoadCfgError);
                     if (formLoadConfig.ShowDialog() == DialogResult.OK) {
                         Settings.Default.HKey_LoadCFG_Config = new ConfigFile(formLoadConfig.ReturnValue);
                         Settings.Default.HKey_LoadCFG        = new HotKeyObject(mHkeyLoadCfg);
@@ -155,7 +155,7 @@ namespace RConControl.Forms {
             mCurrentEdit = EditMode.None;
         }
 
-        private void LoadCfgError(string str, bool hintOnly = false) {
+        private void LoadCfgError(string str) {
             MessageBox.Show(this, str, mLangMan.GetString("Text_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             EndEdit(btnHkeyLoadCfg);
         }

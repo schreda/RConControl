@@ -12,7 +12,7 @@ namespace RConControl {
         public const string STRING_COMMENT        = "//";
         public const string RCONCMD_STATUS        = "status";
         public const string RCONCMD_ZBLOCK        = "zb_active";
-        public const string RCONCMD_MAPS          = "maps *";
+        public const string RCONCMD_MAPS          = "maps ";
         public const string RCONCMD_CHANGELEVEL   = "changelevel {0}";
         public const string RCONCMD_KICKID        = "kickid {0} {1}";
         public const string RCONCMD_ZB_RESTART    = "zb_lo3";
