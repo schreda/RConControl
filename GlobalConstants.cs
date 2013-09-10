@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Diagnostics;
 
 namespace RConControl {
     public class GlobalConstants {
         // Strings
-        public const string AUTORUN_REGKEY        = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
+        public const string AUTORUN_REGKEY        = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
+        public const string PATH_APPDATA          = @"RConControl\";
         public const string PATH_CONFIGS          = "configs";
         public const string PATH_ERRORLOG         = "error.log";
         public const string STRING_COMMENT        = "//";
         public const string RCONCMD_STATUS        = "status";
         public const string RCONCMD_ZBLOCK        = "zb_active";
-        public const string RCONCMD_MAPS          = "maps ";
+        public const string RCONCMD_MAPS          = "maps *";
         public const string RCONCMD_CHANGELEVEL   = "changelevel {0}";
         public const string RCONCMD_KICKID        = "kickid {0} {1}";
         public const string RCONCMD_ZB_RESTART    = "zb_lo3";

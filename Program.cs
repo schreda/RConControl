@@ -12,10 +12,17 @@ namespace RConControl {
 
         [STAThread]
         static void Main() {
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleUnhandledExceptions);
+
             if (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Count() > 1) return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Forms.frmRconUI());
+        }
+
+        static void HandleUnhandledExceptions(object sender, UnhandledExceptionEventArgs args) {
+            ErrorLogger.Log((Exception)args.ExceptionObject);
         }
     }
 }

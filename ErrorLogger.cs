@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Diagnostics;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace RConControl {
     public class ErrorLogger {
@@ -32,9 +33,16 @@ namespace RConControl {
                 }
             }
 
-            StreamWriter file = File.AppendText(Path.Combine(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), GlobalConstants.PATH_ERRORLOG));
-            file.WriteLine(sb.ToString());
-            file.Close();
+            string pathFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GlobalConstants.PATH_APPDATA);
+            string pathFile = GlobalConstants.PATH_ERRORLOG;
+            try {
+                Directory.CreateDirectory(pathFolder);
+                using (StreamWriter file = File.AppendText(Path.Combine(pathFolder, pathFile))) {
+                    file.WriteLine(sb.ToString());
+                }
+            } catch (Exception exception) {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
     }
 }

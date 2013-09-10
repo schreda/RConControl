@@ -205,7 +205,7 @@ namespace RConControl.Forms {
 
         // Form Closing
         private void frmRconUI_FormClosing(object sender, FormClosingEventArgs e) {
-            notifyIcon.Visible = false;
+            //notifyIcon.Visible = false;
         }
 
         // Form Closed
@@ -254,6 +254,7 @@ namespace RConControl.Forms {
             statusLabelStatusRcon.Text      = String.Format(mLangMan.GetString("Error_Statusbar"), strError);
             if (hintOnly) {
                 Thread threadResetError = new Thread(delegate() { ResetStatusError(); });
+                threadResetError.IsBackground = true;
                 threadResetError.Start();
             } else {
                 notifyIcon.Icon = Resources.connectionerror;
