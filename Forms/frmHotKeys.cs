@@ -118,7 +118,7 @@ namespace RConControl.Forms {
 
                 if (mCurrentEdit == EditMode.LoadCfg) {
                     mHkeyLoadCfg = hkey;
-                    mHkeyRestart.HotKeyID = GlobalConstants.HOTKEYID_LOADCFG;
+                    mHkeyLoadCfg.HotKeyID = GlobalConstants.HOTKEYID_LOADCFG;
                     lblHkeyLoadCfg.Text = text;
                 } else if (mCurrentEdit == EditMode.Restart) {
                     mHkeyRestart = hkey;

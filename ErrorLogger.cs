@@ -32,7 +32,7 @@ namespace RConControl {
                 }
             }
 
-            StreamWriter file = File.AppendText(GlobalConstants.PATH_ERRORLOG);
+            StreamWriter file = File.AppendText(Path.Combine(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), GlobalConstants.PATH_ERRORLOG));
             file.WriteLine(sb.ToString());
             file.Close();
         }
