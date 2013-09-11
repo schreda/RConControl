@@ -43,6 +43,7 @@ namespace RConControl {
         public List<CultureInfo> AvailableLanguages() {
             List<CultureInfo> resultList = new List<CultureInfo>();
             CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.NeutralCultures);
+
             foreach (CultureInfo culture in cultures) {
                 ResourceSet rs = res_man.GetResourceSet(culture, true, false);
                 if (rs != null) resultList.Add(culture);
@@ -63,6 +64,7 @@ namespace RConControl {
             return result;
         }
 
+        // Private helper methods
         private void InitLang() {
             if (String.IsNullOrEmpty(Settings.Default.Language)) {
                 CultureInfo systemCulture = (CultureInfo.CurrentUICulture.IsNeutralCulture ? CultureInfo.CurrentUICulture : CultureInfo.CurrentUICulture.Parent);

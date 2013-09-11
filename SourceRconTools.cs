@@ -113,10 +113,14 @@ namespace RConControl {
             string line;
             while ((line = readMessage.ReadLine()) != null) {
                 if (line.Contains(GlobalConstants.MAPEXTENSION)) {
+
                     bool success = false;
                     int secondIdx = line.LastIndexOf(GlobalConstants.MAPEXTENSION);
+
                     if (secondIdx != -1) {
+
                         int firstIdx = line.LastIndexOf(" ") + 1;
+
                         if (firstIdx < secondIdx) {
                             resultList.Add(line.Substring(firstIdx, secondIdx - firstIdx));
                             success = true;

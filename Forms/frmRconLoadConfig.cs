@@ -13,12 +13,11 @@ namespace RConControl.Forms {
         //*************************************************
         // Variables
         //*************************************************
-        private Language mLangMan = Language.Instance;
-
         public ConfigFile ReturnValue { get; set; }
-
         public delegate void StringHandler(string str);
         public event StringHandler ExceptionEvent;
+
+        private Language mLangMan = Language.Instance;
 
         //*************************************************
         // Initialization
@@ -49,7 +48,7 @@ namespace RConControl.Forms {
         }
 
         //*************************************************
-        // Methods
+        // private helper methods
         //*************************************************
         private void LoadLanguage() {
             this.Text      = mLangMan.GetString("LoadCfg_FormTitle");

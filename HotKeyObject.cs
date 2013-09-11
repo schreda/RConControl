@@ -7,13 +7,20 @@ using System.Xml.Serialization;
 
 namespace RConControl {
     public class HotKeyObject {
+
+        //*************************************************
+        // Variables
+        //*************************************************
         [XmlElement(ElementName = "Hotkey")]
         public Keys HotKey { get; set; }
         [XmlElement(ElementName = "Modifier")]
         public HotKeyClass.MODKEY Modifier { get; set; }
         [XmlElement(ElementName = "HotkeyID")]
         public string HotKeyID { get; set; }
-
+        
+        //*************************************************
+        // CTor
+        //*************************************************
         public HotKeyObject() { Clear(); }
         public HotKeyObject(HotKeyObject obj) {
             HotKey = obj.HotKey;
@@ -21,6 +28,9 @@ namespace RConControl {
             HotKeyID = obj.HotKeyID;
         }
 
+        //*************************************************
+        // Methods
+        //*************************************************
         public void Clear() {
             Modifier = HotKeyClass.MODKEY.MOD_NONE;
             HotKey = Keys.None;

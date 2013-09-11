@@ -32,7 +32,7 @@ namespace RConControl.Forms {
         }
         
         //*************************************************
-        // Methods
+        // private helper methods
         //*************************************************
         private void LoadLanguage() {
             this.Text     = mLangMan.GetString("About_FormTitle");

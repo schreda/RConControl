@@ -5,21 +5,28 @@ using System.Text;
 using System.Xml.Serialization;
 
 namespace RConControl {
-    /// <summary>
-    /// Class for config files
-    /// </summary>
     public class ConfigFile {
+
+        //*************************************************
+        // Variables
+        //*************************************************
         [XmlElement(ElementName = "Name")]
         public string name { get; set; }
         [XmlElement(ElementName = "Content")]
         public string content { get; set; }
 
+        //*************************************************
+        // CTor
+        //*************************************************
         public ConfigFile() { }
         public ConfigFile(ConfigFile obj) {
             name = obj.name;
             content = obj.content;
         }
 
+        //*************************************************
+        // Methods
+        //*************************************************
         public override string ToString() {
             return name;
         }

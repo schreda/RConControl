@@ -49,6 +49,8 @@ namespace RConControl.Forms {
         //*************************************************
         // Event receivers
         //*************************************************
+
+        // Button LoadCFG set
         private void btnHkeySetLoadCfg_Click(object sender, EventArgs e) {
             if (mCurrentEdit == EditMode.None) {
 
@@ -58,13 +60,16 @@ namespace RConControl.Forms {
 
                     frmRconLoadConfig formLoadConfig = new frmRconLoadConfig();
                     formLoadConfig.ExceptionEvent   += new frmRconLoadConfig.StringHandler(LoadCfgError);
+
                     if (formLoadConfig.ShowDialog() == DialogResult.OK) {
 
                         Settings.Default.HKey_LoadCFG_Config = new ConfigFile(formLoadConfig.ReturnValue);
                         Settings.Default.HKey_LoadCFG        = new HotKeyObject(mHkeyLoadCfg);
+
                     } else {
                         lblHkeyLoadCfg.Text = Settings.Default.HKey_LoadCFG.ToString();
                     }
+
                 } else {
                     Settings.Default.HKey_LoadCFG_Config = new ConfigFile();
                     Settings.Default.HKey_LoadCFG        = new HotKeyObject();
@@ -72,10 +77,13 @@ namespace RConControl.Forms {
                 EndEdit(btnHkeyLoadCfg);
             }
         }
+
+        // Button Restart set
         private void btnHkeyRestart_Click(object sender, EventArgs e) {
             if (mCurrentEdit == EditMode.None) {
 
                 BeginEdit(btnHkeyRestart, lblHkeyRestart, mHkeyRestart, EditMode.Restart);
+
             } else if (mCurrentEdit == EditMode.Restart) {
 
                 Settings.Default.HKey_Restart = new HotKeyObject(mHkeyRestart);
@@ -83,6 +91,7 @@ namespace RConControl.Forms {
             }
         }
 
+        // Key pressed
         private void frmHotKeys_KeyDown(object sender, KeyEventArgs e) {
             if (mCurrentEdit != EditMode.None) {
                 HotKeyObject hkey = new HotKeyObject();
@@ -111,6 +120,7 @@ namespace RConControl.Forms {
             }
         }
 
+        // Form closing
         private void frmHotKeys_FormClosing(object sender, FormClosingEventArgs e) {
             if (this.DialogResult == DialogResult.OK) {
                 if (mCurrentEdit == EditMode.None) {
@@ -137,7 +147,7 @@ namespace RConControl.Forms {
 
 
         //*************************************************
-        // Methods
+        // private helper methods
         //*************************************************
         private void LoadLanguage() {
             this.Text           = mLangMan.GetString("Hotkeys_FormTitle");
