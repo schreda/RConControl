@@ -47,15 +47,22 @@ namespace RConControl {
         private void frmSettings_FormClosing(object sender, FormClosingEventArgs e) {
             if (this.DialogResult == DialogResult.OK) {
                 if (!Regex.IsMatch(textBoxServerIp.Text, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")) {
+
                     MessageBox.Show(this, mLangMan.GetString("Settings_WrongIP"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     e.Cancel = true;
+
                 } else if (!Regex.IsMatch(textBoxServerPort.Text, @"\d{2,5}")) {
+
                     MessageBox.Show(this, mLangMan.GetString("Settings_WrongPort"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     e.Cancel = true;
+
                 } else if (String.IsNullOrEmpty(textBoxRconPw.Text)) {
+
                     MessageBox.Show(this, mLangMan.GetString("Settings_WrongRconPW"), mLangMan.GetString("Text_Hint"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     e.Cancel = true;
+
                 } else {
+
                     Settings.Default.Language = Tools.GetCultureByNativeName((string)comboBoxLanguage.SelectedItem).TwoLetterISOLanguageName;
                     Settings.Default.Autorun = checkBoxAutorun.Checked;
                     Settings.Default.Autoconnect = checkBoxAutoconnect.Checked;

@@ -41,10 +41,11 @@
             // 
             // checkedListBoxPlayers
             // 
+            this.checkedListBoxPlayers.CheckOnClick = true;
             this.checkedListBoxPlayers.FormattingEnabled = true;
             this.checkedListBoxPlayers.Location = new System.Drawing.Point(12, 12);
             this.checkedListBoxPlayers.Name = "checkedListBoxPlayers";
-            this.checkedListBoxPlayers.Size = new System.Drawing.Size(192, 154);
+            this.checkedListBoxPlayers.Size = new System.Drawing.Size(200, 154);
             this.checkedListBoxPlayers.TabIndex = 0;
             // 
             // radioButtonBanIP
@@ -60,7 +61,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(126, 269);
+            this.btnCancel.Location = new System.Drawing.Point(137, 269);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -70,7 +71,7 @@
             // btnOk
             // 
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(45, 269);
+            this.btnOk.Location = new System.Drawing.Point(56, 269);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 4;
@@ -115,7 +116,7 @@
             this.groupBoxBanBy.Controls.Add(this.radioButtonBanIP);
             this.groupBoxBanBy.Location = new System.Drawing.Point(12, 172);
             this.groupBoxBanBy.Name = "groupBoxBanBy";
-            this.groupBoxBanBy.Size = new System.Drawing.Size(98, 91);
+            this.groupBoxBanBy.Size = new System.Drawing.Size(106, 91);
             this.groupBoxBanBy.TabIndex = 1;
             this.groupBoxBanBy.TabStop = false;
             this.groupBoxBanBy.Text = "Ban by";
@@ -134,7 +135,7 @@
             this.groupBoxBanTime.Controls.Add(this.checkBoxBanPermanent);
             this.groupBoxBanTime.Controls.Add(this.textBoxBanTime);
             this.groupBoxBanTime.Controls.Add(this.lblTime);
-            this.groupBoxBanTime.Location = new System.Drawing.Point(116, 172);
+            this.groupBoxBanTime.Location = new System.Drawing.Point(124, 172);
             this.groupBoxBanTime.Name = "groupBoxBanTime";
             this.groupBoxBanTime.Size = new System.Drawing.Size(88, 68);
             this.groupBoxBanTime.TabIndex = 2;
@@ -157,7 +158,7 @@
             // checkBoxKick
             // 
             this.checkBoxKick.AutoSize = true;
-            this.checkBoxKick.Location = new System.Drawing.Point(116, 246);
+            this.checkBoxKick.Location = new System.Drawing.Point(124, 246);
             this.checkBoxKick.Name = "checkBoxKick";
             this.checkBoxKick.Size = new System.Drawing.Size(83, 17);
             this.checkBoxKick.TabIndex = 3;
@@ -170,7 +171,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(213, 302);
+            this.ClientSize = new System.Drawing.Size(224, 302);
             this.Controls.Add(this.checkBoxKick);
             this.Controls.Add(this.groupBoxBanTime);
             this.Controls.Add(this.groupBoxBanBy);

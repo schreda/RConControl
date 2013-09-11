@@ -52,6 +52,7 @@
             // 
             // checkedListBoxPlayers
             // 
+            this.checkedListBoxPlayers.CheckOnClick = true;
             this.checkedListBoxPlayers.FormattingEnabled = true;
             this.checkedListBoxPlayers.Location = new System.Drawing.Point(12, 12);
             this.checkedListBoxPlayers.Name = "checkedListBoxPlayers";

@@ -51,12 +51,15 @@ namespace RConControl.Forms {
         //*************************************************
         private void btnHkeySetLoadCfg_Click(object sender, EventArgs e) {
             if (mCurrentEdit == EditMode.None) {
+
                 BeginEdit(btnHkeyLoadCfg, lblHkeyLoadCfg, mHkeyLoadCfg, EditMode.LoadCfg);
             } else if (mCurrentEdit == EditMode.LoadCfg) {
                 if (mHkeyLoadCfg.HotKey != Keys.None) {
+
                     frmRconLoadConfig formLoadConfig = new frmRconLoadConfig();
                     formLoadConfig.ExceptionEvent   += new frmRconLoadConfig.StringHandler(LoadCfgError);
                     if (formLoadConfig.ShowDialog() == DialogResult.OK) {
+
                         Settings.Default.HKey_LoadCFG_Config = new ConfigFile(formLoadConfig.ReturnValue);
                         Settings.Default.HKey_LoadCFG        = new HotKeyObject(mHkeyLoadCfg);
                     } else {
@@ -71,26 +74,17 @@ namespace RConControl.Forms {
         }
         private void btnHkeyRestart_Click(object sender, EventArgs e) {
             if (mCurrentEdit == EditMode.None) {
+
                 BeginEdit(btnHkeyRestart, lblHkeyRestart, mHkeyRestart, EditMode.Restart);
             } else if (mCurrentEdit == EditMode.Restart) {
+
                 Settings.Default.HKey_Restart = new HotKeyObject(mHkeyRestart);
                 EndEdit(btnHkeyRestart);
             }
         }
 
         private void frmHotKeys_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Escape) {
-                if (mCurrentEdit == EditMode.LoadCfg) {
-                    mHkeyLoadCfg = new HotKeyObject(Settings.Default.HKey_LoadCFG);
-                    lblHkeyLoadCfg.Text = mHkeyLoadCfg.ToString();
-                    EndEdit(btnHkeyLoadCfg);
-                } else if (mCurrentEdit == EditMode.Restart) {
-                    mHkeyRestart = new HotKeyObject(Settings.Default.HKey_Restart);
-                    lblHkeyRestart.Text = mHkeyRestart.ToString();
-                    EndEdit(btnHkeyRestart);
-                }
-
-            } else {
+            if (mCurrentEdit != EditMode.None) {
                 HotKeyObject hkey = new HotKeyObject();
 
                 if (e.Control) hkey.Modifier |= HotKeyClass.MODKEY.MOD_CONTROL;
@@ -124,8 +118,23 @@ namespace RConControl.Forms {
                 } else {
                     e.Cancel = true;
                 }
+            } else if (mCurrentEdit != EditMode.None) {
+                if (mCurrentEdit == EditMode.LoadCfg) {
+
+                    mHkeyLoadCfg = new HotKeyObject(Settings.Default.HKey_LoadCFG);
+                    lblHkeyLoadCfg.Text = mHkeyLoadCfg.ToString();
+                    EndEdit(btnHkeyLoadCfg);
+
+                } else if (mCurrentEdit == EditMode.Restart) {
+
+                    mHkeyRestart = new HotKeyObject(Settings.Default.HKey_Restart);
+                    lblHkeyRestart.Text = mHkeyRestart.ToString();
+                    EndEdit(btnHkeyRestart);
+                }
+                e.Cancel = true;
             }
         }
+
 
         //*************************************************
         // Methods
