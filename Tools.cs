@@ -55,7 +55,7 @@ namespace RConControl {
             RegistryKey rkApp = Registry.CurrentUser.OpenSubKey(GlobalConstants.AUTORUN_REGKEY, true);
             string regKey = (string)rkApp.GetValue(Application.ProductName);
             if (Settings.Default.Autorun) {
-                if (regKey != null && !regKey.Contains(Application.ExecutablePath.ToString())) {
+                if (regKey != null && regKey.Contains(Application.ExecutablePath.ToString())) {
                     return true;
                 } else {
                     Settings.Default.Autorun = false;
