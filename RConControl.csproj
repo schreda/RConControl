@@ -58,7 +58,7 @@
     <StartupObject>RConControl.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Icons\server.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icons\IconMain.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -213,7 +213,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Language\lang.de.resx" />
-    <EmbeddedResource Include="Resources\Icons\server.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\green.png" />
@@ -230,45 +229,17 @@
     <EmbeddedResource Include="Resources\Images\settings.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="configs\4pl1on1.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="configs\4pl2on2.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="configs\4pl3on3.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="configs\4pl5on5.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="configs\esl1on1.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="configs\esl2on2.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="configs\esl3on3.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="configs\esl5on5.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Icons\connected.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Icons\connecting.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Icons\disconnected.ico" />
+    <EmbeddedResource Include="configs\4pl1on1.cfg" />
+    <EmbeddedResource Include="configs\4pl2on2.cfg" />
+    <EmbeddedResource Include="configs\4pl3on3.cfg" />
+    <EmbeddedResource Include="configs\4pl5on5.cfg" />
+    <EmbeddedResource Include="configs\esl1on1.cfg" />
+    <EmbeddedResource Include="configs\esl2on2.cfg" />
+    <EmbeddedResource Include="configs\esl3on3.cfg" />
+    <EmbeddedResource Include="configs\esl5on5.cfg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\schredx.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Icons\connectionerror.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -291,6 +262,21 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\IconConnected.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\IconConnecting.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\IconConnectionError.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\IconDisconnected.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\IconMain.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

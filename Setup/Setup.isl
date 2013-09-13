@@ -343,7 +343,6 @@
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{303E897B-3407-47A8-B4F8-314831A67410}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{3EB908C4-BC88-47F5-A6A5-14AF15C09F81}</td><td>CONFIGS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>RConControl.Lokalisierte_Ressourcen</td><td>{96569636-61EE-4D95-910C-69D1A31A5607}</td><td>INSTALLDIR</td><td>2</td><td/><td>rconcontrol.lokalisierte_res</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>RConControl.Prim_re_Ausgabe</td><td>{FE1E086E-FE16-4429-820D-66A81999FE0F}</td><td>INSTALLDIR</td><td>2</td><td/><td>rconcontrol.prim_re_ausgabe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
@@ -1140,7 +1139,6 @@
 		<row><td>ALLUSERSPROFILE</td><td>TARGETDIR</td><td>.:ALLUSE~1|All Users</td><td/><td>0</td><td/></row>
 		<row><td>AdminToolsFolder</td><td>TARGETDIR</td><td>.:Admint~1|AdminTools</td><td/><td>0</td><td/></row>
 		<row><td>AppDataFolder</td><td>TARGETDIR</td><td>.:APPLIC~1|Application Data</td><td/><td>0</td><td/></row>
-		<row><td>CONFIGS</td><td>INSTALLDIR</td><td>configs</td><td/><td>0</td><td/></row>
 		<row><td>CommonAppDataFolder</td><td>TARGETDIR</td><td>.:Common~1|CommonAppData</td><td/><td>0</td><td/></row>
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
@@ -1172,9 +1170,7 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
-		<row><td>rconco_1_rconcontrol</td><td>ProgramMenuFolder</td><td>RCONCO~1|RConControl</td><td/><td>1</td><td/></row>
-		<row><td>rconco_1_rconcontrol1</td><td>schred_1_schredx_programming</td><td>RCONCO~1|RConControl</td><td/><td>1</td><td/></row>
-		<row><td>schred_1_schredx_programming</td><td>ProgramMenuFolder</td><td>SCHRED~1|schredx programming</td><td/><td>1</td><td/></row>
+		<row><td>rconco_1_rconcontrol1</td><td>ProgramMenuFolder</td><td>RCONCO~1|RConControl</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -1867,7 +1863,6 @@
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
-		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>RConControl.Lokalisierte_Ressourcen</td></row>
 		<row><td>AlwaysInstall</td><td>RConControl.Prim_re_Ausgabe</td></row>
 	</table>
@@ -1884,14 +1879,6 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>_pl1on1.cfg2</td><td>ISX_DEFAULTCOMPONENT1</td><td>4pl1on1.cfg</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Coding\GitHub\RConControl\configs\4pl1on1.cfg</td><td>1</td><td/></row>
-		<row><td>_pl2on2.cfg2</td><td>ISX_DEFAULTCOMPONENT1</td><td>4pl2on2.cfg</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Coding\GitHub\RConControl\configs\4pl2on2.cfg</td><td>1</td><td/></row>
-		<row><td>_pl3on3.cfg2</td><td>ISX_DEFAULTCOMPONENT1</td><td>4pl3on3.cfg</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Coding\GitHub\RConControl\configs\4pl3on3.cfg</td><td>1</td><td/></row>
-		<row><td>_pl5on5.cfg2</td><td>ISX_DEFAULTCOMPONENT1</td><td>4pl5on5.cfg</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Coding\GitHub\RConControl\configs\4pl5on5.cfg</td><td>1</td><td/></row>
-		<row><td>esl1on1.cfg2</td><td>ISX_DEFAULTCOMPONENT1</td><td>esl1on1.cfg</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Coding\GitHub\RConControl\configs\esl1on1.cfg</td><td>1</td><td/></row>
-		<row><td>esl2on2.cfg2</td><td>ISX_DEFAULTCOMPONENT1</td><td>esl2on2.cfg</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Coding\GitHub\RConControl\configs\esl2on2.cfg</td><td>1</td><td/></row>
-		<row><td>esl3on3.cfg2</td><td>ISX_DEFAULTCOMPONENT1</td><td>esl3on3.cfg</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Coding\GitHub\RConControl\configs\esl3on3.cfg</td><td>1</td><td/></row>
-		<row><td>esl5on5.cfg2</td><td>ISX_DEFAULTCOMPONENT1</td><td>esl5on5.cfg</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Coding\GitHub\RConControl\configs\esl5on5.cfg</td><td>1</td><td/></row>
 		<row><td>rconcontrol.lokalisierte_res</td><td>RConControl.Lokalisierte_Ressourcen</td><td>RConControl.Lokalisierte Ressourcen</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;RConControl&gt;|LocalizedResourceDlls</td><td>3</td><td/></row>
 		<row><td>rconcontrol.prim_re_ausgabe</td><td>RConControl.Prim_re_Ausgabe</td><td>RConControl.Primäre Ausgabe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;RConControl&gt;|Built</td><td>3</td><td/></row>
 	</table>
@@ -2151,7 +2138,6 @@
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_54F8A8E6_5136_48D2_8A68_42FD70479466_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_B0E8C548_DDA1_4E60_9026_9F4C84A765DC_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>RConControl.Lokalisierte_Ressourcen</td><td/><td/><td>_FFC32C0C_E11B_491D_99BA_ED8C457B24C5_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>RConControl.Prim_re_Ausgabe</td><td/><td/><td>_E52A70AE_7D6D_4F33_A59E_D9F0FD8B1229_FILTER</td><td/><td/><td/><td/></row>
 	</table>
@@ -4596,7 +4582,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="i2">InstallMode</col>
 		<row><td>FileKey1</td><td>RConControl.Prim_re_Ausgabe</td><td/><td>schred_1_schredx_programming</td><td>2</td></row>
 		<row><td>FileKey2</td><td>RConControl.Prim_re_Ausgabe</td><td/><td>rconco_1_rconcontrol1</td><td>2</td></row>
-		<row><td>NewShortcut2</td><td>ISX_DEFAULTCOMPONENT</td><td/><td>rconco_1_rconcontrol</td><td>2</td></row>
+		<row><td>NewShortcut2</td><td>ISX_DEFAULTCOMPONENT</td><td/><td>rconco_1_rconcontrol1</td><td>2</td></row>
 		<row><td>_Built</td><td>RConControl.Prim_re_Ausgabe</td><td/><td>rconco_1_rconcontrol1</td><td>2</td></row>
 	</table>
 
@@ -4683,7 +4669,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>NewShortcut2</td><td>rconco_1_rconcontrol</td><td>##ID_STRING6##</td><td>ISX_DEFAULTCOMPONENT</td><td>[SystemFolder]MsiExec.exe</td><td>/x [ProductCode]</td><td/><td/><td>NewShortcut2_F5037F618BA54975A3AC73255A0DFBA2.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut2</td><td>rconco_1_rconcontrol1</td><td>##ID_STRING6##</td><td>ISX_DEFAULTCOMPONENT</td><td>[SystemFolder]MsiExec.exe</td><td>/x [ProductCode]</td><td/><td/><td>NewShortcut2_F5037F618BA54975A3AC73255A0DFBA2.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built</td><td>rconco_1_rconcontrol1</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>RConControl.Prim_re_Ausgabe</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>RConControl.Prim_re_Ausgabe</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>

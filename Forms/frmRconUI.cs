@@ -1,5 +1,6 @@
 ﻿using RConControl.Properties;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -7,8 +8,10 @@ using System.Data;
 using System.Deployment.Application;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Resources;
 using System.Text;
 using System.Threading;
@@ -60,6 +63,7 @@ namespace RConControl.Forms {
             }
 
             AssignHotKeys();
+            Tools.CheckForConfigs();
             if (Settings.Default.Autoconnect) rcon.Connect();
         }
 
@@ -257,7 +261,7 @@ namespace RConControl.Forms {
                 threadResetError.IsBackground = true;
                 threadResetError.Start();
             } else {
-                notifyIcon.Icon = Resources.connectionerror;
+                notifyIcon.Icon = Resources.IconConnectionError;
             }
         }
 

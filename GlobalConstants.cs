@@ -11,6 +11,7 @@ namespace RConControl {
         public const string AUTORUN_REGKEY        = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
         public const string PATH_APPDATA          = @"RConControl\";
         public const string PATH_CONFIGS          = "configs";
+        public const string PATH_CONFIGS_RESOURCE = ".configs.";
         public const string PATH_ERRORLOG         = "error.log";
         public const string STRING_COMMENT        = "//";
         public const string RCONCMD_STATUS        = "status";

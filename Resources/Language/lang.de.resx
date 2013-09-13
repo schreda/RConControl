@@ -355,7 +355,7 @@
     <value>Schließen</value>
   </data>
   <data name="Error_LoadConfigs" xml:space="preserve">
-    <value>Fehler beim laden der configs! Existiert der Ordner 'configs' ?</value>
+    <value>Fehler beim laden der configs!</value>
   </data>
   <data name="Updater_ErrorLoadingXML" xml:space="preserve">
     <value>Das XML file konnte nicht geladen werden</value>

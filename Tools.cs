@@ -111,6 +111,43 @@ namespace RConControl {
         }
 
         /// <summary>
+        /// Check if configs folder exists. if not, configs where extracted
+        /// </summary>
+        public static void CheckForConfigs() {
+            string path = Path.Combine(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), GlobalConstants.PATH_CONFIGS);
+            if (!Directory.Exists(path)) ExtractConfigFiles();
+        }
+
+        /// <summary>
+        /// Extract config files that are embedded
+        /// </summary>
+        private static void ExtractConfigFiles() {
+            byte[] buffer = new byte[2048];
+            int read;
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string[] names = assembly.GetManifestResourceNames();
+            string pathToExtract = Path.Combine(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), GlobalConstants.PATH_CONFIGS);
+
+            Directory.CreateDirectory(pathToExtract);
+
+            foreach (string name in names) {
+                if (name.Contains(GlobalConstants.PATH_CONFIGS_RESOURCE)) {
+                    int firstIdx = name.LastIndexOf(GlobalConstants.PATH_CONFIGS_RESOURCE);
+                    string fileName = name.Substring(firstIdx + GlobalConstants.PATH_CONFIGS_RESOURCE.Length);
+                    using (BinaryReader reader = new BinaryReader(assembly.GetManifestResourceStream(name))) {
+                        using (BinaryWriter writer = new BinaryWriter(File.OpenWrite(Path.Combine(GlobalConstants.PATH_CONFIGS, fileName)))) {
+                            while ((read = reader.Read(buffer, 0, buffer.Length)) > 0) {
+                                writer.Write(buffer, 0, read);
+                            }
+                            writer.Close();
+                        }
+                        reader.Close();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Key Value Pair Class for SettingsSet
         /// </summary>
         /// <typeparam name="T">Type for value</typeparam>

@@ -364,6 +364,6 @@
     <value>Close</value>
   </data>
   <data name="Error_LoadConfigs" xml:space="preserve">
-    <value>Error loading config files. Does folder 'configs' exist?</value>
+    <value>Error loading config files.</value>
   </data>
 </root>
