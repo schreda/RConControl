@@ -3986,7 +3986,7 @@
 		<col def="V0">Data</col>
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
-		<row><td>ARPPRODUCTICON.exe</td><td/><td>D:\Coding\GitHub\RConControl\Resources\Icons\server.ico</td><td>0</td></row>
+		<row><td>ARPPRODUCTICON.exe</td><td/><td>D:\Coding\GitHub\RConControl\Resources\Icons\IconMain.ico</td><td>0</td></row>
 		<row><td>NewShortcut1_3B8A0A102C204D4BBD22ADA4494678B9.exe</td><td/><td>\RConControl.Primäre Ausgabe</td><td>0</td></row>
 		<row><td>NewShortcut2_F5037F618BA54975A3AC73255A0DFBA2.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2012SpringLE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
 		<row><td>RConControl.exe_73F9CAE9103E466780EA7C773EBE1CC5.exe</td><td/><td>D:\Coding\GitHub\RConControl\bin\Release\RConControl.exe</td><td>0</td></row>
