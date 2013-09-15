@@ -104,6 +104,11 @@ namespace RConControl.Forms {
             RestoreWindow();
         }
 
+        // Notify Conext Connect
+        private void contextNotifyConnectItem_Click(object sender, EventArgs e) {
+            rcon.Connect();
+        }
+
         // Notify Conext Open
         private void contextNotifyOpen_Click(object sender, EventArgs e) {
             RestoreWindow();
@@ -165,6 +170,7 @@ namespace RConControl.Forms {
             formSettings.ShowDialog();
         }
 
+        // Menu About
         private void menuItemAbout_Click(object sender, EventArgs e) {
             frmAbout formAbout = new frmAbout();
             formAbout.ShowDialog();
@@ -252,24 +258,29 @@ namespace RConControl.Forms {
             UpdateStatusError(strError, true);
         }
 
+        // Update Statusbar Error Message
         private void UpdateStatusError(string strError, bool hintOnly = false) {
             statusIconStatus.Image          = Resources.red;
             statusLabelStatusRcon.ForeColor = Color.Red;
             statusLabelStatusRcon.Text      = String.Format(mLangMan.GetString("Error_Statusbar"), strError);
             if (hintOnly) {
-                Thread threadResetError = new Thread(delegate() { ResetStatusError(); });
+                Thread threadResetError       = new Thread(delegate() { ResetStatusError(); });
                 threadResetError.IsBackground = true;
                 threadResetError.Start();
             } else {
-                notifyIcon.Icon = Resources.IconConnectionError;
+                contextNotifyConnect.Visible      = true;
+                contextNotifyConnectSeparator.Visible = true;
+                notifyIcon.Icon                       = Resources.IconConnectionError;
             }
         }
 
+        // Reset Statusbar error message
         private void ResetStatusError() {
             Thread.Sleep(GlobalConstants.ERROR_RESET_TIME);
             UpdateUIControls();
         }
 
+        // Update UI controls
         private void UpdateUIControls() {
             if (this.InvokeRequired) {
                 MethodInvoker del = delegate { UpdateUIControls(); };
@@ -280,10 +291,18 @@ namespace RConControl.Forms {
             statusLabelStatusRcon.ForeColor = Color.Black;
             menuConnection.Enabled = true;
 
+            if (rcon.GetState() == SourceRconConnection.State.Disconnected) {
+                contextNotifyConnect.Visible          = true;
+                contextNotifyConnectSeparator.Visible = true;
+            } else {
+                contextNotifyConnect.Visible          = false;
+                contextNotifyConnectSeparator.Visible = false;
+            }
+
             if (rcon.GetState() == SourceRconConnection.State.Connected) {
                 groupPlayerCommands.Enabled = true;
                 groupServerCommands.Enabled = true;
-               
+
                 notifyIcon.Icon            = Resources.IconConnected;
                 statusIconStatus.Image     = Resources.green;
                 statusLabelStatusRcon.Text = String.Format(mLangMan.GetString("StatusRconLbl_Connected"), rcon.connectedIP);
@@ -310,27 +329,28 @@ namespace RConControl.Forms {
         }
 
         private void LoadLanguage() {
-            this.Text                = mLangMan.GetString("Main_FormTitle");
-            menuFile.Text            = mLangMan.GetString("Main_MenuFile");
-            menuItemOpenConfig.Text  = mLangMan.GetString("Main_MenuFile_OpenConfig");
-            menuItemSaveConfig.Text  = mLangMan.GetString("Main_MenuFile_SaveConfig");
-            menuItemExit.Text        = mLangMan.GetString("Main_MenuFile_Exit");
-            menuConnection.Text      = mLangMan.GetString("Main_MenuConnection");
-            menuItemConnect.Text     = mLangMan.GetString("Main_MenuConnection_Connect");
-            menuItemDisconnect.Text  = mLangMan.GetString("Main_MenuConnection_Disconnect");
-            menuOptions.Text         = mLangMan.GetString("Main_MenuOptions");
-            menuItemHotkeys.Text     = mLangMan.GetString("Main_MenuOptions_Hotkeys");
-            menuItemSettings.Text    = mLangMan.GetString("Main_MenuOptions_Settings");
-            menuItemAbout.Text       = mLangMan.GetString("Main_MenuAbout");
-            contextNotifyOpen.Text   = mLangMan.GetString("Text_Open");
-            contextNotifyExit.Text   = mLangMan.GetString("Text_Exit");
-            btnRestart3.Text         = mLangMan.GetString("Main_Button_Restart3");
-            btnKick.Text             = mLangMan.GetString("Main_Button_KickPlayers");
-            btnBan.Text              = mLangMan.GetString("Main_Button_BanPlayers");
-            btnChangeMap.Text        = mLangMan.GetString("Main_Button_ChangeMap");
-            btnLoadCfg.Text          = mLangMan.GetString("Main_Button_LoadCfg");
-            groupPlayerCommands.Text = mLangMan.GetString("Main_Group_PlayerCommands");
-            groupServerCommands.Text = mLangMan.GetString("Main_Group_ServerCommands");
+            this.Text                 = mLangMan.GetString("Main_FormTitle");
+            menuFile.Text             = mLangMan.GetString("Main_MenuFile");
+            menuItemOpenConfig.Text   = mLangMan.GetString("Main_MenuFile_OpenConfig");
+            menuItemSaveConfig.Text   = mLangMan.GetString("Main_MenuFile_SaveConfig");
+            menuItemExit.Text         = mLangMan.GetString("Main_MenuFile_Exit");
+            menuConnection.Text       = mLangMan.GetString("Main_MenuConnection");
+            menuItemConnect.Text      = mLangMan.GetString("Main_MenuConnection_Connect");
+            menuItemDisconnect.Text   = mLangMan.GetString("Main_MenuConnection_Disconnect");
+            menuOptions.Text          = mLangMan.GetString("Main_MenuOptions");
+            menuItemHotkeys.Text      = mLangMan.GetString("Main_MenuOptions_Hotkeys");
+            menuItemSettings.Text     = mLangMan.GetString("Main_MenuOptions_Settings");
+            menuItemAbout.Text        = mLangMan.GetString("Main_MenuAbout");
+            contextNotifyOpen.Text    = mLangMan.GetString("NotifyIcon_Open");
+            contextNotifyConnect.Text = mLangMan.GetString("NotifyIcon_Connect");
+            contextNotifyExit.Text    = mLangMan.GetString("NotifyIcon_Exit");
+            btnRestart3.Text          = mLangMan.GetString("Main_Button_Restart3");
+            btnKick.Text              = mLangMan.GetString("Main_Button_KickPlayers");
+            btnBan.Text               = mLangMan.GetString("Main_Button_BanPlayers");
+            btnChangeMap.Text         = mLangMan.GetString("Main_Button_ChangeMap");
+            btnLoadCfg.Text           = mLangMan.GetString("Main_Button_LoadCfg");
+            groupPlayerCommands.Text  = mLangMan.GetString("Main_Group_PlayerCommands");
+            groupServerCommands.Text  = mLangMan.GetString("Main_Group_ServerCommands");
 
             UpdateUIControls();
         }

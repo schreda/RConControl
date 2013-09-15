@@ -138,10 +138,10 @@
   <data name="Main_MenuOptions_Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="Text_Exit" xml:space="preserve">
+  <data name="NotifyIcon_Exit" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="Text_Open" xml:space="preserve">
+  <data name="NotifyIcon_Open" xml:space="preserve">
     <value>Open</value>
   </data>
   <data name="Text_Error" xml:space="preserve">
@@ -365,5 +365,8 @@
   </data>
   <data name="Error_LoadConfigs" xml:space="preserve">
     <value>Error loading config files.</value>
+  </data>
+  <data name="NotifyIcon_Connect" xml:space="preserve">
+    <value>Connect</value>
   </data>
 </root>

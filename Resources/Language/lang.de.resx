@@ -135,10 +135,10 @@
   <data name="Main_MenuOptions_Settings" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
-  <data name="Text_Exit" xml:space="preserve">
+  <data name="NotifyIcon_Exit" xml:space="preserve">
     <value>Beenden</value>
   </data>
-  <data name="Text_Open" xml:space="preserve">
+  <data name="NotifyIcon_Open" xml:space="preserve">
     <value>Öffnen</value>
   </data>
   <data name="Main_MenuFile" xml:space="preserve">
@@ -365,5 +365,8 @@
   </data>
   <data name="Updater_XMLIncomplete" xml:space="preserve">
     <value>Das XML file ist fehlerhaft</value>
+  </data>
+  <data name="NotifyIcon_Connect" xml:space="preserve">
+    <value>Verbinden</value>
   </data>
 </root>

@@ -54,6 +54,9 @@
             this.menuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.contextNotifyConnect = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextNotifyConnectSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.contextNotifySeparator = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStripNotify.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.groupPlayerCommands.SuspendLayout();
@@ -70,24 +73,27 @@
             // contextMenuStripNotify
             // 
             this.contextMenuStripNotify.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextNotifyConnect,
+            this.contextNotifyConnectSeparator,
             this.contextNotifyOpen,
+            this.contextNotifySeparator,
             this.contextNotifyExit});
             this.contextMenuStripNotify.Name = "contextMenuStripNotify";
             this.contextMenuStripNotify.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStripNotify.ShowImageMargin = false;
-            this.contextMenuStripNotify.Size = new System.Drawing.Size(96, 48);
+            this.contextMenuStripNotify.Size = new System.Drawing.Size(153, 104);
             // 
             // contextNotifyOpen
             // 
             this.contextNotifyOpen.Name = "contextNotifyOpen";
-            this.contextNotifyOpen.Size = new System.Drawing.Size(95, 22);
+            this.contextNotifyOpen.Size = new System.Drawing.Size(152, 22);
             this.contextNotifyOpen.Text = "Öffnen";
             this.contextNotifyOpen.Click += new System.EventHandler(this.contextNotifyOpen_Click);
             // 
             // contextNotifyExit
             // 
+            this.contextNotifyExit.Image = global::RConControl.Properties.Resources.exit;
             this.contextNotifyExit.Name = "contextNotifyExit";
-            this.contextNotifyExit.Size = new System.Drawing.Size(95, 22);
+            this.contextNotifyExit.Size = new System.Drawing.Size(152, 22);
             this.contextNotifyExit.Text = "Beenden";
             this.contextNotifyExit.Click += new System.EventHandler(this.contextNotifyClose_Click);
             // 
@@ -259,7 +265,7 @@
             // 
             this.menuItemConnect.Image = global::RConControl.Properties.Resources.connect;
             this.menuItemConnect.Name = "menuItemConnect";
-            this.menuItemConnect.Size = new System.Drawing.Size(128, 22);
+            this.menuItemConnect.Size = new System.Drawing.Size(152, 22);
             this.menuItemConnect.Text = "Verbinden";
             this.menuItemConnect.Click += new System.EventHandler(this.menuItemConnect_Click);
             // 
@@ -267,7 +273,7 @@
             // 
             this.menuItemDisconnect.Image = global::RConControl.Properties.Resources.disconnect;
             this.menuItemDisconnect.Name = "menuItemDisconnect";
-            this.menuItemDisconnect.Size = new System.Drawing.Size(128, 22);
+            this.menuItemDisconnect.Size = new System.Drawing.Size(152, 22);
             this.menuItemDisconnect.Text = "Trennen";
             this.menuItemDisconnect.Click += new System.EventHandler(this.menuItemDisconnect_Click);
             // 
@@ -285,7 +291,7 @@
             // 
             this.menuItemHotkeys.Image = global::RConControl.Properties.Resources.keyboard;
             this.menuItemHotkeys.Name = "menuItemHotkeys";
-            this.menuItemHotkeys.Size = new System.Drawing.Size(145, 22);
+            this.menuItemHotkeys.Size = new System.Drawing.Size(152, 22);
             this.menuItemHotkeys.Text = "Hotkeys";
             this.menuItemHotkeys.Click += new System.EventHandler(this.menuItemHotkeys_Click);
             // 
@@ -293,7 +299,7 @@
             // 
             this.menuItemSettings.Image = global::RConControl.Properties.Resources.settings;
             this.menuItemSettings.Name = "menuItemSettings";
-            this.menuItemSettings.Size = new System.Drawing.Size(145, 22);
+            this.menuItemSettings.Size = new System.Drawing.Size(152, 22);
             this.menuItemSettings.Text = "Einstellungen";
             this.menuItemSettings.Click += new System.EventHandler(this.menuItemSettings_Click);
             // 
@@ -310,6 +316,24 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // contextNotifyConnect
+            // 
+            this.contextNotifyConnect.Image = global::RConControl.Properties.Resources.connect;
+            this.contextNotifyConnect.Name = "contextNotifyConnect";
+            this.contextNotifyConnect.Size = new System.Drawing.Size(152, 22);
+            this.contextNotifyConnect.Text = "Connect";
+            this.contextNotifyConnect.Click += new System.EventHandler(this.contextNotifyConnectItem_Click);
+            // 
+            // contextNotifyConnectSeparator
+            // 
+            this.contextNotifyConnectSeparator.Name = "contextNotifyConnectSeparator";
+            this.contextNotifyConnectSeparator.Size = new System.Drawing.Size(149, 6);
+            // 
+            // contextNotifySeparator
+            // 
+            this.contextNotifySeparator.Name = "contextNotifySeparator";
+            this.contextNotifySeparator.Size = new System.Drawing.Size(149, 6);
             // 
             // frmRconUI
             // 
@@ -373,6 +397,9 @@
         private System.Windows.Forms.ToolStripMenuItem menuItemSettings;
         private System.Windows.Forms.ToolStripMenuItem menuItemAbout;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem contextNotifyConnect;
+        private System.Windows.Forms.ToolStripSeparator contextNotifyConnectSeparator;
+        private System.Windows.Forms.ToolStripSeparator contextNotifySeparator;
     }
 }
 
