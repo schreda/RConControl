@@ -68,7 +68,7 @@ namespace RConControl {
                 mThreadConnect = new Thread(delegate() { srcRcon.Connect(new IPEndPoint(IPAddress.Parse(Settings.Default.RconIP), Settings.Default.RconPort), Settings.Default.RconPW); });
                 mThreadConnect.Start();
 
-                OnlineStateEvent();
+                if (mReconnectTries == 0) OnlineStateEvent();
             }
         }
 
@@ -114,8 +114,8 @@ namespace RConControl {
         private void Reconnect() {
             if (mReconnectTries < GlobalConstants.RCON_RECONNECT_TRIES) {
                 mReconnectTries++;
-                Connect();
                 ErrorEvent(String.Format(mLangMan.GetString("Error_Reconnecting"), mReconnectTries));
+                Connect();
             } else {
                 Disconnect();
                 ErrorEvent(String.Format(mLangMan.GetString("Error_ReconnectFailed"), GlobalConstants.RCON_RECONNECT_TRIES));
