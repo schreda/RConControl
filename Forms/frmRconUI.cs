@@ -56,11 +56,7 @@ namespace RConControl.Forms {
             }
 
             // start to tray
-            if (Settings.Default.StartMinimized) {
-                this.WindowState   = FormWindowState.Minimized;
-                this.ShowInTaskbar = false;
-                notifyIcon.Visible = true;
-            }
+            if (Settings.Default.StartMinimized) HideWindow();
 
             AssignHotKeys();
             Tools.CheckForConfigs();
@@ -228,6 +224,7 @@ namespace RConControl.Forms {
         //*************************************************
         private void HideWindow() {
             this.Hide();
+            this.ShowInTaskbar = false;
             this.WindowState = FormWindowState.Minimized;
             this.notifyIcon.Visible = true;
         }
