@@ -157,7 +157,7 @@
     <value>Kein RCON Passwort eingegeben</value>
   </data>
   <data name="StatusRconLbl_Connected" xml:space="preserve">
-    <value>Verbunden zu {0}</value>
+    <value>Verbunden zu {0}:{1}</value>
   </data>
   <data name="StatusRconLbl_Connecting" xml:space="preserve">
     <value>Verbinde</value>

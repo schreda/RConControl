@@ -25,8 +25,9 @@ namespace RConControl {
         //*************************************************
         // Variables
         //*************************************************
-        public string connectedIP { get; set; }
-        public string lastMessage { get; set; }
+        public string connectedIP   { get; private set; }
+        public string connectedPort { get; private set; }
+        public string lastMessage   { get; private set; }
 
         public delegate void StringHandler(string str);
         public delegate void VoidHandler();
@@ -59,6 +60,7 @@ namespace RConControl {
             if (!String.IsNullOrEmpty(Settings.Default.RconIP)) {
                 mIsConnected               = false;
                 connectedIP                = Settings.Default.RconIP;
+                connectedPort              = Settings.Default.RconPort.ToString();
                 srcRcon                    = null;
                 srcRcon                    = new SourceRcon.SourceRcon();
                 srcRcon.Errors            += new SourceRcon.StringOutput(OnError);

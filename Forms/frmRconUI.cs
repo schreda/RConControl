@@ -302,7 +302,7 @@ namespace RConControl.Forms {
 
                 notifyIcon.Icon            = Resources.IconConnected;
                 statusIconStatus.Image     = Resources.green;
-                statusLabelStatusRcon.Text = String.Format(mLangMan.GetString("StatusRconLbl_Connected"), rcon.connectedIP);
+                statusLabelStatusRcon.Text = String.Format(mLangMan.GetString("StatusRconLbl_Connected"), rcon.connectedIP, rcon.connectedPort);
             } else {
 
                 groupPlayerCommands.Enabled = false;
